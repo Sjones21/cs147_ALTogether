@@ -16,3 +16,10 @@ CS 147: Multimodal Interfaces to Broaden Access
 
 
 Note: I need to check if this works haha, might have to run `expo install` in between steps 3 and 4?
+
+
+
+## Libraries
+
+[Stack Navigator](https://reactnavigation.org/docs/hello-react-navigation/#installing-the-stack-navigator-library)
+
