@@ -6,6 +6,7 @@ export default function App() {
   return (
     <View style={styles.container}>
       <Text>Open up App.js to start working on your app!</Text>
+      <Text>If you're seeing this, it means that you set up ALTogether correctly!</Text>
       <StatusBar style="auto" />
     </View>
   );
