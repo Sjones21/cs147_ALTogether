@@ -31,7 +31,7 @@ export default function App() {
       <TouchableOpacity
         style={styles.exampleButton}
         onPress={() => Alert.alert('You just pressed an example button')}>
-        <Text style={{color: 'white', fontWeight: 'bold'}}>You Rock</Text>
+        <Text style={{color: 'white', fontWeight: 'bold'}}>ICE CREAM</Text>
       </TouchableOpacity>
 
       {/* Example image */}
