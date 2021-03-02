@@ -31,7 +31,7 @@ export default function App() {
       <TouchableOpacity
         style={styles.exampleButton}
         onPress={() => Alert.alert('You just pressed an example button')}>
-        <Text style={{color: 'white', fontWeight: 'bold'}}>Example button</Text>
+        <Text style={{color: 'white', fontWeight: 'bold'}}>You Rock</Text>
       </TouchableOpacity>
 
       {/* Example image */}
@@ -39,7 +39,9 @@ export default function App() {
       <Image
         source = {require('./assets/images/ice_cream.png')}
         style = {{width: 100, height: 100}}/>
+        <Text>YUM!</Text>
     </View>
+
 
   );
 }
