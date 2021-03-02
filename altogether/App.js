@@ -1,5 +1,7 @@
 import { StatusBar } from 'expo-status-bar';
 import React from 'react';
+import { NavigationContainer } from '@react-navigation/native';
+import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import {
   Alert,
   Button,
@@ -17,8 +19,16 @@ import { styles } from './Styles.js';
 
 
 export default function App() {
+  const Tab = createBottomTabNavigator();
+
   return (
     <View style={styles.container}>
+      <NavigationContainer>
+      <Tab.Navigator>
+        <Tab.Screen name="Home" component={HomeScreen} />
+        <Tab.Screen name="Settings" component={SettingsScreen} />
+      </Tab.Navigator>
+    </NavigationContainer>
 
       {/* Example text */}
       <Text>Open up App.js to start working on your app!</Text>
