@@ -39,7 +39,9 @@ export default function App() {
       <Image
         source = {require('./assets/images/ice_cream.png')}
         style = {{width: 100, height: 100}}/>
+        <Text>YUM!</Text>
     </View>
+
 
   );
 }
