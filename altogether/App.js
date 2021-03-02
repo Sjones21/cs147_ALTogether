@@ -23,8 +23,8 @@ export default function App() {
       {/* Example text */}
       <Text>Open up App.js to start working on your app!</Text>
       <Text>If you're seeing this, it means that you set up ALTogether correctly!</Text>
-      <Text>SYDNEY WAS HERE (In the new branch too) (Or was I)</Text>
-      <Text>more text</Text>
+      <Text>SYDNEY WAS HERE (In the new branch too) (Or was I) </Text>
+      <Text>more text (And more text)</Text>
       <StatusBar style="auto" />
 
       {/* Example button */}
