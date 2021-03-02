@@ -40,7 +40,7 @@ export default function App() {
       <Image
         source = {require('./assets/images/ice_cream.png')}
         style = {{width: 100, height: 100}}/>
-        <Text>DELICIOUS! I want one. Strawberry</Text>
+        <Text>DELICIOUS! I want one. Strawberry OH YEAH</Text>
     </View>
 
 
