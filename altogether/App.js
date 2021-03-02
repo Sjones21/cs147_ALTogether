@@ -25,7 +25,7 @@ export default function App() {
       <Text>If you're seeing this, it means that you set up ALTogether correctly!</Text>
       <Text>SYDNEY WAS HERE (In the new branch too) (Or was I) </Text>
       <Text>more text (And more text) Changed in New_branch</Text>
-      <Text>PLease let this be the final test</Text>
+      <Text>PLease let this be the final test. PLEASE</Text>
       <StatusBar style="auto" />
 
       {/* Example button */}
