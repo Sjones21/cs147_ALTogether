@@ -24,6 +24,7 @@ export default function App() {
       <Text>Open up App.js to start working on your app!</Text>
       <Text>If you're seeing this, it means that you set up ALTogether correctly!</Text>
       <Text>SYDNEY WAS HERE </Text>
+      <Text>DANI WAS ALSO HERE </Text>
       <StatusBar style="auto" />
 
       {/* Example button */}
