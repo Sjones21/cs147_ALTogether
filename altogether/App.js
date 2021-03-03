@@ -1,130 +1,66 @@
-import { StatusBar } from 'expo-status-bar';
-import React from 'react';
+import React, { Component } from "react";
+/*
 import {
-  Alert,
-  Button,
-  AppRegistry,
-  Image,
-  Keyboard,
-  ScrollView,
-  StyleSheet,
-  Text,
-  TextInput,
-  TouchableOpacity,
   View,
-} from 'react-native';
-// import { styles } from './Styles.js';
+  Text,
+  StyleSheet
+} from "react-native";
+*/
 
-
-export default function App() {
-  return (
-
-    <View style={styles.container}>
-
-
-      {/* Header bar */}
-      <View style={styles.header}>
-        <View>
-          <Text style={styles.headerTitle}>sydney_jones</Text>
-        </View>
-        <View style={styles.barIcons}>
-          <Image
-            source = {require('./assets/images/Post.png')}
-            style = {styles.icons}/>
-          <Image
-            source = {require('./assets/images/Menu.png')}
-            style = {styles.icons}/>
-        </View>
-      </View>
-
-      {/* Scroll */}
-      <ScrollView
-        style={styles.scrollContainer}>
-        {/* Profile */}
-        <View>
-          <Text>sydney_jones</Text>
-        </View>
-
-        {/* Photos */}
-        <View>
-        </View>
-      </ScrollView>
-
-      {/* Navigation bar */}
-      <View style={styles.navBar}>
-        <Image
-          source = {require('./assets/images/Home.png')}
-          style = {styles.icons}/>
-        <Image
-          source = {require('./assets/images/Search.png')}
-          style = {styles.icons}/>
-        <Image
-          source = {require('./assets/images/LogoSmall.png')}
-          style = {styles.icons}/>
-        <Image
-          source = {require('./assets/images/Bookmark.png')}
-          style = {styles.icons}/>
-        <Image
-          source = {require('./assets/images/ProfileIcon.png')}
-          style = {styles.icons}/>
-      </View>
-
-    </View>
-
-
-  );
-}
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    marginTop: 20,
-    backgroundColor: '#fff',
+import CardComponent from './src/components/CardComponent'
+//import { Audio } from ''
+import { Alert, Image, Text, View, StyleSheet, ScrollView, Dimensions, TouchableOpacity} from 'react-native';
+import { Card, ListItem, Button, Icon } from 'react-native-elements'
+import { styles } from './Styles.js';
+import { NavigationContainer } from '@react-navigation/native';
+import { createStackNavigator } from '@react-navigation/stack';
+import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
+import Profile from './Profile.js';
+import Feed from './Feed.js';
+import NewPost from './NewPost.js';
+import { Container } from "native-base";
+const Stack = createStackNavigator();
+//const Tab = createBottomTabNavigator();
+const users = [
+  {
+    name: 'brynn',
+    avatar: 'https://s3.amazonaws.com/uifaces/faces/twitter/brynn/128.jpg'
   },
+]
+export default class App extends React.Component {
 
-  exampleButton: {
-    padding: 10,
-    backgroundColor: '#3996EF',
-    borderRadius: 10,
-  },
+  /*
+  async componentDidMount() {
+    await Audio.setAudioModeAsync({
+      playsInSilentModeIOS: true,
+      allowsRecordingIOS: true,
+      interruptionModeIOS: Audio.INTERRUPTION_MODE_IOS_DO_NOT_MIX,
+      shouldDuckAndroid: false,
+      interruptionModeAndroid: Audio.INTERRUPTION_MODE_ANDROID_DO_NOT_MIX,
+      playThroughEarpieceAndroid: true
+    })
+    this.setState({ loaded: true })
+  }*/
 
-  header: {
-    height: 90,
-    padding: 30,
-    paddingBottom: 10,
-    flexDirection: 'row',
-    alignItems: 'flex-end',
-    justifyContent: 'space-between',
-    backgroundColor: '#FAFAFA'
-  },
 
-  headerTitle: {
-    fontSize: 24,
-    fontWeight: 'bold',
-  },
-
-  barIcons: {
-    flexDirection: 'row'
-  },
-
-  icons: {
-    height: 25,
-    width: 25,
-    margin: 5
-  },
-
-  scrollContainer: {
-  flexGrow: 1,
-  margin: 20,
-},
-
-  navBar: {
-    height: 100,
-    padding: 30,
-    paddingTop: 10,
-    flexDirection: 'row',
-    alignItems: 'center',
-    justifyContent: 'space-around',
-    backgroundColor: '#FAFAFA'
+  render() {
+    return (
+        <NavigationContainer style={styles.container}>
+          <Stack.Navigator
+            screenOptions={{
+              headerShown: true
+            }}>
+              <Stack.Screen name="Feed" component={Feed} options={({route, navigation}) => ({ title: 'Instagram', headerRight: () => (
+              <TouchableOpacity style={styles.headerButton}
+              onPress={() => navigation.navigate('NewPost')}>
+              <Text style={{color: 'white', fontWeight: 'bold'}}>+</Text>
+              </TouchableOpacity>
+            )
+            })}/>
+            <Stack.Screen name="Profile" component={Profile} options={({headerShown: false})}/>
+            <Stack.Screen name="NewPost" component={NewPost} options={{ title: 'New Post', headerBackTitle: "Prev"}} />
+          </Stack.Navigator>
+      </NavigationContainer>
+    )
   }
-});
+}
