@@ -1,57 +1,58 @@
-import { StatusBar } from 'expo-status-bar';
-//import React from 'react';
+import React, { Component } from "react";
 /*
 import {
-  Alert,
-  Button,
-  AppRegistry,
-  Image,
-  Keyboard,
-  ScrollView,
-  StyleSheet,
-  Text,
-  TextInput,
-  TouchableOpacity,
   View,
-} from 'react-native';
+  Text,
+  StyleSheet
+} from "react-native";
 */
+//import { Container, Content, Icon } from 'native-base'
+import CardComponent from './src/components/CardComponent'
+//import { Audio } from 'expo'
+import { View, Text, Image } from 'react-native'
+import { Card, ListItem, Button, Icon } from 'react-native-elements'
 import { styles } from './Styles.js';
+import { ScrollView } from "react-native-gesture-handler";
 
-import React, { Component } from 'react'
-import { Image, View, TouchableOpacity } from 'react-native'
-import { Text, Avatar, withStyles, List } from 'react-native-ui-kitten'
+const users = [
+  {
+    name: 'brynn',
+    avatar: 'https://s3.amazonaws.com/uifaces/faces/twitter/brynn/128.jpg'
+  },
+]
+export default class App extends React.Component {
+
+  /*
+  async componentDidMount() {
+    await Audio.setAudioModeAsync({
+      playsInSilentModeIOS: true,
+      allowsRecordingIOS: true,
+      interruptionModeIOS: Audio.INTERRUPTION_MODE_IOS_DO_NOT_MIX,
+      shouldDuckAndroid: false,
+      interruptionModeAndroid: Audio.INTERRUPTION_MODE_ANDROID_DO_NOT_MIX,
+      playThroughEarpieceAndroid: true
+    })
+    this.setState({ loaded: true })
+  }*/
 
 
-export default function App() {
-  const DATA = [
-    {
-      id: 1,
-      postTitle: 'Planet of Nature',
-      avatarURI:
-        'https://images.unsplash.com/photo-1559526323-cb2f2fe2591b?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1050&q=80',
-      imageURI:
-        'https://images.unsplash.com/photo-1482822683622-00effad5052e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1050&q=80',
-      randomText:
-        'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. '
-    },
-    {
-      id: 2,
-      postTitle: 'Lampost',
-      avatarURI:
-        'https://images.unsplash.com/photo-1559526323-cb2f2fe2591b?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1050&q=80',
-      imageURI:
-        'https://images.unsplash.com/photo-1482822683622-00effad5052e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1050&q=80',
-      randomText:
-        'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. '
-    }
-  ]
-
-  return (
-    <List
-      style={this.props.themedStyle.container}
-      data={DATA}
-      renderItem={renderItem}
-      keyExtractor={DATA.id}
-    />
-  );
+  render() {
+    return (
+      <View style={styles.container}>
+        <ScrollView>
+          <CardComponent thumbnail={require("./assets/me.jpg")} youtube={true} id_youtube="L-W_EDUQw6I" likes="11" nb_commentaires="202" pseudo="maxgfr" date="01/01/2018" description="blablablabla" />
+          <CardComponent thumbnail={require("./assets/me.jpg")} youtube={true} id_youtube="507d9xto6Og" likes="11" nb_commentaires="202" pseudo="maxgfr" date="01/01/2018" description="blablablabla" />
+          <CardComponent thumbnail={require("./assets/me.jpg")} twitch_live={true} chaine_twitch="humilityfr" likes="11" nb_commentaires="202" pseudo="maxgfr" date="01/01/2018" description="blablablabla" />
+          <CardComponent thumbnail={require("./assets/me.jpg")} twitch_videos={true} id_twitch_video="329825601" likes="11" nb_commentaires="202" pseudo="maxgfr" date="01/01/2018" description="blablablabla" />
+          <CardComponent thumbnail={require("./assets/me.jpg")} twitch_clips={true} id_twitch_clip="LongDrabPelicanCurseLit" likes="11" nb_commentaires="202" pseudo="maxgfr" date="01/01/2018" description="blablablabla" />
+          <CardComponent thumbnail={require("./assets/me.jpg")} twitch_collections={true} id_twitch_video="329031576" id_twitch_collection="y9LXlzpDYhU6yw" likes="11" nb_commentaires="202" pseudo="maxgfr" date="01/01/2018" description="blablablabla" />
+          <CardComponent thumbnail={require("./assets/me.jpg")} instagram={true} id_instagram_post="Bpmrcm7HgQW" likes="11" nb_commentaires="202" pseudo="maxgfr" date="01/01/2018" description="blablablabla" />
+          <CardComponent thumbnail={require("./assets/me.jpg")} spotify_album={true} id_spotify="1zNr37qd3iZJ899byrTkcj" likes="11" nb_commentaires="202" pseudo="maxgfr" date="01/01/2018" description="blablablabla" />
+          <CardComponent thumbnail={require("./assets/me.jpg")} spotify_playlist={true} id_user="2c8a6esgmr19imm8bl14570vk" id_spotify="2280Pf3U69Rp6CdVpxzSNr" likes="11" nb_commentaires="202" pseudo="maxgfr" date="01/01/2018" description="blablablabla" />
+          <CardComponent thumbnail={require("./assets/me.jpg")} spotify_song={true} id_spotify="4GXl8l1MfZPf2GvpyRPJBf" likes="11" nb_commentaires="202" pseudo="maxgfr" date="01/01/2018" description="blablablabla" />
+          <CardComponent thumbnail={require("./assets/me.jpg")} pinterest={true} id_pinterest="801781539887841710" likes="11" nb_commentaires="202" pseudo="maxgfr" date="01/01/2018" description="blablablabla" />
+        </ScrollView>
+      </View>
+    )
+  }
 }
