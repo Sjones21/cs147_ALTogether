@@ -1,47 +1,66 @@
-import { StatusBar } from 'expo-status-bar';
-import React from 'react';
+import React, { Component } from "react";
+/*
 import {
-  Alert,
-  Button,
-  AppRegistry,
-  Image,
-  Keyboard,
-  ScrollView,
-  StyleSheet,
-  Text,
-  TextInput,
-  TouchableOpacity,
   View,
-} from 'react-native';
+  Text,
+  StyleSheet
+} from "react-native";
+*/
+
+import CardComponent from './src/components/CardComponent'
+//import { Audio } from ''
+import { Alert, Image, Text, View, StyleSheet, ScrollView, Dimensions, TouchableOpacity} from 'react-native';
+import { Card, ListItem, Button, Icon } from 'react-native-elements'
 import { styles } from './Styles.js';
+import { NavigationContainer } from '@react-navigation/native';
+import { createStackNavigator } from '@react-navigation/stack';
+import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
+import Profile from './Profile.js';
+import Feed from './Feed.js';
+import NewPost from './NewPost.js';
+import { Container } from "native-base";
+const Stack = createStackNavigator();
+//const Tab = createBottomTabNavigator();
+const users = [
+  {
+    name: 'brynn',
+    avatar: 'https://s3.amazonaws.com/uifaces/faces/twitter/brynn/128.jpg'
+  },
+]
+export default class App extends React.Component {
 
+  /*
+  async componentDidMount() {
+    await Audio.setAudioModeAsync({
+      playsInSilentModeIOS: true,
+      allowsRecordingIOS: true,
+      interruptionModeIOS: Audio.INTERRUPTION_MODE_IOS_DO_NOT_MIX,
+      shouldDuckAndroid: false,
+      interruptionModeAndroid: Audio.INTERRUPTION_MODE_ANDROID_DO_NOT_MIX,
+      playThroughEarpieceAndroid: true
+    })
+    this.setState({ loaded: true })
+  }*/
+  
 
-export default function App() {
-  return (
-    <View style={styles.container}>
-
-      {/* Example text */}
-      <Text>Open up App.js to start working on your app!</Text>
-      <Text>If you're seeing this, it means that you set up ALTogether correctly!</Text>
-      <Text>SYDNEY WAS HERE </Text>
-      <StatusBar style="auto" />
-
-      {/* Example button */}
-      <Text style={{marginTop: 20}}>Example button</Text>
-      <TouchableOpacity
-        style={styles.exampleButton}
-        onPress={() => Alert.alert('You just pressed an example button')}>
-        <Text style={{color: 'white', fontWeight: 'bold'}}>ICE CREAM</Text>
-      </TouchableOpacity>
-
-      {/* Example image */}
-      <Text style={{marginTop: 20}}>Example image</Text>
-      <Image
-        source = {require('./assets/images/ice_cream.png')}
-        style = {{width: 100, height: 100}}/>
-        <Text>DELICIOUS!</Text>
-    </View>
-
-
-  );
+  render() {
+    return (
+        <NavigationContainer style={styles.container}>
+          <Stack.Navigator
+            screenOptions={{
+              headerShown: true
+            }}>
+              <Stack.Screen name="Feed" component={Feed} options={({route, navigation}) => ({ title: 'Instagram', headerRight: () => (
+              <TouchableOpacity style={styles.headerButton}
+              onPress={() => navigation.navigate('NewPost')}>
+              <Text style={{color: 'white', fontWeight: 'bold'}}>+</Text>
+              </TouchableOpacity>
+            )
+            })}/>
+            <Stack.Screen name="Profile" component={Profile} options={({headerShown: false})}/>
+            <Stack.Screen name="NewPost" component={NewPost} options={{ title: 'New Post', headerBackTitle: "Prev"}} />
+          </Stack.Navigator>
+      </NavigationContainer>
+    )
+  }
 }
