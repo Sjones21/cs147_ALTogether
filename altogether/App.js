@@ -23,9 +23,7 @@ export default function App() {
       {/* Example text */}
       <Text>Open up App.js to start working on your app!</Text>
       <Text>If you're seeing this, it means that you set up ALTogether correctly!</Text>
-      <Text>SYDNEY WAS HERE (In the new branch too) (Or was I) </Text>
-      <Text>more text (And more text) Changed in New_branch</Text>
-      <Text>PLease let this be the final test. PLEASE</Text>
+      <Text>SYDNEY WAS HERE </Text>
       <StatusBar style="auto" />
 
       {/* Example button */}
@@ -41,7 +39,7 @@ export default function App() {
       <Image
         source = {require('./assets/images/ice_cream.png')}
         style = {{width: 100, height: 100}}/>
-        <Text>DELICIOUS! I want one. Strawberry OH YEAH. YUMMY YUMMY</Text>
+        <Text>DELICIOUS!</Text>
     </View>
 
 
