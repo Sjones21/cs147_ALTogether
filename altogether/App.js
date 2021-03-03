@@ -23,7 +23,7 @@ export default function App() {
       {/* Example text */}
       <Text>Open up App.js to start working on your app!</Text>
       <Text>If you're seeing this, it means that you set up ALTogether correctly!</Text>
-      <Text>Dani testing her branch lol</Text>
+      <Text>SYDNEY WAS HERE </Text>
       <StatusBar style="auto" />
 
       {/* Example button */}
@@ -31,7 +31,7 @@ export default function App() {
       <TouchableOpacity
         style={styles.exampleButton}
         onPress={() => Alert.alert('You just pressed an example button')}>
-        <Text style={{color: 'white', fontWeight: 'bold'}}>Example button</Text>
+        <Text style={{color: 'white', fontWeight: 'bold'}}>ICE CREAM</Text>
       </TouchableOpacity>
 
       {/* Example image */}
@@ -39,7 +39,9 @@ export default function App() {
       <Image
         source = {require('./assets/images/ice_cream.png')}
         style = {{width: 100, height: 100}}/>
+        <Text>DELICIOUS!</Text>
     </View>
+
 
   );
 }
