@@ -44,7 +44,6 @@ const styles = StyleSheet.create({
   },
 
   scrollContainer: {
-    margin: 20,
   },
 
   navBar: {
@@ -77,7 +76,35 @@ const styles = StyleSheet.create({
 
   cardContainer: {
     marginTop: 30
+  },
+
+  gridImage: {
+    height: 140,
+    width: 140
+  },
+
+  numberContainer: {
+
+  },
+
+  numberBig: {
+    textAlign: 'center',
+    fontSize: 20,
+    fontWeight: 'bold',
+  },
+
+  numberSmall: {
+    textAlign: 'center',
+    fontSize: 14
+  },
+
+  header1: {
+    fontSize: 18,
+    fontWeight: 'bold',
+    marginTop: 10,
+    marginBottom: 10
   }
+
 });
 
 export {styles}
