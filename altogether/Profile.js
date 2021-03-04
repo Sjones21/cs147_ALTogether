@@ -13,7 +13,9 @@ export default class Profile extends Component {
       <View style={styles.container}>
         {/* Welcome message */}
         <View style={styles.titleContainer}>
-          <Text style={styles.pageTitle}> Welcome to Your Profile! </Text>
+          <Text style={styles.pageTitle}> <Text style={styles.underline}>New</Text> Post! <Text style={styles.underline}>This</Text>
+            <Text style={styles.pageTitle}> is how you <Text style={styles.underline}>underline</Text> text</Text>
+            </Text>
         </View>
       </View>
     );

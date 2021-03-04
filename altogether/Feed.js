@@ -39,7 +39,6 @@ export default class Feed extends Component {
       return(
           <Container>
         <Content>
-        
         <CardComponent thumbnail={require("./assets/me.jpg")} youtube={true} id_youtube="L-W_EDUQw6I" likes="11" nb_commentaires="202" pseudo="maxgfr" date="01/01/2018" description="blablablabla" />
         <CardComponent thumbnail={require("./assets/me.jpg")} youtube={true} id_youtube="507d9xto6Og" likes="11" nb_commentaires="202" pseudo="maxgfr" date="01/01/2018" description="blablablabla" />
         <CardComponent thumbnail={require("./assets/me.jpg")} twitch_live={true} chaine_twitch="humilityfr" likes="11" nb_commentaires="202" pseudo="maxgfr" date="01/01/2018" description="blablablabla" />
@@ -51,7 +50,6 @@ export default class Feed extends Component {
         <CardComponent thumbnail={require("./assets/me.jpg")} spotify_playlist={true} id_user="2c8a6esgmr19imm8bl14570vk" id_spotify="2280Pf3U69Rp6CdVpxzSNr" likes="11" nb_commentaires="202" pseudo="maxgfr" date="01/01/2018" description="blablablabla" />
         <CardComponent thumbnail={require("./assets/me.jpg")} spotify_song={true} id_spotify="4GXl8l1MfZPf2GvpyRPJBf" likes="11" nb_commentaires="202" pseudo="maxgfr" date="01/01/2018" description="blablablabla" />
         <CardComponent thumbnail={require("./assets/me.jpg")} pinterest={true} id_pinterest="801781539887841710" likes="11" nb_commentaires="202" pseudo="maxgfr" date="01/01/2018" description="blablablabla" />
-      
       </Content>
       <TouchableOpacity style={styles.exampleButton}
           onPress={() => this.props.navigation.navigate('Profile')}>
