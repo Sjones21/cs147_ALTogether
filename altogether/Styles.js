@@ -75,6 +75,17 @@ const styles = StyleSheet.create({
     borderRadius: 10,
   },
 
+  pageTitle:{
+    fontSize: 20,
+  },
+
+  underline: {
+    fontSize: 20,
+    textDecorationLine: 'underline',
+    textDecorationStyle: 'dotted',
+    textDecorationColor: '#206FE9',
+  },
+
   cardContainer: {
     marginTop: 30
   }
