@@ -41,7 +41,7 @@ export default class App extends React.Component {
     })
     this.setState({ loaded: true })
   }*/
-  
+
 
   render() {
     return (
@@ -50,14 +50,8 @@ export default class App extends React.Component {
             screenOptions={{
               headerShown: true
             }}>
-              <Stack.Screen name="Feed" component={Feed} options={({route, navigation}) => ({ title: 'Instagram', headerRight: () => (
-              <TouchableOpacity style={styles.headerButton}
-              onPress={() => navigation.navigate('NewPost')}>
-              <Text style={{color: 'white', fontWeight: 'bold'}}>+</Text>
-              </TouchableOpacity>
-            )
-            })}/>
-            <Stack.Screen name="Profile" component={Profile} options={({headerShown: false})}/>
+            <Stack.Screen name="Feed" component={Feed} options={({route, navigation}) => ({ title: 'Instagram', headerShown: false})}/>
+            <Stack.Screen name="Profile" component={Profile} options={({headerShown: false, animationEnabled: false})}/>
             <Stack.Screen name="NewPost" component={NewPost} options={{ title: 'New Post', headerBackTitle: "Prev"}} />
           </Stack.Navigator>
       </NavigationContainer>
