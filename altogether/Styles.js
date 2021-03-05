@@ -7,12 +7,6 @@ const styles = StyleSheet.create({
     backgroundColor: '#fff',
   },
 
-  exampleButton: {
-    padding: 10,
-    backgroundColor: '#3996EF',
-    borderRadius: 10,
-  },
-
   headerBar: {
     height: 100,
     padding: 30,
@@ -70,9 +64,15 @@ const styles = StyleSheet.create({
     paddingTop: 3,
     paddingBottom:5,
     margin: 5,
-    marginRight:100,
-    backgroundColor: '#3996EF',
+    marginRight:10,
+    backgroundColor: '#FFFFFF',
+    color: '#3996EF',
     borderRadius: 10,
+  },
+
+  headerButtonText: {
+    fontSize: 18,
+    color: '#3996EF',
   },
 
   pageTitle:{
