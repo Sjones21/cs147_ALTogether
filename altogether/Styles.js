@@ -179,7 +179,8 @@ const styles = StyleSheet.create({
 
   cardContainer: {
     marginTop: 30
-  }
+  },
+  
   buttonLabel: {
     fontWeight: 'bold',
     textAlign: 'center'
