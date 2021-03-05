@@ -7,12 +7,46 @@ const styles = StyleSheet.create({
     backgroundColor: '#fff',
   },
 
+  contentContainer: {
+    flexGrow: 1,
+    flexShrink: 1
+  },
+
+  scrollContainer: {
+    padding: 20
+  },
+
   exampleButton: {
     padding: 10,
     backgroundColor: '#3996EF',
     borderRadius: 10,
   },
 
+  hidden: {
+    display: 'none'
+  },
+
+  selected: {
+    flexGrow: 1,
+    borderBottomWidth: 2,
+    borderColor: 'black'
+  },
+
+  unselected: {
+    flexGrow: 1,
+    borderBottomWidth: 1,
+    borderColor: '#B1A9A9'
+  },
+
+  /* TYPOGRAPHY */
+
+  header1: {
+    fontSize: 18,
+    fontWeight: 'bold',
+    marginBottom: 5
+  },
+
+  /* HEADER BAR, NAV BAR */
   headerBar: {
     height: 100,
     padding: 30,
@@ -28,24 +62,6 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
   },
 
-  barIcons: {
-    flexDirection: 'row'
-  },
-
-  icons: {
-    height: 25,
-    width: 25,
-    margin: 5
-  },
-
-  contentContainer: {
-    flexGrow: 1,
-    flexShrink: 1
-  },
-
-  scrollContainer: {
-  },
-
   navBar: {
     height: 100,
     padding: 30,
@@ -56,35 +72,33 @@ const styles = StyleSheet.create({
     backgroundColor: '#FAFAFA'
   },
 
-  exampleButton: {
-    padding: 15,
-    margin: 10,
-    marginBottom:30,
-    backgroundColor: '#3996EF',
-    borderRadius: 10,
+  /* ICONS */
+  barIcons: {
+    flexDirection: 'row'
   },
 
-  headerButton: {
-    padding: 10,
-    paddingTop: 3,
-    paddingBottom:5,
-    margin: 5,
-    marginRight:100,
-    backgroundColor: '#3996EF',
-    borderRadius: 10,
+  icons: {
+    height: 25,
+    width: 25,
+    margin: 5
   },
+
+  /* CARD COMPONENT */
 
   cardContainer: {
     marginTop: 30
   },
 
-  gridImage: {
-    height: 140,
-    width: 140
+  /* PROFILE */
+  profileContainer: {
+    flexDirection: 'row',
+    justifyContent: 'space-around',
+    alignItems: 'center'
   },
 
-  numberContainer: {
-
+  numbersContainer: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
   },
 
   numberBig: {
@@ -98,12 +112,63 @@ const styles = StyleSheet.create({
     fontSize: 14
   },
 
-  header1: {
-    fontSize: 18,
-    fontWeight: 'bold',
+  progressBarOutline: {
+    height: 10,
+    width: 235,
+    marginTop: 15,
+    marginBottom: 5,
+    borderColor: '#DADADA',
+    borderWidth: 1,
+    borderRadius: 10
+  },
+
+  progressBarFill: {
+    height: 8,
+    width: 200,
+    backgroundColor: '#FAA958',
+    borderRadius: 10
+  },
+
+  progressBarLabel: {
+    textAlign: 'center',
+    color: '#666666'
+  },
+
+  bioContainer: {
     marginTop: 10,
     marginBottom: 10
-  }
+  },
+
+  editButton: {
+    width: 360,
+    height: 30,
+    margin: 10,
+    padding: 5,
+    backgroundColor: '#FAFAFA',
+    borderWidth: 1,
+    borderColor: '#B1A9A9',
+    borderRadius: 5
+  },
+
+  buttonLabel: {
+    fontWeight: 'bold',
+    textAlign: 'center'
+  },
+
+  story: {
+    height: 70,
+    width: 70,
+    margin: 10,
+    resizeMode: 'contain'
+  },
+
+  /* GALLERY */
+
+  galleryPhoto: {
+    height: 140,
+    width: 140,
+    margin: 1
+  },
 
 });
 

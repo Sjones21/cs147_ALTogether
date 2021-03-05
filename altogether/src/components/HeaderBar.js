@@ -30,7 +30,7 @@ class HeaderBar extends Component {
         return (
           <View style={styles.headerBar}>
             <View>
-              <Text style={styles.headerTitle}>sydney_jones</Text>
+              <Text style={styles.headerTitle}>{this.props.title}</Text>
             </View>
             <View style={styles.barIcons}>
               <TouchableOpacity
@@ -42,7 +42,13 @@ class HeaderBar extends Component {
               <TouchableOpacity
                 onPress={() => Alert.alert('icon pressed')}>
                 <Image
-                  source = {require('../../assets/images/Menu.png')}
+                  source = {require('../../assets/images/Heart.png')}
+                  style = {styles.icons}/>
+              </TouchableOpacity>
+              <TouchableOpacity
+                onPress={() => Alert.alert('icon pressed')}>
+                <Image
+                  source = {require('../../assets/images/Mail.png')}
                   style = {styles.icons}/>
               </TouchableOpacity>
             </View>
