@@ -21,6 +21,7 @@ import NewPost from './NewPost.js';
 import { Container } from "native-base";
 const Stack = createStackNavigator();
 //const Tab = createBottomTabNavigator();
+//testing testing
 const users = [
   {
     name: 'brynn',
