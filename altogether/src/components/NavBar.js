@@ -31,25 +31,35 @@ class NavBar extends Component {
           <View style={styles.navBar}>
 
             <TouchableOpacity
+              style={[this.props.selected == 'feed' ? {display: 'flex'} : styles.hidden ]}
               onPress={() => this.props.navigation.navigate('Feed')}>
               <Image
-                source = {require('../../assets/images/Home.png')}
+                source = {require('../../assets/images/HomeSelected.png')}
                 style = {styles.icons}/>
             </TouchableOpacity>
+
             <TouchableOpacity
-              onPress={() => Alert.alert('icon pressed')}>
+              style={[this.props.selected == 'feed' ? styles.hidden : {display: 'flex'}]}
+              onPress={() => this.props.navigation.navigate('Feed')}>
+              <Image
+                source = {require('../../assets/images/HomeUnselected.png')}
+                style = {styles.icons}/>
+            </TouchableOpacity>
+
+            <TouchableOpacity
+              onPress={() => Alert.alert('Explore Page')}>
               <Image
                 source = {require('../../assets/images/Search.png')}
                 style = {styles.icons}/>
             </TouchableOpacity>
             <TouchableOpacity
-              onPress={() => Alert.alert('icon pressed')}>
+              onPress={() => Alert.alert('Instagram Reels')}>
               <Image
                 source = {require('../../assets/images/LogoSmall.png')}
                 style = {styles.icons}/>
             </TouchableOpacity>
             <TouchableOpacity
-              onPress={() => Alert.alert('icon pressed')}>
+              onPress={() => Alert.alert('Shopping Center')}>
               <Image
                 source = {require('../../assets/images/Bookmark.png')}
                 style = {styles.icons}/>

@@ -16,6 +16,7 @@ import { NavigationContainer } from '@react-navigation/native';
 import { Assets, createStackNavigator } from '@react-navigation/stack';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import Profile from './Profile.js';
+import ProfileAlt from './ProfileAlt.js';
 import Feed from './Feed.js';
 import NewPost from './NewPost.js';
 import NewPostChoosePic from './NewPostChoosePic.js';
@@ -58,6 +59,8 @@ export default class App extends React.Component {
             }}>
             <Stack.Screen name="Feed" component={Feed} options={({route, navigation}) => ({ title: 'Instagram', headerShown: false})}/>
             <Stack.Screen name="Profile" component={Profile} options={({headerShown: false, animationEnabled: false})}/>
+            <Stack.Screen name="ProfileAlt" component={ProfileAlt} options={({headerShown: false, animationEnabled: false})}/>
+
             <Stack.Screen name="NewPost" component={NewPost} options={({route, navigation}) => ({ title: 'New Post', headerBackTitle: " ",
               headerRight: () => (
                 <TouchableOpacity style={styles.headerButton}
@@ -106,6 +109,7 @@ export default class App extends React.Component {
                 </TouchableOpacity>
               )
             })} />
+
           </Stack.Navigator>
       </NavigationContainer>
     )

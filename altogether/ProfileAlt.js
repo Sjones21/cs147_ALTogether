@@ -17,7 +17,9 @@ export default class Profile extends Component {
     return (
       <View style={styles.container}>
         {/* Header Bar */}
-        <HeaderBar navigation={this.props.navigation} title='sydney_jones'/>
+        <HeaderBar
+          selected='profile'
+          navigation={this.props.navigation} title='sydney_jones'/>
 
         {/* Content Container */}
         <View style={styles.contentContainer}>
@@ -66,16 +68,15 @@ export default class Profile extends Component {
 
             {/* Toggle */}
             <Toggle
-              selected='left'
-              iconLeft={require('./assets/images/GallerySelected.png')}
-              iconRight={require('./assets/images/AltIconUnselected.png')}
+              selected='right'
+              iconLeft={require('./assets/images/GalleryUnselected.png')}
+              iconRight={require('./assets/images/AltIconSelected.png')}
               navigation={this.props.navigation}/>
 
             {/* 3x3 Photos Container */}
             <View style={{justifyContent: 'center', margin: 1}}>
               <View style={{flexDirection: 'row', flexWrap: 'wrap'}}>
                 <GalleryPhoto photo={require("./assets/images/ice_cream.png")} />
-                <GalleryPhoto photo={require("./assets/me.jpg")} />
                 <GalleryPhoto photo={require("./assets/images/ice_cream.png")} />
                 <GalleryPhoto photo={require("./assets/me.jpg")} />
                 <GalleryPhoto photo={require("./assets/me.jpg")} />
