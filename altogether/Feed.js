@@ -23,21 +23,6 @@ let customFonts = {
 
 export default class Feed extends Component {
 
-  state = {
-    fontsLoaded: false,
-  };
-
-  async _loadFontsAsync() {
-    await Font.loadAsync(customFonts);
-    this.setState({ fontsLoaded: true });
-  }
-
-  componentDidMount() {
-    this._loadFontsAsync();
-	}
-
-
-
   render() {
       return(
           <View style={styles.container}>
