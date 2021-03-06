@@ -22,4 +22,5 @@ Note: I need to check if this works haha, might have to run `expo install` in be
 ## Libraries
 
 [Stack Navigator](https://reactnavigation.org/docs/hello-react-navigation/#installing-the-stack-navigator-library)
+[Expo Speech](expo install expo-speech)
 
