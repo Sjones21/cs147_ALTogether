@@ -45,13 +45,14 @@ export default class AltogetherCustom extends Component {
                   />
               </View>
 
-              <View style={{ alignSelf: 'center'}}>
+              {/* SUBMIT BUTTON */}
+              {/*<View style={{ alignSelf: 'center'}}>
                 <TouchableOpacity
                   style={styles.exampleButton}
                   onPress={() => Alert.alert('Submitted alt text')}>
                   <Text style={styles.exampleButtonLabel}>Submit</Text>
                 </TouchableOpacity>
-              </View>
+              </View>*/}
 
             </View>
           </TouchableWithoutFeedback>

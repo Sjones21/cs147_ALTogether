@@ -196,7 +196,7 @@ const styles = StyleSheet.create({
   },
 
   underline: {
-    fontSize: 20,
+    //fontSize: 14,
     textDecorationLine: 'underline',
     textDecorationStyle: 'dotted',
     textDecorationColor: '#206FE9',
