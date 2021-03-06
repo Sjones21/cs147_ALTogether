@@ -24,7 +24,7 @@ const guidelineBaseHeight = 680;
 const scale = size => (width / guidelineBaseWidth) * size;
 
 
-class Toggle extends Component {
+class ToggleProfile extends Component {
 
     render() {
         return (
@@ -48,4 +48,4 @@ class Toggle extends Component {
     }
 }
 
-export default Toggle;
+export default ToggleProfile;

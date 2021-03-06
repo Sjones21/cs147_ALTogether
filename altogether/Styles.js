@@ -3,7 +3,7 @@ import { StyleSheet} from 'react-native';
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    marginTop: 20,
+    /*marginTop: 20,*/
     backgroundColor: '#fff',
   },
 
@@ -22,20 +22,40 @@ const styles = StyleSheet.create({
     borderRadius: 10,
   },
 
+  exampleButtonLabel: {
+    color: 'white',
+    fontWeight: 'bold',
+    fontSize: 18
+  },
+
   hidden: {
     display: 'none'
   },
 
   selected: {
+    padding: 10,
     flexGrow: 1,
     borderBottomWidth: 2,
     borderColor: 'black'
   },
 
   unselected: {
+    padding: 10,
     flexGrow: 1,
     borderBottomWidth: 1,
     borderColor: '#B1A9A9'
+  },
+
+  selectedText: {
+    fontSize: 22,
+    color: 'black',
+    fontWeight: 'bold'
+  },
+
+  unselectedText: {
+    fontSize: 22,
+    color: '#B1A9A9',
+    fontWeight: 'bold'
   },
 
   /* TYPOGRAPHY */
@@ -43,6 +63,11 @@ const styles = StyleSheet.create({
   header1: {
     fontSize: 18,
     fontWeight: 'bold',
+    marginBottom: 5
+  },
+
+  header2: {
+    fontSize: 16,
     marginBottom: 5
   },
 
@@ -180,7 +205,7 @@ const styles = StyleSheet.create({
   cardContainer: {
     marginTop: 30
   },
-  
+
   buttonLabel: {
     fontWeight: 'bold',
     textAlign: 'center'
@@ -200,6 +225,29 @@ const styles = StyleSheet.create({
     width: 140,
     margin: 1
   },
+
+  /* ALT TEXT WRITING */
+  writingContainer: {
+    paddingLeft: 30,
+    paddingRight: 30,
+    paddingTop: 20
+  },
+
+  textbox: {
+    marginTop: 10,
+    padding: 10,
+    color: '#666666',
+    backgroundColor: '#FAFAFA',
+    borderRadius: 5
+  },
+
+  textboxInstruction: {
+    margin: 20,
+    textAlign: 'center',
+    color: '#B1A9A9'
+  }
+
+
 
 });
 

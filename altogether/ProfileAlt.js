@@ -5,7 +5,7 @@ import { Container, Content } from 'native-base'
 import CardComponent from './src/components/CardComponent'
 import HeaderBar from './src/components/HeaderBar'
 import NavBar from './src/components/NavBar'
-import Toggle from './src/components/Toggle'
+import ToggleProfile from './src/components/ToggleProfile'
 import GalleryPhoto from './src/components/GalleryPhoto'
 
 //import { Audio } from ''
@@ -67,7 +67,7 @@ export default class Profile extends Component {
             </View>
 
             {/* Toggle */}
-            <Toggle
+            <ToggleProfile
               selected='right'
               iconLeft={require('./assets/images/GalleryUnselected.png')}
               iconRight={require('./assets/images/AltIconSelected.png')}
