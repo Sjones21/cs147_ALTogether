@@ -13,9 +13,11 @@ import { Alert, Image, Text, View, StyleSheet, ScrollView, Dimensions, Touchable
 import { Card, ListItem, Button, Icon } from 'react-native-elements'
 import { styles } from './Styles.js';
 import { NavigationContainer } from '@react-navigation/native';
+import { HeaderBackButton } from '@react-navigation/stack';
 import { Assets, createStackNavigator } from '@react-navigation/stack';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import Profile from './Profile.js';
+import ProfileAlt from './ProfileAlt.js';
 import Feed from './Feed.js';
 import NewPost from './NewPost.js';
 import NewPostChoosePic from './NewPostChoosePic.js';
@@ -58,7 +60,16 @@ export default class App extends React.Component {
             }}>
             <Stack.Screen name="Feed" component={Feed} options={({route, navigation}) => ({ title: 'Instagram', headerShown: false})}/>
             <Stack.Screen name="Profile" component={Profile} options={({headerShown: false, animationEnabled: false})}/>
-            <Stack.Screen name="NewPost" component={NewPost} options={({route, navigation}) => ({ title: 'New Post', headerBackTitle: " ",
+            <Stack.Screen name="ProfileAlt" component={ProfileAlt} options={({headerShown: false, animationEnabled: false})}/>
+
+            <Stack.Screen name="NewPost" component={NewPost} options={({route, navigation}) => ({ title: 'New Post',
+              headerLeft: () => (
+                <HeaderBackButton
+                labelVisible={false}
+                style={styles.headerButton}
+                onPress={() => navigation.goBack()}>
+                </HeaderBackButton>
+              ),
               headerRight: () => (
                 <TouchableOpacity style={styles.headerButton}
                 onPress={() => navigation.navigate('NewPostChoosePic')}>
@@ -66,7 +77,14 @@ export default class App extends React.Component {
                 </TouchableOpacity>
               )
             })} />
-            <Stack.Screen name="NewPostChoosePic" component={NewPostChoosePic} options={({route, navigation}) => ({ title: 'New Post', headerBackTitle: " ",
+            <Stack.Screen name="NewPostChoosePic" component={NewPostChoosePic} options={({route, navigation}) => ({ title: 'New Post',
+              headerLeft: () => (
+                <HeaderBackButton
+                labelVisible={false}
+                style={styles.headerButton}
+                onPress={() => navigation.goBack()}>
+                </HeaderBackButton>
+              ),
               headerRight: () => (
                 <TouchableOpacity style={styles.headerButton}
                 onPress={() => navigation.navigate('NewPostFilter')}>
@@ -74,7 +92,14 @@ export default class App extends React.Component {
                 </TouchableOpacity>
               )
             })} />
-            <Stack.Screen name="NewPostFilter" component={NewPostFilter} options={({route, navigation}) => ({ title: 'New Post', headerBackTitle: " ",
+            <Stack.Screen name="NewPostFilter" component={NewPostFilter} options={({route, navigation}) => ({ title: 'New Post',
+              headerLeft: () => (
+                <HeaderBackButton
+                labelVisible={false}
+                style={styles.headerButton}
+                onPress={() => navigation.goBack()}>
+                </HeaderBackButton>
+              ),
               headerRight: () => (
                 <TouchableOpacity style={styles.headerButton}
                 onPress={() => navigation.navigate('AltogetherGuided')}>
@@ -82,7 +107,14 @@ export default class App extends React.Component {
                 </TouchableOpacity>
               )
             })} />
-            <Stack.Screen name="AltogetherGuided" component={AltogetherGuided} options={({route, navigation}) => ({ title: 'ALTogether', headerBackTitle: " ",
+            <Stack.Screen name="AltogetherGuided" component={AltogetherGuided} options={({route, navigation}) => ({ title: 'ALTogether',
+              headerLeft: () => (
+                <HeaderBackButton
+                labelVisible={false}
+                style={styles.headerButton}
+                onPress={() => navigation.goBack()}>
+                </HeaderBackButton>
+              ),
               headerRight: () => (
                 <TouchableOpacity style={styles.headerButton}
                 onPress={() => navigation.navigate('NewPostCaption')}>
@@ -90,7 +122,14 @@ export default class App extends React.Component {
                 </TouchableOpacity>
               )
             })} />
-            <Stack.Screen name="AltogetherCustom" component={AltogetherCustom} options={({route, navigation}) => ({ title: 'ALTogether', headerBackTitle: " ",
+            <Stack.Screen name="AltogetherCustom" component={AltogetherCustom} options={({route, navigation}) => ({ animationEnabled: false, title: 'ALTogether',
+              headerLeft: () => (
+                <HeaderBackButton
+                labelVisible={false}
+                style={styles.headerButton}
+                onPress={() => navigation.navigate('NewPostFilter')}>
+                </HeaderBackButton>
+              ),
               headerRight: () => (
                 <TouchableOpacity style={styles.headerButton}
                 onPress={() => navigation.navigate('NewPostCaption')}>
@@ -98,7 +137,14 @@ export default class App extends React.Component {
                 </TouchableOpacity>
               )
             })} />
-            <Stack.Screen name="NewPostCaption" component={NewPostCaption} options={({route, navigation}) => ({ title: 'New Post', headerBackTitle: " ",
+            <Stack.Screen name="NewPostCaption" component={NewPostCaption} options={({route, navigation}) => ({ title: 'New Post',
+              headerLeft: () => (
+                <HeaderBackButton
+                labelVisible={false}
+                style={styles.headerButton}
+                onPress={() => navigation.goBack()}>
+                </HeaderBackButton>
+              ),
               headerRight: () => (
                 <TouchableOpacity style={styles.headerButton}
                 onPress={() => navigation.navigate('Feed')}>
@@ -106,6 +152,7 @@ export default class App extends React.Component {
                 </TouchableOpacity>
               )
             })} />
+
           </Stack.Navigator>
       </NavigationContainer>
     )
