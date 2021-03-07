@@ -42,7 +42,7 @@ export default class Feed extends Component {
       return(
           <View style={styles.container}>
             {/* Header Bar */}
-            <HeaderBar navigation={this.props.navigation}/>
+            <HeaderBar navigation={this.props.navigation} title='Instagram'/>
 
             {/* Feed Container */}
             <View style={styles.contentContainer}>
@@ -62,7 +62,9 @@ export default class Feed extends Component {
               </View>
 
           {/* Navigation Bar */}
-          <NavBar navigation={this.props.navigation}/>
+          <NavBar
+            selected='feed'
+            navigation={this.props.navigation}/>
         </View>
       );
     }
