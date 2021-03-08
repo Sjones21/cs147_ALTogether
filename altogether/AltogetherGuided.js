@@ -9,6 +9,7 @@ import { Card, ListItem, Button, Icon } from 'react-native-elements'
 import * as Speech from 'expo-speech';
 
 import { styles } from './Styles.js';
+import { IMAGES } from './IMAGES.js';
 
 const windowWidth = Dimensions.get('window').width;
 const windowHeight = Dimensions.get('window').height;
