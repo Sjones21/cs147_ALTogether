@@ -10,7 +10,9 @@ import {
     View,
     WebView,
 } from "react-native";
-import { styles } from '../../Styles';
+import { styles } from '../../Styles.js';
+import { IMAGES } from '../../IMAGES.js';
+
 
 import { Container, Card, CardItem, Thumbnail, Body, Left, Right, Button, Icon } from 'native-base';
 
@@ -29,8 +31,8 @@ class GalleryPhoto extends Component {
     render() {
         return (
           <TouchableOpacity
-            onPress={() => Alert.alert('icon pressed')}>
-            <Image style={styles.galleryPhoto} source={this.props.photo} />
+            onPress={() => Alert.alert(`${this.props.photo.id} pressed`)}>
+            <Image style={styles.galleryPhoto} source={this.props.photo.link} />
           </TouchableOpacity>
 
         );
