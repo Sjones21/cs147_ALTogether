@@ -39,7 +39,7 @@ class CardComponent extends Component {
                         </CardItem>
 
                         <CardItem >
-                            <Image source={require('../../assets/images/ice_cream.png')}
+                            <Image source={this.props.photo.link}
                                 style={{ height: scale(320), width: scale(320) }} />
                         </CardItem>
 

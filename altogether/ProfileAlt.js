@@ -10,10 +10,20 @@ import GalleryPhoto from './src/components/GalleryPhoto'
 
 //import { Audio } from ''
 import { Card, ListItem, Button, Icon } from 'react-native-elements'
+import { IMAGES } from './IMAGES.js';
 import { styles } from './Styles.js';
 
 export default class Profile extends Component {
   render() {
+    let images = [];
+
+    for (const [key, value] of Object.entries(IMAGES)) {
+      images.push(
+        <GalleryPhoto key={`${key}`} photo={value} />
+      );
+    }
+
+
     return (
       <View style={styles.container}>
         {/* Header Bar */}
@@ -76,11 +86,7 @@ export default class Profile extends Component {
             {/* 3x3 Photos Container */}
             <View style={{justifyContent: 'center', margin: 1}}>
               <View style={{flexDirection: 'row', flexWrap: 'wrap'}}>
-                <GalleryPhoto photo={require("./assets/images/ice_cream.png")} />
-                <GalleryPhoto photo={require("./assets/images/ice_cream.png")} />
-                <GalleryPhoto photo={require("./assets/me.jpg")} />
-                <GalleryPhoto photo={require("./assets/me.jpg")} />
-                <GalleryPhoto photo={require("./assets/me.jpg")} />
+                { images }
               </View>
             </View>
           </ScrollView>

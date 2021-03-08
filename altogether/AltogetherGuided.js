@@ -44,7 +44,7 @@ export default class AltogetherCustom extends Component {
           <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
             <View style={{justifyContent: 'flex-end'}}>
               {/* Image Post */}
-              <Image source={require('./assets/images/ice_cream.png')}
+              <Image source={IMAGES.iceCream.link}
                   style={{ height: windowWidth, width: windowWidth }} />
 
               {/* Toggle Profile */}
