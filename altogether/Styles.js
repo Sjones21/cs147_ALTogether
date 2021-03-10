@@ -108,6 +108,8 @@ const styles = StyleSheet.create({
     margin: 5
   },
 
+ 
+
   /* CARD COMPONENT */
 
   cardContainer: {
@@ -225,12 +227,22 @@ const styles = StyleSheet.create({
     width: 140,
     margin: 1
   },
+  /* NEW POST CHOOSE PIC */
+  selectedImageContainer: {
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+
+  selectedGalleryPhoto: {
+    height: 400,
+    width: 400,
+  },
 
   newGalleryPhoto: {
     height: 100,
     width: 100,
     margin: 1
-  },
+  }, 
 
   /* ALT TEXT WRITING */
   writingContainer: {

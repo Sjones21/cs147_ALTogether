@@ -11,15 +11,23 @@ import { GALLERY } from './GALLERY.js';
 import { styles } from './Styles.js';
 
 export default class NewPostChoosePic extends Component {
-  selectedImage(){
-
+  constructor(props) {
+    super(props);
+    this.state = {
+      selectedImageLink: './assets/images/gallery/pic1.png',
+    }
+    this.selectedImage = this.selectedImage.bind(this);
+  }
+  selectedImage(photo){
+    this.setState({selectedImageLink : photo.link})
+    //Alert.alert(`${photo.id} kissed`);
   }
   render() {
     let images = [];
 
     for (const [key, value] of Object.entries(GALLERY)) {
       images.push(
-        <NewGalleryPhoto key={`${key}`} photo={value} isNewPhoto={true} />
+        <NewGalleryPhoto key={`${key}`} photo={value} isNewPhoto={true} selectedImage={this.selectedImage}/>
       );
     }
     return (
@@ -27,10 +35,10 @@ export default class NewPostChoosePic extends Component {
         <View style={styles.titleContainer}>
           <Text style={styles.pageTitle}> Choose pic from camera roll</Text>
         </View>
-        <View style={styles.titleContainer}>
+        <View style={styles.selectedImageContainer}>
           <Image
-            //style={styles.tinyLogo}
-            //source=
+            style={styles.selectedGalleryPhoto}
+            source={this.state.selectedImageLink}
           />
         </View>
         <View style={{ justifyContent: 'center', margin: 1 }}>
