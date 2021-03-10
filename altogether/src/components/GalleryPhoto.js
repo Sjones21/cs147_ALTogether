@@ -1,14 +1,14 @@
 import React, { Component } from "react";
 import {
-    Alert,
-    Image,
-    Linking,
-    Platform,
-    StyleSheet,
-    Text,
-    TouchableOpacity,
-    View,
-    WebView,
+  Alert,
+  Image,
+  Linking,
+  Platform,
+  StyleSheet,
+  Text,
+  TouchableOpacity,
+  View,
+  WebView,
 } from "react-native";
 import { styles } from '../../Styles.js';
 import { IMAGES } from '../../IMAGES.js';
@@ -28,15 +28,18 @@ const scale = size => (width / guidelineBaseWidth) * size;
 
 class GalleryPhoto extends Component {
 
-    render() {
-        return (
-          <TouchableOpacity
-            onPress={() => Alert.alert(`${this.props.photo.id} pressed`)}>
-            <Image style={styles.galleryPhoto} source={this.props.photo.link} />
-          </TouchableOpacity>
+  render() {
+    return (
+      <TouchableOpacity
+        onPress={() => Alert.alert(`${this.props.photo.id} pressed`)}>
+        {this.props.isNewPhoto ?
+          <Image style={styles.newGalleryPhoto} source={this.props.photo.link} />
+          : 
+          <Image style={styles.galleryPhoto} source={this.props.photo.link} />}
+      </TouchableOpacity>
 
-        );
-    }
+    );
+  }
 }
 
 export default GalleryPhoto;
