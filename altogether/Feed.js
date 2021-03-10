@@ -10,6 +10,7 @@ import NavBar from './src/components/NavBar'
 import { Card, ListItem, Button, Icon } from 'react-native-elements'
 import { styles } from './Styles.js';
 import { IMAGES } from './IMAGES.js';
+import { TextInput } from 'react-native-gesture-handler';
 
 
 
@@ -23,9 +24,13 @@ let customFonts = {
   // 'Inter-SemiBoldItalic': 'https://rsms.me/inter/font-files/Inter-SemiBoldItalic.otf?v=3.12',
 };
 
-export default class Feed extends Component {
 
+export default class Feed extends Component {
+  
+  
   render() {
+
+    
       return(
           <View style={styles.container}>
             {/* Header Bar */}
@@ -34,7 +39,7 @@ export default class Feed extends Component {
             {/* Feed Container */}
             <View style={styles.contentContainer}>
                 <Content>
-                  <CardComponent thumbnail={require("./assets/me.jpg")} photo={IMAGES.haeli1} youtube={true} id_youtube="L-W_EDUQw6I" likes="11" nb_commentaires="202" pseudo="maxgfr" date="01/01/2018" description="blablablabla" />
+                  <CardComponent thumbnail={require("./assets/me.jpg")} photo={IMAGES.haeli1} youtube={true} id_youtube="L-W_EDUQw6I" likes="11" nb_commentaires="202" pseudo="maxgfr" date="01/01/2018" description= "blalala"/>
                   <CardComponent thumbnail={require("./assets/me.jpg")} photo={IMAGES.dani1} youtube={true} id_youtube="507d9xto6Og" likes="11" nb_commentaires="202" pseudo="maxgfr" date="01/01/2018" description="blablablabla" />
                   <CardComponent thumbnail={require("./assets/me.jpg")} photo={IMAGES.iceCream} twitch_live={true} chaine_twitch="humilityfr" likes="11" nb_commentaires="202" pseudo="maxgfr" date="01/01/2018" description="blablablabla" />
                   <CardComponent thumbnail={require("./assets/me.jpg")} photo={IMAGES.iceCream} twitch_videos={true} id_twitch_video="329825601" likes="11" nb_commentaires="202" pseudo="maxgfr" date="01/01/2018" description="blablablabla" />
