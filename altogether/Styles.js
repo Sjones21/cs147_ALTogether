@@ -195,8 +195,18 @@ const styles = StyleSheet.create({
     fontSize: 20,
   },
 
+  underlineWrapper:{
+      borderBottomWidth: 10
+  },
+
+  inputText: {
+    fontSize: 22,
+  },
+
   underline: {
-    //fontSize: 14,
+    fontSize: 22,
+    fontColor: '#206FE9',
+    paddingBottom: 3,
     textDecorationLine: 'underline',
     textDecorationStyle: 'dotted',
     textDecorationColor: '#206FE9',

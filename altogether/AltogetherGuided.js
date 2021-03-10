@@ -30,18 +30,18 @@ export default class AltogetherGuided extends Component {
                     ));
                 } else {
                 elements.push((
-                    <Text><Text key ={word.id} style = {styles.underline}>{word}</Text><Text> </Text></Text>
+                    <Text ><Text key ={word.id} style = {styles.underline}>{word}</Text><Text> </Text></Text>
                     ));
                 }
                 count++;
             } else {
                 if(count == numWords){
                     elements.push((
-                    <Text key ={word.id}>{word}</Text>
+                    <Text key ={word.id} style = {styles.inputText}>{word}</Text>
                     ));
                 } else {
                 elements.push((
-                    <Text key ={word.id}>{word} </Text>
+                    <Text key ={word.id} style = {styles.inputText}>{word} </Text>
                     ));
                 }
                 count++;
