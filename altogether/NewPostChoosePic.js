@@ -29,8 +29,8 @@ export default class NewPostChoosePic extends Component {
         </View>
         <View style={styles.titleContainer}>
           <Image
-            style={styles.tinyLogo}
-            source={require('@expo/snack-static/react-native-logo.png')}
+            //style={styles.tinyLogo}
+            //source=
           />
         </View>
         <View style={{ justifyContent: 'center', margin: 1 }}>
