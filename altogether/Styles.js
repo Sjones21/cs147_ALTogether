@@ -226,6 +226,12 @@ const styles = StyleSheet.create({
     margin: 1
   },
 
+  newGalleryPhoto: {
+    height: 100,
+    width: 100,
+    margin: 1
+  },
+
   /* ALT TEXT WRITING */
   writingContainer: {
     paddingLeft: 30,
