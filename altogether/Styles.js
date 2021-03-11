@@ -194,14 +194,14 @@ const styles = StyleSheet.create({
     paddingBottom:5,
     margin: 5,
     marginRight:10,
-    backgroundColor: '#FFFFFF',
     color: '#3996EF',
     borderRadius: 10,
   },
 
   headerButtonText: {
-    fontSize: 18,
+    fontSize: 20,
     color: '#3996EF',
+    fontWeight: '500',
   },
 
   pageTitle:{

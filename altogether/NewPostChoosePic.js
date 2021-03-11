@@ -28,6 +28,12 @@ export default class NewPostChoosePic extends Component {
     this.state.updateImageIdCallback(this.state.imageID);
   }
 
+  handleImagePress = (id) =>{
+    this.setState({imageID: id}, () => {
+    this.state.updateImageIdCallback(this.state.imageID);
+    })
+  }
+
 
 
   selectedImage(photo) {
@@ -36,14 +42,15 @@ export default class NewPostChoosePic extends Component {
       this.state.updateImageIdCallback(this.state.imageID);
         })
       })
-    //Alert.alert(`${photo.id} kissed`);
   }
   render() {
     let images = [];
     for (const [key, value] of Object.entries(IMAGES)) {
       if (value.poster == 'gallery') {
         images.push(
-          <NewGalleryPhoto key={`${key}`} photo={value} isNewPhoto={true} selectedImage={this.selectedImage}/>
+          <NewGalleryPhoto key={`${key}`} photo={value} isNewPhoto={true} selectedImage={this.selectedImage}
+              onPress={() => {this.handleImagePress(value.id)}}>
+          </NewGalleryPhoto>
         );
       }
       

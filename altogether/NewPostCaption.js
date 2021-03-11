@@ -63,6 +63,10 @@ export default class NewPostCaption extends Component {
     this.setState({TumblrIsEnabled: !previousState});
   }
 
+  handleChangeText = (text) => {
+    this.state.selectedImage.caption = text;
+  }
+
   render() {
     return (
       <View style={styles.container}>
@@ -74,7 +78,7 @@ export default class NewPostCaption extends Component {
                        style={[styles.captionText, {height: windowHeight / 8}]}
                        placeholder={'Write a caption...'}
                        placeholderTextColor={'#666666'}
-                       onChangeText={this.handleAltText}
+                       onChangeText={this.handleChangeText}
                        multiline={true}
                        onSubmitEditing = { () => Keyboard.dismiss()}>
                 </TextInput>
