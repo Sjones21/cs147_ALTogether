@@ -18,9 +18,11 @@ export default class Profile extends Component {
     let images = [];
 
     for (const [key, value] of Object.entries(IMAGES)) {
-      images.push(
-        <GalleryPhoto key={`${key}`} photo={value} />
-      );
+      if (value.poster == 'sydney') {
+        images.push(
+          <GalleryPhoto key={`${key}`} photo={value} />
+        );
+      }
     }
 
 
@@ -60,8 +62,11 @@ export default class Profile extends Component {
               </View>
 
               {/* Edit Profile Button */}
-              <View style={{ alignItems: 'left' }}>
-                <Text style={styles.titleText} onPress={onPressTitle}>Gallery</Text>
+              <View style={{ alignItems: 'center' }}>
+                <TouchableOpacity
+                  style={styles.editButton}>
+                  <Text style={styles.buttonLabel}>Edit Profile</Text>
+                </TouchableOpacity>
               </View>
                 {/* Stories */}
                 <View style={{ flexDirection: 'row' }}>

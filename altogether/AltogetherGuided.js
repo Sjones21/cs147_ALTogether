@@ -63,7 +63,16 @@ export default class AltogetherGuided extends Component {
     Speech.speak(this.state.image.altText, {rate: 1.25});
   };
 
-  
+  stop = () => {
+    Speech.stop();
+    this.setState({isSpeaking: false});
+  }
+
+  onDone = () => {
+    this.setState({isSpeaking: false})
+  }
+
+
 
   handleAltText = (text) => {
     const words = text.split(' ');
@@ -126,18 +135,26 @@ export default class AltogetherGuided extends Component {
                   </TextInput>
                   <Text style={styles.textboxInstruction}>Tap any word to edit</Text>
                   <View style ={{flexDirection: 'row', alignItems: 'center', alignSelf:'center'}}>
-                <TouchableOpacity
+                { this.state.isSpeaking ? (<TouchableOpacity
                   style={{flexDirection: 'row', alignItems: 'center', marginTop: 35}}
-                  onPress={this.speak}>
-                  <Image source={require('./assets/images/Play.png')}
+                  onPress={this.stop}>
+                  <Image source={require('./assets/images/Pause.png')}
                       style={[styles.icons, {height: 20, width: 20, marginLeft: 0, marginRight: 10, tintColor: '#3996EF'}]} />
-                  <Text style={{fontSize: 18, color: '#424242', fontWeight: '300'}}>Hear your alt text</Text>
-                  </TouchableOpacity>
+                  <Text style={{fontSize: 18, color: '#424242', fontWeight: '300'}}>Pause your alt text</Text>
+                  </TouchableOpacity>) :
+                  (<TouchableOpacity
+                    style={{flexDirection: 'row', alignItems: 'center', marginTop: 35}}
+                    onPress={this.speak}>
+                    <Image source={require('./assets/images/Play.png')}
+                        style={[styles.icons, {height: 20, width: 20, marginLeft: 0, marginRight: 10, tintColor: '#3996EF'}]} />
+                    <Text style={{fontSize: 18, color: '#424242', fontWeight: '300'}}>Hear your alt text</Text>
+                    </TouchableOpacity>)
+                }
                   </View>
               </View>
 
-             
-              
+
+
 
             </View>
           </TouchableWithoutFeedback>
