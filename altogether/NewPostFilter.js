@@ -17,6 +17,7 @@ export default class NewPostFilter extends Component {
     this.state = {
       selectedImageLink: require('./assets/images/gallery/pic1.png'),
     }
+    //var selectedImage = props.navigation.state.params.selectedImage;
     this.selectedImage = this.selectedImage.bind(this);
   }
   selectedImage(photo) {

@@ -19,7 +19,8 @@ export default class NewPostChoosePic extends Component {
     this.selectedImage = this.selectedImage.bind(this);
   }
   selectedImage(photo) {
-    this.setState({ selectedImageLink: photo.link })
+    this.setState({ selectedImageLink: photo.link });
+    this.setState({ selectedImage : photo});
     //Alert.alert(`${photo.id} kissed`);
   }
   render() {
@@ -30,6 +31,9 @@ export default class NewPostChoosePic extends Component {
         <NewGalleryPhoto key={`${key}`} photo={value} isNewPhoto={true} selectedImage={this.selectedImage} />
       );
     }
+    /*
+    this.props.navigation.navigate('NewPostFilter', {
+      selectedImage: this.state.selectedImage });*/
     return (
       <View style={styles.container}>
         <View style={styles.selectedImageContainer}>

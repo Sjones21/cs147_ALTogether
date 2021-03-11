@@ -96,6 +96,7 @@ export default class App extends React.Component {
             )
           })} />
           <Stack.Screen name="NewPostFilter" component={NewPostFilter} options={({ route, navigation }) => ({
+            animationEnabled: false, 
             title: 'Filter',
             headerLeft: () => (
               <HeaderBackButton
@@ -112,6 +113,7 @@ export default class App extends React.Component {
             )
           })} />
           <Stack.Screen name="NewPostEdit" component={NewPostEdit} options={({ route, navigation }) => ({
+            animationEnabled: false, 
             title: 'Edit',
             headerLeft: () => (
               <HeaderBackButton

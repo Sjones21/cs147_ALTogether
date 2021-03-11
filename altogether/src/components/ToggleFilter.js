@@ -39,7 +39,7 @@ class ToggleFilter extends Component {
             <View style={[this.props.selected == 'right' ? styles.selected : styles.unselected]}>
             <TouchableOpacity
               style={{alignItems: 'center'}}
-              onPress={() => this.props.navigation.navigate('NewPostFilter')}>
+              onPress={() => this.props.navigation.navigate('NewPostEdit')}>
               <Text style={[this.props.selected == 'right' ? styles.selectedText : styles.unselectedText]}>Edit</Text>
             </TouchableOpacity>
             </View>
