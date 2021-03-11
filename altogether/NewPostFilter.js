@@ -8,6 +8,17 @@ import { Card, ListItem, Button, Icon } from 'react-native-elements'
 import { styles } from './Styles.js';
 
 export default class NewPostFilter extends Component {
+  constructor({route, navigation}) {
+    super();
+        this.state =  {
+          imageID: route.params.image_id
+    };
+
+    console.log("FILTER route.params " + route.params.image_id);
+
+    console.log("FILTER state " + this.state.imageID);
+  }
+
   render() {
     return (
       <View style={styles.container}>

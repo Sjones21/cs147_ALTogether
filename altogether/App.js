@@ -26,20 +26,26 @@ import NewPostCaption from './NewPostCaption.js';
 import AltogetherGuided from './AltogetherGuided.js';
 import AltogetherCustom from './AltogetherCustom.js';
 import * as Font from 'expo-font';
+import { LogBox } from 'react-native';
 
 import { Container } from "native-base";
+import { IMAGES } from "./IMAGES";
 const Stack = createStackNavigator();
-//const Tab = createBottomTabNavigator();
 const users = [
   {
     name: 'brynn',
     avatar: 'https://s3.amazonaws.com/uifaces/faces/twitter/brynn/128.jpg'
   },
 ]
+LogBox.ignoreLogs([
+  'Non-serializable values were found in the navigation state',
+ ]);
+
 export default class App extends React.Component {
 
   state = {
     loaded: false,
+    image_id: null
   };
 
   async loadFonts(){
@@ -50,16 +56,6 @@ export default class App extends React.Component {
   }
   
   async componentDidMount() {
-    /*
-    await Audio.setAudioModeAsync({
-      playsInSilentModeIOS: true,
-      allowsRecordingIOS: true,
-      interruptionModeIOS: Audio.INTERRUPTION_MODE_IOS_DO_NOT_MIX,
-      shouldDuckAndroid: false,
-      interruptionModeAndroid: Audio.INTERRUPTION_MODE_ANDROID_DO_NOT_MIX,
-      playThroughEarpieceAndroid: true
-    })
-    */
     this.loadFonts();
   }
 
@@ -86,7 +82,10 @@ export default class App extends React.Component {
               ),
               headerRight: () => (
                 <TouchableOpacity style={styles.headerButton}
-                onPress={() => navigation.navigate('NewPostChoosePic')}>
+                onPress={() => {navigation.navigate('NewPostChoosePic', {
+                  updateImageIdCallback: ((id) => this.setState({image_id: id}))
+                  });
+                  }}>
                 <Text style={styles.headerButtonText}>Next</Text>
                 </TouchableOpacity>
               )
@@ -101,7 +100,10 @@ export default class App extends React.Component {
               ),
               headerRight: () => (
                 <TouchableOpacity style={styles.headerButton}
-                onPress={() => navigation.navigate('NewPostFilter')}>
+                onPress={(route) => {navigation.navigate('NewPostFilter', {
+                  image_id: this.state.image_id
+                  });
+                  }}>
                 <Text style={styles.headerButtonText}>Next</Text>
                 </TouchableOpacity>
               )
@@ -116,7 +118,10 @@ export default class App extends React.Component {
               ),
               headerRight: () => (
                 <TouchableOpacity style={styles.headerButton}
-                onPress={() => navigation.navigate('AltogetherGuided')}>
+                onPress={() => {navigation.navigate('AltogetherGuided', {
+                  image_id: this.state.image_id
+                  });
+                  }}>
                 <Text style={styles.headerButtonText}>Next</Text>
                 </TouchableOpacity>
               )
@@ -131,7 +136,10 @@ export default class App extends React.Component {
               ),
               headerRight: () => (
                 <TouchableOpacity style={styles.headerButton}
-                onPress={() => navigation.navigate('NewPostCaption')}>
+                onPress={() => {navigation.navigate('NewPostCaption', {
+                  image_id: this.state.image_id
+                });
+                }}>
                 <Text style={styles.headerButtonText}>Next</Text>
                 </TouchableOpacity>
               )
@@ -146,7 +154,10 @@ export default class App extends React.Component {
               ),
               headerRight: () => (
                 <TouchableOpacity style={styles.headerButton}
-                onPress={() => navigation.navigate('NewPostCaption')}>
+                onPress={() => {navigation.navigate('NewPostCaption', {
+                  image_id: this.state.image_id
+                });
+              }}>
                 <Text style={styles.headerButtonText}>Next</Text>
                 </TouchableOpacity>
               )
@@ -161,7 +172,10 @@ export default class App extends React.Component {
               ),
               headerRight: () => (
                 <TouchableOpacity style={styles.headerButton}
-                onPress={() => navigation.navigate('Feed')}>
+                onPress={() => {navigation.navigate('Feed', {
+                  image_id: this.state.image_id
+                });
+              }}>
                 <Text style={styles.headerButtonText}>Next</Text>
                 </TouchableOpacity>
               )

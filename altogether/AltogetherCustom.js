@@ -17,12 +17,32 @@ const windowHeight = Dimensions.get('window').height;
 export default class AltogetherCustom extends Component {
 
   speak = () => {
-    Speech.speak(IMAGES.iceCream.altText, {rate: 1.25});
+    Speech.speak(this.state.image.altText, {rate: 1.25});
   };
 
   handleAltText = (text) => {
-    IMAGES.iceCream.altText = text;
+    this.state.image.altText = text;
   }
+
+  getImageWithID(id_1){
+    /*
+    console.log(IMAGES);
+    console.log(typeof(id_1));
+    console.log(typeof("iceCream"));
+    console.log(IMAGES["iceCream"]);
+    console.log(id_1 === "iceCream")
+    console.log(IMAGES[id_1]);
+    */
+    return IMAGES[id_1];
+}
+
+constructor({route, navigation}) {
+  super();
+  const image = this.getImageWithID(route.params.image_id);
+      this.state =  {
+        image: image,
+  };
+}
 
   render() {
     return (
@@ -35,13 +55,15 @@ export default class AltogetherCustom extends Component {
           <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
             <View style={{justifyContent: 'flex-end'}}>
               {/* Image Post */}
-              <Image source={require('./assets/images/ice_cream.png')}
+              <Image source={this.state.image.link}
                   style={{ height: windowHeight/2.5, width: windowWidth }} />
 
               {/* Toggle Profile */}
               <ToggleAlt
                 selected='right'
-                navigation={this.props.navigation}/>
+                navigation={this.props.navigation}
+                image_id ={this.state.image.id}
+                />
 
               {/* Alt Text Writing Container */}
               <View style={styles.writingContainer}>
