@@ -34,9 +34,9 @@ export default class NewPostChoosePic extends Component {
     this.state.updateImageIdCallback(this.state.imageID);
     })
   }
-   
 
-  
+
+
   selectedImage(photo) {
     this.setState({selectedImage : photo}, () => {
     this.setState({imageID: photo.id}, () => {
@@ -48,12 +48,15 @@ export default class NewPostChoosePic extends Component {
   render() {
     let images = [];
     for (const [key, value] of Object.entries(IMAGES)) {
-      images.push(
-        <NewGalleryPhoto key={`${key}`} photo={value} isNewPhoto={true} selectedImage={this.selectedImage}
-            onPress={() => {this.handleImagePress(value.id)}}>
-            <Image style={styles.galleryPhoto} source={value.link} />
-        </NewGalleryPhoto>
-      );
+      if (value.poster == 'gallery') {
+        images.push(
+          <NewGalleryPhoto key={`${key}`} photo={value} isNewPhoto={true} selectedImage={this.selectedImage}
+              onPress={() => {this.handleImagePress(value.id)}}>
+              <Image style={styles.galleryPhoto} source={value.link} />
+          </NewGalleryPhoto>
+        );
+      }
+      
     }
     /*
     this.props.navigation.navigate('NewPostFilter', {

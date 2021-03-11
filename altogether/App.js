@@ -58,7 +58,7 @@ export default class App extends React.Component {
           <Stack.Screen name="Feed" component={Feed} options={({ route, navigation }) => ({ title: 'Instagram', headerShown: false })} />
           <Stack.Screen name="Profile" component={Profile} options={({ headerShown: false, animationEnabled: false })} />
           <Stack.Screen name="ProfileAlt" component={ProfileAlt} options={({ headerShown: false, animationEnabled: false })} />
-          <Stack.Screen name="NewPostChoosePic" component={NewPostChoosePic} initialParams={{updateImageIdCallback: ((id) => this.setState({image_id: id}))}}options={({ route, navigation, 
+          <Stack.Screen name="NewPostChoosePic" component={NewPostChoosePic} initialParams={{updateImageIdCallback: ((id) => this.setState({image_id: id}))}}options={({ route, navigation,
                   }) => ({
             title: 'New Post',
             headerLeft: () => (
@@ -79,7 +79,7 @@ export default class App extends React.Component {
             )
           })} />
           <Stack.Screen name="NewPostFilter" component={NewPostFilter} options={({ route, navigation }) => ({
-            animationEnabled: false, 
+            animationEnabled: false,
             title: 'Filter',
             headerLeft: () => (
               <HeaderBackButton
@@ -99,7 +99,7 @@ export default class App extends React.Component {
             )
           })} />
           <Stack.Screen name="NewPostEdit" component={NewPostEdit} options={({ route, navigation }) => ({
-            animationEnabled: false, 
+            animationEnabled: false,
             title: 'Edit',
             headerLeft: () => (
               <HeaderBackButton
@@ -131,7 +131,8 @@ export default class App extends React.Component {
             headerRight: () => (
               <TouchableOpacity style={styles.headerButton}
                 onPress={() => {navigation.navigate('NewPostCaption', {
-                  image_id: this.state.image_id
+                  image_id: this.state.image_id,
+                  type: 'guided'
                 });
               }}>
                 <Text style={styles.headerButtonText}>Next</Text>
@@ -150,7 +151,8 @@ export default class App extends React.Component {
               headerRight: () => (
                 <TouchableOpacity style={styles.headerButton}
                 onPress={() => {navigation.navigate('NewPostCaption', {
-                  image_id: this.state.image_id
+                  image_id: this.state.image_id,
+                  type: 'custom'
                 });
               }}>
                 <Text style={styles.headerButtonText}>Next</Text>

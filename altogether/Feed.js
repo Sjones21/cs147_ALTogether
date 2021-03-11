@@ -37,7 +37,7 @@ export default class Feed extends Component {
     for (const [key, value] of Object.entries(IMAGES)) {
       let likes = Math.floor(Math.random() * Math.floor(300));
       let comments = Math.floor(Math.random() * Math.floor(25));
-      if (value.poster !== 'sydney') {
+      if (value.poster !== 'sydney' && value.poster !== 'gallery') {
         images.push(
           <CardComponent key={`${key}`} thumbnail={`${value.thumbnail}`} photo={value} likes={`${likes}`} nb_commentaires={`${comments}`} pseudo={`${value.poster}`} date="01/01/2018" description= {`${value.caption}`}/>
         );
