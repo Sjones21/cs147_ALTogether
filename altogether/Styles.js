@@ -217,6 +217,26 @@ const styles = StyleSheet.create({
     fontWeight: '300',
   },
 
+  captionText:{
+    fontSize: 18,
+    fontWeight: '300',
+    flexBasis: 250, 
+    flexShrink: 2, 
+    flexGrow: 2, 
+    margin:15, 
+    marginLeft:0, 
+    marginTop:30,
+    flexWrap: 'wrap'
+  },
+
+  captionAltText:{
+    fontSize: 16,
+    fontWeight: '300',
+    margin: 15,
+    marginTop: 0,
+    color: '#666666'
+  },
+
   underline: {
     fontFamily: 'Arial',
     fontSize: 22,
@@ -234,6 +254,10 @@ const styles = StyleSheet.create({
   buttonLabel: {
     fontWeight: 'bold',
     textAlign: 'center'
+  },
+
+  switch:{
+    margin: 15
   },
 
   story: {
