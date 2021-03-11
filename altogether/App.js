@@ -26,6 +26,7 @@ import NewPostEdit from './NewPostEdit.js';
 import NewPostCaption from './NewPostCaption.js';
 import AltogetherGuided from './AltogetherGuided.js';
 import AltogetherCustom from './AltogetherCustom.js';
+import * as Font from 'expo-font';
 
 import { Container } from "native-base";
 const Stack = createStackNavigator();
@@ -38,8 +39,19 @@ const users = [
 ]
 export default class App extends React.Component {
 
-  /*
+  state = {
+    loaded: false,
+  };
+
+  async loadFonts(){
+    await Font.loadAsync({
+        BebasNeue: require('./assets/BebasNeue-Regular.ttf')
+    });
+    this.setState({ loaded: true});
+  }
+  
   async componentDidMount() {
+    /*
     await Audio.setAudioModeAsync({
       playsInSilentModeIOS: true,
       allowsRecordingIOS: true,
@@ -48,11 +60,13 @@ export default class App extends React.Component {
       interruptionModeAndroid: Audio.INTERRUPTION_MODE_ANDROID_DO_NOT_MIX,
       playThroughEarpieceAndroid: true
     })
-    this.setState({ loaded: true })
-  }*/
+    */
+    this.loadFonts();
+  }
 
 
   render() {
+    if(this.state.loaded){
     return (
       <NavigationContainer style={styles.container}>
         <Stack.Navigator
@@ -174,12 +188,16 @@ export default class App extends React.Component {
               <TouchableOpacity style={styles.headerButton}
                 onPress={() => navigation.navigate('Feed')}>
                 <Text style={styles.headerButtonText}>Next</Text>
+
               </TouchableOpacity>
             )
           })} />
 
         </Stack.Navigator>
+
       </NavigationContainer>
     )
   }
+  return null;
+}
 }

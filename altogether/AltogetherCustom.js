@@ -6,12 +6,23 @@ import CardComponent from './src/components/CardComponent'
 import ToggleAlt from './src/components/ToggleAlt'
 //import { Audio } from ''
 import { Card, ListItem, Button, Icon } from 'react-native-elements'
+
+import { IMAGES } from './IMAGES.js';
 import { styles } from './Styles.js';
+import * as Speech from 'expo-speech';
 
 const windowWidth = Dimensions.get('window').width;
 const windowHeight = Dimensions.get('window').height;
 
 export default class AltogetherCustom extends Component {
+
+  speak = () => {
+    Speech.speak(IMAGES.iceCream.altText, {rate: 1.25});
+  };
+
+  handleAltText = (text) => {
+    IMAGES.iceCream.altText = text;
+  }
 
   render() {
     return (
@@ -25,7 +36,7 @@ export default class AltogetherCustom extends Component {
             <View style={{justifyContent: 'flex-end'}}>
               {/* Image Post */}
               <Image source={require('./assets/images/ice_cream.png')}
-                  style={{ height: windowWidth, width: windowWidth }} />
+                  style={{ height: windowHeight/2.5, width: windowWidth }} />
 
               {/* Toggle Profile */}
               <ToggleAlt
@@ -34,25 +45,27 @@ export default class AltogetherCustom extends Component {
 
               {/* Alt Text Writing Container */}
               <View style={styles.writingContainer}>
-                <Text style={styles.header1}>Create a custom alt text</Text>
-                <Text style={styles.header2}>Writing your own alt text delivers context only you can provide.</Text>
-                <TextInput
-                    style={[styles.textbox, {height: windowHeight / 10}]}
-                    placeholder={'E.g., "My black pug Ellie lying in the backyard grass with her tongue sticking out."'}
-                    placeholderTextColor = {'#666666'}
-                    multiline={true}
-                    onSubmitEditing = { () => Keyboard.dismiss()}
-                  />
-              </View>
-
-              {/* SUBMIT BUTTON */}
-              {/*<View style={{ alignSelf: 'center'}}>
+                <Text style={styles.header1}>Custom alt text </Text>
+                <Text style={styles.header2}>Write your own alt text:</Text>
+                  <TextInput
+                     style={[styles.textbox, {height: windowHeight / 8}]}
+                     placeholder={'E.g., "My black pug Ellie lying in the backyard grass with her tongue sticking out."'}
+                     placeholderTextColor={'#AAAAAA'}
+                     onChangeText={this.handleAltText}
+                     multiline={true}
+                     onSubmitEditing = { () => Keyboard.dismiss()}>
+                  </TextInput>
+                  <Text> </Text>
+                  <View style ={{flexDirection: 'row', alignItems: 'center', alignSelf:'center'}}>
                 <TouchableOpacity
-                  style={styles.exampleButton}
-                  onPress={() => Alert.alert('Submitted alt text')}>
-                  <Text style={styles.exampleButtonLabel}>Submit</Text>
-                </TouchableOpacity>
-              </View>*/}
+                  style={{flexDirection: 'row', alignItems: 'center', marginTop: 35}}
+                  onPress={this.speak}>
+                  <Image source={require('./assets/images/Play.png')}
+                      style={[styles.icons, {height: 20, width: 20, marginLeft: 0, marginRight: 10, tintColor: '#3996EF'}]} />
+                  <Text style={{fontSize: 18, color: '#424242', fontWeight: '300'}}>Hear your alt text</Text>
+                  </TouchableOpacity>
+                  </View>
+              </View>
 
             </View>
           </TouchableWithoutFeedback>
