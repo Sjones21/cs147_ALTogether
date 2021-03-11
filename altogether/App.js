@@ -9,7 +9,7 @@ import {
 
 import CardComponent from './src/components/CardComponent'
 //import { Audio } from ''
-import { Alert, Image, Text, View, StyleSheet, ScrollView, Dimensions, TouchableOpacity} from 'react-native';
+import { Alert, Image, Text, View, StyleSheet, ScrollView, Dimensions, TouchableOpacity } from 'react-native';
 import { Card, ListItem, Button, Icon } from 'react-native-elements'
 import { styles } from './Styles.js';
 import { NavigationContainer } from '@react-navigation/native';
@@ -22,6 +22,7 @@ import Feed from './Feed.js';
 import NewPost from './NewPost.js';
 import NewPostChoosePic from './NewPostChoosePic.js';
 import NewPostFilter from './NewPostFilter.js';
+import NewPostEdit from './NewPostEdit.js';
 import NewPostCaption from './NewPostCaption.js';
 import AltogetherGuided from './AltogetherGuided.js';
 import AltogetherCustom from './AltogetherCustom.js';
@@ -63,18 +64,19 @@ export default class App extends React.Component {
   render() {
     if(this.state.loaded){
     return (
-        <NavigationContainer style={styles.container}>
-          <Stack.Navigator
-            screenOptions={{
-              headerShown: true
-            }}>
-            <Stack.Screen name="Feed" component={Feed} options={({route, navigation}) => ({ title: 'Instagram', headerShown: false})}/>
-            <Stack.Screen name="Profile" component={Profile} options={({headerShown: false, animationEnabled: false})}/>
-            <Stack.Screen name="ProfileAlt" component={ProfileAlt} options={({headerShown: false, animationEnabled: false})}/>
+      <NavigationContainer style={styles.container}>
+        <Stack.Navigator
+          screenOptions={{
+            headerShown: true
+          }}>
+          <Stack.Screen name="Feed" component={Feed} options={({ route, navigation }) => ({ title: 'Instagram', headerShown: false })} />
+          <Stack.Screen name="Profile" component={Profile} options={({ headerShown: false, animationEnabled: false })} />
+          <Stack.Screen name="ProfileAlt" component={ProfileAlt} options={({ headerShown: false, animationEnabled: false })} />
 
-            <Stack.Screen name="NewPost" component={NewPost} options={({route, navigation}) => ({ title: 'New Post',
-              headerLeft: () => (
-                <HeaderBackButton
+          <Stack.Screen name="NewPost" component={NewPost} options={({ route, navigation }) => ({
+            title: 'New Post',
+            headerLeft: () => (
+              <HeaderBackButton
                 labelVisible={false}
                 style={styles.headerButton}
                 onPress={() => navigation.goBack()}>
@@ -87,12 +89,13 @@ export default class App extends React.Component {
                   });
                   }}>
                 <Text style={styles.headerButtonText}>Next</Text>
-                </TouchableOpacity>
-              )
-            })} />
-            <Stack.Screen name="NewPostChoosePic" component={NewPostChoosePic} options={({route, navigation}) => ({ title: 'New Post',
-              headerLeft: () => (
-                <HeaderBackButton
+              </TouchableOpacity>
+            )
+          })} />
+          <Stack.Screen name="NewPostChoosePic" component={NewPostChoosePic} options={({ route, navigation }) => ({
+            title: 'New Post',
+            headerLeft: () => (
+              <HeaderBackButton
                 labelVisible={false}
                 style={styles.headerButton}
                 onPress={() => navigation.goBack()}>
@@ -105,12 +108,34 @@ export default class App extends React.Component {
                   });
                   }}>
                 <Text style={styles.headerButtonText}>Next</Text>
-                </TouchableOpacity>
-              )
-            })} />
-            <Stack.Screen name="NewPostFilter" component={NewPostFilter} options={({route, navigation}) => ({ title: 'New Post',
-              headerLeft: () => (
-                <HeaderBackButton
+              </TouchableOpacity>
+            )
+          })} />
+          <Stack.Screen name="NewPostFilter" component={NewPostFilter} options={({ route, navigation }) => ({
+            animationEnabled: false, 
+            title: 'Filter',
+            headerLeft: () => (
+              <HeaderBackButton
+                labelVisible={false}
+                style={styles.headerButton}
+                onPress={() => navigation.goBack()}>
+                </HeaderBackButton>
+              ),
+              headerRight: () => (
+                <TouchableOpacity style={styles.headerButton}
+                onPress={() => {navigation.navigate('NewPostEdit', {
+                  image_id: this.state.image_id
+                  });
+                  }}>
+                <Text style={styles.headerButtonText}>Next</Text>
+              </TouchableOpacity>
+            )
+          })} />
+          <Stack.Screen name="NewPostEdit" component={NewPostEdit} options={({ route, navigation }) => ({
+            animationEnabled: false, 
+            title: 'Edit',
+            headerLeft: () => (
+              <HeaderBackButton
                 labelVisible={false}
                 style={styles.headerButton}
                 onPress={() => navigation.goBack()}>
@@ -120,33 +145,36 @@ export default class App extends React.Component {
                 <TouchableOpacity style={styles.headerButton}
                 onPress={() => {navigation.navigate('AltogetherGuided', {
                   image_id: this.state.image_id
-                  });
-                  }}>
+                });
+                }}>
+
                 <Text style={styles.headerButtonText}>Next</Text>
-                </TouchableOpacity>
+              </TouchableOpacity>
               )
             })} />
-            <Stack.Screen name="AltogetherGuided" component={AltogetherGuided} options={({route, navigation}) => ({ title: 'ALTogether',
-              headerLeft: () => (
-                <HeaderBackButton
+          <Stack.Screen name="AltogetherGuided" component={AltogetherGuided} options={({ route, navigation }) => ({
+            title: 'ALTogether',
+            headerLeft: () => (
+              <HeaderBackButton
                 labelVisible={false}
                 style={styles.headerButton}
                 onPress={() => navigation.goBack()}>
-                </HeaderBackButton>
-              ),
-              headerRight: () => (
-                <TouchableOpacity style={styles.headerButton}
+              </HeaderBackButton>
+            ),
+            headerRight: () => (
+              <TouchableOpacity style={styles.headerButton}
                 onPress={() => {navigation.navigate('NewPostCaption', {
                   image_id: this.state.image_id
                 });
-                }}>
+              }}>
                 <Text style={styles.headerButtonText}>Next</Text>
-                </TouchableOpacity>
-              )
-            })} />
-            <Stack.Screen name="AltogetherCustom" component={AltogetherCustom} options={({route, navigation}) => ({ animationEnabled: false, title: 'ALTogether',
-              headerLeft: () => (
-                <HeaderBackButton
+              </TouchableOpacity>
+            )
+          })} />
+          <Stack.Screen name="AltogetherCustom" component={AltogetherCustom} options={({ route, navigation }) => ({
+            animationEnabled: false, title: 'ALTogether',
+            headerLeft: () => (
+              <HeaderBackButton
                 labelVisible={false}
                 style={styles.headerButton}
                 onPress={() => navigation.navigate('NewPostFilter')}>
@@ -159,12 +187,13 @@ export default class App extends React.Component {
                 });
               }}>
                 <Text style={styles.headerButtonText}>Next</Text>
-                </TouchableOpacity>
-              )
-            })} />
-            <Stack.Screen name="NewPostCaption" component={NewPostCaption} options={({route, navigation}) => ({ title: 'New Post',
-              headerLeft: () => (
-                <HeaderBackButton
+              </TouchableOpacity>
+            )
+          })} />
+          <Stack.Screen name="NewPostCaption" component={NewPostCaption} options={({ route, navigation }) => ({
+            title: 'New Post',
+            headerLeft: () => (
+              <HeaderBackButton
                 labelVisible={false}
                 style={styles.headerButton}
                 onPress={() => navigation.goBack()}>
@@ -177,10 +206,10 @@ export default class App extends React.Component {
                 });
               }}>
                 <Text style={styles.headerButtonText}>Next</Text>
-                </TouchableOpacity>
-              )
-            })} />
-          </Stack.Navigator>
+              </TouchableOpacity>
+            )
+          })} />
+        </Stack.Navigator>
       </NavigationContainer>
     )
   }

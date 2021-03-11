@@ -11,14 +11,12 @@ import ToggleFilter from './src/components/ToggleFilter'
 import { GALLERY } from './GALLERY.js';
 import { styles } from './Styles.js';
 
-export default class NewPostFilter extends Component {
-  constructor({route, navigation}) {
-    super();
-        this.state =  {
-          imageID: route.params.image_id,
-          selectedImageLink: require('./assets/images/gallery/pic1.png'),
-    };
-    //var selectedImage = props.navigation.state.params.selectedImage;
+export default class NewPostEdit extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      selectedImageLink: require('./assets/images/gallery/pic1.png'),
+    }
     this.selectedImage = this.selectedImage.bind(this);
   }
   selectedImage(photo) {
@@ -68,7 +66,7 @@ export default class NewPostFilter extends Component {
         </View>
         <View style={styles.editToggle}>
           <ToggleFilter
-            selected='left'
+            selected='right'
             iconLeft={require('./assets/images/GallerySelected.png')}
             iconRight={require('./assets/images/AltIconUnselected.png')}
             navigation={this.props.navigation} />
@@ -77,4 +75,4 @@ export default class NewPostFilter extends Component {
     );
   }
 }
-export { NewPostFilter };
+export { NewPostEdit };

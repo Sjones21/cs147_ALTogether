@@ -1,10 +1,13 @@
 import React, { Component } from 'react';
-import { Alert, Image, Text, View, StyleSheet, ScrollView, Dimensions, TouchableOpacity} from 'react-native';
+import { Alert, Image, Text, View, StyleSheet, ScrollView, Dimensions, TouchableOpacity } from 'react-native';
 import * as Font from 'expo-font';
 import { Container, Content } from 'native-base'
 import CardComponent from './src/components/CardComponent'
 //import { Audio } from ''
 import { Card, ListItem, Button, Icon } from 'react-native-elements'
+import NewGalleryPhoto from './src/components/NewGalleryPhoto'
+
+import { GALLERY } from './GALLERY.js';
 import { styles } from './Styles.js';
 
 import { IMAGES } from "./IMAGES";
@@ -17,39 +20,61 @@ export default class NewPostChoosePic extends Component {
   constructor({route}) {
     super();
         this.state =  {
+          selectedImage: IMAGES[IMAGES.iceCream.id],
+          selectedImageLink: require('./assets/images/gallery/pic1.png'),
           imageID: IMAGES.iceCream.id,
           updateImageIdCallback: route.params.updateImageIdCallback
     };
-    console.log("Constructor CHOOSEPIC " + this.state.imageID);
+    this.selectedImage = this.selectedImage.bind(this);
   }
 
   handleImagePress = (id) =>{
     this.setState({imageID: id}, () => {
     this.state.updateImageIdCallback(this.state.imageID);
-    console.log("CHOOSEPIC " + this.state.imageID);
     })
   }
-
+   
+  
+  selectedImage(photo) {
+    this.setState({ selectedImageLink: photo.link });
+    this.setState({ selectedImage : photo});
+    //Alert.alert(`${photo.id} kissed`);
+  }
   render() {
     let images = [];
     for (const [key, value] of Object.entries(IMAGES)) {
       images.push(
-        <TouchableOpacity key={`${key}`} photo={value}
+        <TouchableOpacity key={`${key}`} photo={value} isNewPhoto={true} selectedImage={this.selectedImage}
             onPress={() => this.handleImagePress(value.id)}>
             <Image style={styles.galleryPhoto} source={value.link} />
           </TouchableOpacity>
       );
     }
-
+    /*
+    this.props.navigation.navigate('NewPostFilter', {
+      selectedImage: this.state.selectedImage });*/
     return (
       <View style={styles.container}>
-        <View style={{justifyContent: 'center', margin: 1}}>
-              <View style={{flexDirection: 'row', flexWrap: 'wrap'}}>
-                { images }
+        <View style={styles.selectedImageContainer}>
+          <Image
+            style={styles.selectedGalleryPhoto}
+            source={this.state.selectedImageLink}
+          />
+        </View>
+        <View style={styles.galleryTextContainer}>
+          <Text style={styles.header1}> Gallery</Text>
+        </View>
+        <ScrollView>
+          <View>
+            <View style={{ justifyContent: 'center', margin: 1 }}>
+              <View style={{ flexDirection: 'row', flexWrap: 'wrap' }}>
+                {images}
               </View>
             </View>
+          </View>
+        </ScrollView>
       </View>
     );
   }
 }
-export {NewPostChoosePic};
+export { NewPostChoosePic };
