@@ -34,7 +34,7 @@ export default class Feed extends Component {
       return(
           <View style={styles.container}>
             {/* Header Bar */}
-            <HeaderBar navigation={this.props.navigation} title='Instagram'/>
+            <HeaderBar navigation = {this.props.navigation} title='Instagram'/>
 
             {/* Feed Container */}
             <View style={styles.contentContainer}>
@@ -52,7 +52,6 @@ export default class Feed extends Component {
                   <CardComponent thumbnail={require("./assets/me.jpg")} photo={IMAGES.iceCream} pinterest={true} id_pinterest="801781539887841710" likes="11" nb_commentaires="202" pseudo="maxgfr" date="01/01/2018" description="blablablabla" />
                 </Content>
               </View>
-
           {/* Navigation Bar */}
           <NavBar
             selected='feed'

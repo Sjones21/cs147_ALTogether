@@ -72,27 +72,8 @@ export default class App extends React.Component {
           <Stack.Screen name="Feed" component={Feed} options={({ route, navigation }) => ({ title: 'Instagram', headerShown: false })} />
           <Stack.Screen name="Profile" component={Profile} options={({ headerShown: false, animationEnabled: false })} />
           <Stack.Screen name="ProfileAlt" component={ProfileAlt} options={({ headerShown: false, animationEnabled: false })} />
-
-          <Stack.Screen name="NewPost" component={NewPost} options={({ route, navigation }) => ({
-            title: 'New Post',
-            headerLeft: () => (
-              <HeaderBackButton
-                labelVisible={false}
-                style={styles.headerButton}
-                onPress={() => navigation.goBack()}>
-                </HeaderBackButton>
-              ),
-              headerRight: () => (
-                <TouchableOpacity style={styles.headerButton}
-                onPress={() => {navigation.navigate('NewPostChoosePic', {
-                  updateImageIdCallback: ((id) => this.setState({image_id: id}))
-                  });
-                  }}>
-                <Text style={styles.headerButtonText}>Next</Text>
-              </TouchableOpacity>
-            )
-          })} />
-          <Stack.Screen name="NewPostChoosePic" component={NewPostChoosePic} options={({ route, navigation }) => ({
+          <Stack.Screen name="NewPostChoosePic" component={NewPostChoosePic} initialParams={{updateImageIdCallback: ((id) => this.setState({image_id: id}))}}options={({ route, navigation, 
+                  }) => ({
             title: 'New Post',
             headerLeft: () => (
               <HeaderBackButton
@@ -123,10 +104,10 @@ export default class App extends React.Component {
               ),
               headerRight: () => (
                 <TouchableOpacity style={styles.headerButton}
-                onPress={() => {navigation.navigate('NewPostEdit', {
+                onPress={() => {navigation.navigate('AltogetherGuided', {
                   image_id: this.state.image_id
-                  });
-                  }}>
+                });
+                }}>
                 <Text style={styles.headerButtonText}>Next</Text>
               </TouchableOpacity>
             )

@@ -24,21 +24,9 @@ export default class AltogetherCustom extends Component {
     this.state.image.altText = text;
   }
 
-  getImageWithID(id_1){
-    /*
-    console.log(IMAGES);
-    console.log(typeof(id_1));
-    console.log(typeof("iceCream"));
-    console.log(IMAGES["iceCream"]);
-    console.log(id_1 === "iceCream")
-    console.log(IMAGES[id_1]);
-    */
-    return IMAGES[id_1];
-}
-
 constructor({route, navigation}) {
   super();
-  const image = this.getImageWithID(route.params.image_id);
+  const image = IMAGES[route.params.image_id];
       this.state =  {
         image: image,
   };

@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { Alert, Image, Text, View, StyleSheet, ScrollView, Dimensions, TouchableOpacity } from 'react-native';
 import * as Font from 'expo-font';
 import { Container, Content } from 'native-base'
-import CardComponent from './src/components/CardComponent'
+import { CardComponent } from './src/components/CardComponent'
 //import { Audio } from ''
 import { Card, ListItem, Button, Icon } from 'react-native-elements'
 import NewGalleryPhoto from './src/components/NewGalleryPhoto'
@@ -21,11 +21,12 @@ export default class NewPostChoosePic extends Component {
     super();
         this.state =  {
           selectedImage: IMAGES[IMAGES.iceCream.id],
-          selectedImageLink: require('./assets/images/gallery/pic1.png'),
           imageID: IMAGES.iceCream.id,
           updateImageIdCallback: route.params.updateImageIdCallback
     };
     this.selectedImage = this.selectedImage.bind(this);
+    //this.selectedImage(IMAGES.iceCream.id);
+    //this.handleImagePress(IMAGES.iceCream.id);
   }
 
   handleImagePress = (id) =>{
@@ -34,20 +35,24 @@ export default class NewPostChoosePic extends Component {
     })
   }
    
+
   
   selectedImage(photo) {
-    this.setState({ selectedImageLink: photo.link });
-    this.setState({ selectedImage : photo});
+    this.setState({selectedImage : photo}, () => {
+    this.setState({imageID: photo.id}, () => {
+      this.state.updateImageIdCallback(this.state.imageID);
+        })
+      })
     //Alert.alert(`${photo.id} kissed`);
   }
   render() {
     let images = [];
     for (const [key, value] of Object.entries(IMAGES)) {
       images.push(
-        <TouchableOpacity key={`${key}`} photo={value} isNewPhoto={true} selectedImage={this.selectedImage}
-            onPress={() => this.handleImagePress(value.id)}>
+        <NewGalleryPhoto key={`${key}`} photo={value} isNewPhoto={true} selectedImage={this.selectedImage}
+            onPress={() => {this.handleImagePress(value.id)}}>
             <Image style={styles.galleryPhoto} source={value.link} />
-          </TouchableOpacity>
+        </NewGalleryPhoto>
       );
     }
     /*
@@ -58,7 +63,7 @@ export default class NewPostChoosePic extends Component {
         <View style={styles.selectedImageContainer}>
           <Image
             style={styles.selectedGalleryPhoto}
-            source={this.state.selectedImageLink}
+            source={this.state.selectedImage.link}
           />
         </View>
         <View style={styles.galleryTextContainer}>

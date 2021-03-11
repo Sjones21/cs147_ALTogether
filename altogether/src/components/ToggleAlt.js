@@ -39,7 +39,6 @@ class ToggleAlt extends Component {
               </TouchableOpacity>
             </View>
             <View style={[this.props.selected == 'right' ? styles.selected : styles.unselected]}>
-            {console.log("yello " + this.props.image_id)}
             <TouchableOpacity
               style={{alignItems: 'center'}}
               onPress={() => this.props.navigation.navigate('AltogetherCustom', {
