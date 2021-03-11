@@ -42,16 +42,26 @@ export default class NewPostChoosePic extends Component {
           <Text style={styles.header1}> Gallery</Text>
         </View>
         <ScrollView>
+<<<<<<< HEAD
           <View>
             <View style={{ justifyContent: 'center', margin: 1 }}>
               <View style={{ flexDirection: 'row', flexWrap: 'wrap' }}>
                 {images}
                 {/*<GalleryPhoto photo={IMAGES.iceCream} />
+=======
+            <View>
+        <View style={{ justifyContent: 'center', margin: 1 }}>
+          <View style={{ flexDirection: 'row', flexWrap: 'wrap' }}>
+            {images}
+            {/*<GalleryPhoto photo={IMAGES.iceCream} />
+>>>>>>> parent of 940c4ce (Revert "yes")
                 <GalleryPhoto photo={IMAGES.sydney1} />*/}
               </View>
             </View>
           </View>
         </ScrollView>
+      </View>
+      </ScrollView>
       </View>
     );
   }
