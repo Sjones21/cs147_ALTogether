@@ -243,11 +243,7 @@ const styles = StyleSheet.create({
     width: 100,
     margin: 1
   }, 
-  galleryTextContainer: {
-    margin: 10,
-    justifyContent: 'center',
 
-  },
   /* ALT TEXT WRITING */
   writingContainer: {
     paddingLeft: 30,
