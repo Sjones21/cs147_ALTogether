@@ -45,24 +45,10 @@ LogBox.ignoreLogs([
 export default class App extends React.Component {
 
   state = {
-    loaded: false,
     image_id: null
   };
 
-  async loadFonts(){
-    await Font.loadAsync({
-        BebasNeue: require('./assets/BebasNeue-Regular.ttf')
-    });
-    this.setState({ loaded: true});
-  }
-  
-  async componentDidMount() {
-    this.loadFonts();
-  }
-
-
   render() {
-    if(this.state.loaded){
     return (
       <NavigationContainer style={styles.container}>
         <Stack.Navigator
@@ -194,6 +180,4 @@ export default class App extends React.Component {
       </NavigationContainer>
     )
   }
-  return null;
-}
 }

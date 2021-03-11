@@ -30,7 +30,7 @@ export default class AltogetherGuided extends Component {
                     ));
                 } else {
                 elements.push((
-                    <Text style={{flex: 2}}><Text key ={word.id} style = {styles.underline}>{word}</Text><Text> </Text></Text>
+                    <Text Text key ={word.id}><Text style = {styles.underline}>{word}</Text><Text> </Text></Text>
                     ));
                 }
                 count++;
