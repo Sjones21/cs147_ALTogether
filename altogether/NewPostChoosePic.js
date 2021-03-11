@@ -25,14 +25,7 @@ export default class NewPostChoosePic extends Component {
           updateImageIdCallback: route.params.updateImageIdCallback
     };
     this.selectedImage = this.selectedImage.bind(this);
-    //this.selectedImage(IMAGES.iceCream.id);
-    //this.handleImagePress(IMAGES.iceCream.id);
-  }
-
-  handleImagePress = (id) =>{
-    this.setState({imageID: id}, () => {
     this.state.updateImageIdCallback(this.state.imageID);
-    })
   }
 
 
@@ -50,10 +43,7 @@ export default class NewPostChoosePic extends Component {
     for (const [key, value] of Object.entries(IMAGES)) {
       if (value.poster == 'gallery') {
         images.push(
-          <NewGalleryPhoto key={`${key}`} photo={value} isNewPhoto={true} selectedImage={this.selectedImage}
-              onPress={() => {this.handleImagePress(value.id)}}>
-              <Image style={styles.galleryPhoto} source={value.link} />
-          </NewGalleryPhoto>
+          <NewGalleryPhoto key={`${key}`} photo={value} isNewPhoto={true} selectedImage={this.selectedImage}/>
         );
       }
       
