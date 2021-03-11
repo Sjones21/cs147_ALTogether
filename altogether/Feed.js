@@ -47,7 +47,7 @@ export default class Feed extends Component {
       return(
           <View style={styles.container}>
             {/* Header Bar */}
-            <HeaderBar navigation={this.props.navigation} title='Instagram'/>
+            <HeaderBar navigation = {this.props.navigation} title='Instagram'/>
 
             {/* Feed Container */}
             <View style={styles.contentContainer}>
@@ -67,7 +67,6 @@ export default class Feed extends Component {
                   */}
                 </Content>
               </View>
-
           {/* Navigation Bar */}
           <NavBar
             selected='feed'

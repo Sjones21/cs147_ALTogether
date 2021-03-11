@@ -34,7 +34,7 @@ class HeaderBar extends Component {
             </View>
             <View style={styles.barIcons}>
               <TouchableOpacity
-                onPress={() => this.props.navigation.navigate('NewPost')}>
+                onPress={() => this.props.navigation.navigate('NewPostChoosePic')}>
                 <Image
                   source = {require('../../assets/images/Post.png')}
                   style = {styles.icons}/>
