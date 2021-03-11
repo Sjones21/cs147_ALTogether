@@ -18,9 +18,11 @@ export default class Profile extends Component {
     let images = [];
 
     for (const [key, value] of Object.entries(IMAGES)) {
-      images.push(
-        <GalleryPhoto key={`${key}`} photo={value} />
-      );
+      if (value.poster == 'sydney') {
+        images.push(
+          <GalleryPhoto key={`${key}`} photo={value} />
+        );
+      }
     }
 
 
