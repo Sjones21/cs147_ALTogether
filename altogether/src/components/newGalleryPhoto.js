@@ -34,7 +34,7 @@ class NewGalleryPhoto extends Component {
         onPress={() => this.props.selectedImage(this.props.photo)}>
         {this.props.isNewPhoto ?
           <Image style={styles.newGalleryPhoto} source={this.props.photo.link} />
-          : 
+          :
           <Image style={styles.galleryPhoto} source={this.props.photo.link} />}
       </TouchableOpacity>
 

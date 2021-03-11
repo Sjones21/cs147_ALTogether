@@ -246,6 +246,13 @@ const styles = StyleSheet.create({
   galleryTextContainer: {
     margin: 10,
     justifyContent: 'center',
+  },
+  /* NEW POST FILTER */
+  horizontalScroll: {
+    marginTop: 140,
+  },
+  editToggle: {
+    marginTop: 80,
 
   },
   /* ALT TEXT WRITING */
