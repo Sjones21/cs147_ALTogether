@@ -30,24 +30,24 @@ export default class AltogetherGuided extends Component {
                     ));
                 } else {
                 elements.push((
-                    <Text><Text key ={word.id} style = {styles.underline}>{word}</Text><Text> </Text></Text>
+                    <Text style={{flex: 2}}><Text key ={word.id} style = {styles.underline}>{word}</Text><Text> </Text></Text>
                     ));
                 }
                 count++;
             } else {
                 if(count == numWords){
                     elements.push((
-                    <Text key ={word.id}>{word}</Text>
+                    <Text key ={word.id} style = {styles.inputText}>{word}</Text>
                     ));
                 } else {
                 elements.push((
-                    <Text key ={word.id}>{word} </Text>
+                    <Text key ={word.id} style = {styles.inputText}>{word} </Text>
                     ));
                 }
                 count++;
             }
         });
-        return(<Text>{elements}</Text>);
+        return(<Text style={{flexDirection: 'row'}}>{elements}</Text>);
 
       }
 
@@ -97,17 +97,17 @@ export default class AltogetherGuided extends Component {
 
   render() {
     return (
-      <View style={styles.container}>
+      <View style={styles.guidedCustomContainer}>
         <KeyboardAvoidingView
-          style={{flex: 1}}
+          style={{flex: 1, alignItems: 'center'}}
           behavior={Platform.OS === "ios" ? "padding" : "height"}
-          keyboardVerticalOffset={(windowHeight / 20)}>
+          keyboardVerticalOffset={(windowHeight/20)}>
 
           <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
             <View style={{justifyContent: 'flex-end'}}>
               {/* Image Post */}
               <Image source={IMAGES.iceCream.link}
-                  style={{ height: windowWidth, width: windowWidth }} />
+                  style={{height: windowHeight/2.5, width: windowWidth}} />
 
               {/* Toggle Profile */}
               <ToggleAlt
@@ -117,35 +117,29 @@ export default class AltogetherGuided extends Component {
               {/* Alt Text Writing Container */}
               <View style={styles.writingContainer}>
                 <Text style={styles.header1}>Review our suggested alt text </Text>
-                <Text style={styles.header2}>Correcting any errors ensures that your alt text will accurately describe your image.</Text>
+                <Text style={styles.header2}>Edit to add context and correct errors</Text>
                   <TextInput
-                    style={[styles.textbox, {height: windowHeight / 10}]}
+                    style={styles.textbox}
                     onChangeText={this.handleAltText}
                     onSubmitEditing = { () => Keyboard.dismiss()}
                     multiline={true}
                     autoFocus={true}>
-                    <Text style={{color: '#666666'}}>{this.state.altTextDisplay}</Text>
+                    <Text>{this.state.altTextDisplay}</Text>
                   </TextInput>
-                <Text style={styles.textboxInstruction}>Tap underlined words to edit.</Text>
-              </View>
-
-              {/* SUBMIT BUTTON */ }
-              <View style={{ alignSelf: 'center'}}>
+                  <Text style={styles.textboxInstruction}>Tap any word to edit</Text>
+                  <View style ={{flexDirection: 'row', alignItems: 'center', alignSelf:'center'}}>
                 <TouchableOpacity
-                  style={{flexDirection: 'row', alignItems: 'center'}}
+                  style={{flexDirection: 'row', alignItems: 'center', marginTop: 35}}
                   onPress={this.speak}>
                   <Image source={require('./assets/images/Play.png')}
-                      style={styles.icons} />
-                  <Text>Hear your alt text</Text>
+                      style={[styles.icons, {height: 20, width: 20, marginLeft: 0, marginRight: 10, tintColor: '#3996EF'}]} />
+                  <Text style={{fontSize: 18, color: '#424242', fontWeight: '300'}}>Hear your alt text</Text>
                   </TouchableOpacity>
-                  {/* WILL REMOVE THIS */}
-                  <Text>Testing if the changes update the alt text: {IMAGES.iceCream.altText}</Text>
-                  {/*<TouchableOpacity
-                  style={styles.exampleButton}
-                  onPress={() => Alert.alert('Submitted alt text')}>
-                  <Text style={styles.exampleButtonLabel}>Submit</Text>
-                </TouchableOpacity>*/}
+                  </View>
               </View>
+
+             
+              
 
             </View>
           </TouchableWithoutFeedback>

@@ -1,8 +1,17 @@
 import { StyleSheet} from 'react-native';
 
+import App from './App.js'
+
 const styles = StyleSheet.create({
   container: {
     flex: 1,
+    /*marginTop: 20,*/
+    backgroundColor: '#fff',
+  },
+
+  guidedCustomContainer: {
+    flex: 1,
+    height: 600,
     /*marginTop: 20,*/
     backgroundColor: '#fff',
   },
@@ -61,14 +70,16 @@ const styles = StyleSheet.create({
   /* TYPOGRAPHY */
 
   header1: {
-    fontSize: 18,
+    fontSize: 22,
     fontWeight: 'bold',
-    marginBottom: 5
+    marginBottom: 10,
   },
 
   header2: {
-    fontSize: 16,
-    marginBottom: 5
+    fontSize: 18,
+    fontWeight: '300',
+    color: "#424242",
+    marginBottom: 15,
   },
 
   /* HEADER BAR, NAV BAR */
@@ -195,11 +206,23 @@ const styles = StyleSheet.create({
     fontSize: 20,
   },
 
+  underlineWrapper:{
+      borderBottomWidth: 10
+  },
+
+  inputText: {
+    fontSize: 22,
+    fontWeight: '300',
+  },
+
   underline: {
-    //fontSize: 14,
+    fontFamily: 'Arial',
+    fontSize: 22,
+    fontWeight: '400',
     textDecorationLine: 'underline',
     textDecorationStyle: 'dotted',
-    textDecorationColor: '#206FE9',
+    textDecorationColor: '#3996EF',
+    color: '#3996EF'
   },
 
   cardContainer: {
@@ -230,21 +253,26 @@ const styles = StyleSheet.create({
   writingContainer: {
     paddingLeft: 30,
     paddingRight: 30,
-    paddingTop: 20
+    paddingTop: 40,
+    marginBottom: 20
   },
 
   textbox: {
-    marginTop: 10,
-    padding: 10,
-    color: '#666666',
-    backgroundColor: '#FAFAFA',
-    borderRadius: 5
+    marginTop: 5,
+    padding: 20,
+    paddingTop:15,
+    paddingLeft:15,
+    backgroundColor: '#ebf1f5',
+    color: '#424242',
+    borderRadius: 5,
+    fontSize: 22,
+    fontWeight: '300'
   },
 
   textboxInstruction: {
-    margin: 20,
-    textAlign: 'center',
-    color: '#B1A9A9'
+    marginTop: 5,
+    alignSelf: 'center',
+    color: '#B1A9A9',
   }
 
 
