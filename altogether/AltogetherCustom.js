@@ -6,12 +6,23 @@ import CardComponent from './src/components/CardComponent'
 import ToggleAlt from './src/components/ToggleAlt'
 //import { Audio } from ''
 import { Card, ListItem, Button, Icon } from 'react-native-elements'
+
+import { IMAGES } from './IMAGES.js';
 import { styles } from './Styles.js';
+import * as Speech from 'expo-speech';
 
 const windowWidth = Dimensions.get('window').width;
 const windowHeight = Dimensions.get('window').height;
 
 export default class AltogetherCustom extends Component {
+
+  speak = () => {
+    Speech.speak(IMAGES.iceCream.altText, {rate: 1.25});
+  };
+
+  handleAltText = (text) => {
+    IMAGES.iceCream.altText = text;
+  }
 
   render() {
     return (
@@ -40,6 +51,7 @@ export default class AltogetherCustom extends Component {
                      style={[styles.textbox, {height: windowHeight / 8}]}
                      placeholder={'E.g., "My black pug Ellie lying in the backyard grass with her tongue sticking out."'}
                      placeholderTextColor={'#AAAAAA'}
+                     onChangeText={this.handleAltText}
                      multiline={true}
                      onSubmitEditing = { () => Keyboard.dismiss()}>
                   </TextInput>
