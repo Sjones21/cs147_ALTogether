@@ -31,7 +31,7 @@ class NewGalleryPhoto extends Component {
   render() {
     return (
       <TouchableOpacity
-        onPress={() => this.props.selectedImage(this.props.photo)}>
+        onPress={() => Alert.alert(`${this.props.photo.id} pressed`)}>
         {this.props.isNewPhoto ?
           <Image style={styles.newGalleryPhoto} source={this.props.photo.link} />
           : 
