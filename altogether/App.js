@@ -55,12 +55,14 @@ export default class App extends React.Component {
           screenOptions={{
             headerShown: true
           }}>
-          <Stack.Screen name="Feed" component={Feed} options={({ route, navigation }) => ({ title: 'Instagram', headerShown: false })} />
+          <Stack.Screen name="Feed" component={Feed} initialParams = {{image_id: ""}} options={({ route, navigation }) => ({ title: 'Instagram', headerShown: false })} />
           <Stack.Screen name="Profile" component={Profile} options={({ headerShown: false, animationEnabled: false })} />
           <Stack.Screen name="ProfileAlt" component={ProfileAlt} options={({ headerShown: false, animationEnabled: false })} />
           <Stack.Screen name="NewPostChoosePic" component={NewPostChoosePic} initialParams={{updateImageIdCallback: ((id) => this.setState({image_id: id}))}}options={({ route, navigation,
                   }) => ({
             title: 'New Post',
+            headerTitleStyle: {fontSize:20},
+            headerStyle: {height: 100},
             headerLeft: () => (
               <HeaderBackButton
                 labelVisible={false}
@@ -81,6 +83,8 @@ export default class App extends React.Component {
           <Stack.Screen name="NewPostFilter" component={NewPostFilter} options={({ route, navigation }) => ({
             animationEnabled: false,
             title: 'Filter',
+            headerTitleStyle: {fontSize:20},
+            headerStyle: {height: 100},
             headerLeft: () => (
               <HeaderBackButton
                 labelVisible={false}
@@ -101,6 +105,8 @@ export default class App extends React.Component {
           <Stack.Screen name="NewPostEdit" component={NewPostEdit} options={({ route, navigation }) => ({
             animationEnabled: false,
             title: 'Edit',
+            headerTitleStyle: {fontSize:20},
+            headerStyle: {height: 100},
             headerLeft: () => (
               <HeaderBackButton
                 labelVisible={false}
@@ -121,6 +127,8 @@ export default class App extends React.Component {
             })} />
           <Stack.Screen name="AltogetherGuided" component={AltogetherGuided} options={({ route, navigation }) => ({
             title: 'ALTogether',
+            headerTitleStyle: {fontSize:20},
+            headerStyle: {height: 100},
             headerLeft: () => (
               <HeaderBackButton
                 labelVisible={false}
@@ -141,6 +149,8 @@ export default class App extends React.Component {
           })} />
           <Stack.Screen name="AltogetherCustom" component={AltogetherCustom} options={({ route, navigation }) => ({
             animationEnabled: false, title: 'ALTogether',
+            headerTitleStyle: {fontSize:20},
+            headerStyle: {height: 100},
             headerLeft: () => (
               <HeaderBackButton
                 labelVisible={false}
@@ -161,6 +171,8 @@ export default class App extends React.Component {
           })} />
           <Stack.Screen name="NewPostCaption" component={NewPostCaption} options={({ route, navigation }) => ({
             title: 'New Post',
+            headerTitleStyle: {fontSize:20},
+            headerStyle: {height: 100},
             headerLeft: () => (
               <HeaderBackButton
                 labelVisible={false}
@@ -170,7 +182,7 @@ export default class App extends React.Component {
               ),
               headerRight: () => (
                 <TouchableOpacity style={styles.headerButton}
-                onPress={() => {navigation.navigate('Feed', {
+                onPress={() => {IMAGES[this.state.image_id].feed = true, navigation.navigate('Feed',{
                   image_id: this.state.image_id
                 });
               }}>

@@ -194,14 +194,14 @@ const styles = StyleSheet.create({
     paddingBottom:5,
     margin: 5,
     marginRight:10,
-    backgroundColor: '#FFFFFF',
     color: '#3996EF',
     borderRadius: 10,
   },
 
   headerButtonText: {
-    fontSize: 18,
+    fontSize: 20,
     color: '#3996EF',
+    fontWeight: '500',
   },
 
   pageTitle:{
@@ -215,6 +215,26 @@ const styles = StyleSheet.create({
   inputText: {
     fontSize: 22,
     fontWeight: '300',
+  },
+
+  captionText:{
+    fontSize: 18,
+    fontWeight: '300',
+    flexBasis: 250, 
+    flexShrink: 2, 
+    flexGrow: 2, 
+    margin:15, 
+    marginLeft:0, 
+    marginTop:30,
+    flexWrap: 'wrap'
+  },
+
+  captionAltText:{
+    fontSize: 16,
+    fontWeight: '300',
+    margin: 15,
+    marginTop: 0,
+    color: '#666666'
   },
 
   underline: {
@@ -234,6 +254,10 @@ const styles = StyleSheet.create({
   buttonLabel: {
     fontWeight: 'bold',
     textAlign: 'center'
+  },
+
+  switch:{
+    margin: 15
   },
 
   story: {
