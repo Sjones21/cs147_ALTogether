@@ -21,27 +21,29 @@ export default class AltogetherGuided extends Component {
         const numWords = words.length;
         let count = 1;
         const elements = [];
-        words.map(word => {
+        words.map(function(word, index) {
             if(word.startsWith("##")){
                 word = word.substr(2);
                 if(count == numWords){
                     elements.push((
-                    <Text key ={word.id} style = {styles.underline}>{word}</Text>
+                    <Text key ={index} style = {styles.underline}>{word}</Text>
                     ));
                 } else {
                 elements.push((
-                    <Text Text key ={word.id}><Text style = {styles.underline}>{word}</Text><Text> </Text></Text>
+                    <Text Text key ={index}><Text style = {styles.underline}>{word}</Text><Text> </Text></Text>
                     ));
                 }
                 count++;
             } else {
                 if(count == numWords){
                     elements.push((
-                    <Text key ={word.id} style = {styles.inputText}>{word}</Text>
+                    <Text key ={index} style = {styles.inputText}>{word}</Text>
                     ));
                 } else {
+                  console.log(index);
                 elements.push((
-                    <Text key ={word.id} style = {styles.inputText}>{word} </Text>
+                  
+                    <Text key ={index} style = {styles.inputText}>{word} </Text>
                     ));
                 }
                 count++;
