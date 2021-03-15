@@ -40,7 +40,7 @@ class HeaderBar extends Component {
                   style = {styles.icons}/>
               </TouchableOpacity>
               <TouchableOpacity
-                onPress={() => Alert.alert('icon pressed')}>
+                onPress={() => this.props.navigation.navigate('Activity')}>
                 <Image
                   source = {require('../../assets/images/Heart.png')}
                   style = {styles.icons}/>
