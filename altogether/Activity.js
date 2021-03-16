@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Alert, Image, Text, View, StyleSheet, ScrollView, Dimensions, TouchableOpacity} from 'react-native';
+import { Alert, Image, Text, View, StyleSheet, ScrollView, Dimensions, TouchableOpacity, SafeAreaView } from 'react-native';
 import * as Font from 'expo-font';
 import { Container, Content } from 'native-base'
 import CardComponent from './src/components/CardComponent'
@@ -29,9 +29,9 @@ let customFonts = {
 
 
 export default class Activity extends Component {
-  
 
-  constructor({route, navigation}) {
+
+  constructor({ route, navigation }) {
     super();
     /*
     const image = NOTIFICATIONS[route.params.image_id];
@@ -42,7 +42,7 @@ export default class Activity extends Component {
   }
 
   render() {
-  
+
     let nudges = [];
     let recentNotifications = [];
     let pastNotifications = [];
@@ -62,45 +62,58 @@ export default class Activity extends Component {
       */
       if (value.nudge === true) {
         nudges.push(
-          <Notifications key={`${key}`} thumbnail={`${value.thumbnail}`} link={`${value.link}`} user={`${user}`}  notification={value} description= {`${value.description}`} ago= {`${value.ago}`} />
+          <Notifications key={`${key}`} thumbnail={`${value.thumbnail}`} link={`${value.link}`} user={`${value.user}`} notification={value} description={`${value.description}`} ago={`${value.ago}`} />
         );
       }
 
       if (value.nudge === false) {
         if (value.recent === true) {
           recentNotifications.push(
-            <Notifications key={`${key}`} thumbnail={`${value.thumbnail}`} link={`${value.link}`} user={`${user}`}  notification={value} description= {`${value.description}`} ago= {`${value.ago}`} />
+            <Notifications key={`${key}`} thumbnail={`${value.thumbnail}`} link={`${value.link}`} user={`${value.user}`} notification={value} description={`${value.description}`} ago={`${value.ago}`} />
           );
         } else if (value.recent === false) {
           pastNotifications.push(
-            <Notifications key={`${key}`} thumbnail={`${value.thumbnail}`} link={`${value.link}`} user={`${user}`}  notification={value} description= {`${value.description}`} ago= {`${value.ago}`} />
+            <Notifications key={`${key}`} thumbnail={`${value.thumbnail}`} link={`${value.link}`} user={`${value.user}`} notification={value} description={`${value.description}`} ago={`${value.ago}`} />
           );
         }
       }
     }
 
-      return(
-          <View style={styles.container}>
+    return (
+
+      <View style={styles.container}>
+        <SafeAreaView style={styles.container}>
+          <ScrollView style={styles.scrollView}>
 
             {/* Feed Container */}
+
             <View style={styles.contentContainer}>
-                <Content>
-                  {nudges}
-                </Content>
-                <Content>
-                  {recentNotifications}
-                </Content>
-                <Content>
-                  {pastNotifications}
-                </Content>
-              </View>
-          {/* Navigation Bar */}
-          <NavBar
-            selected='feed'
-            navigation={this.props.navigation}/>
-        </View>
-      );
-    }
+              <Content style={{ borderTopColor: "lightgray", borderTopWidth: 1 }}>
+                <Text style={{ fontWeight: "900", marginLeft: 10, marginTop: 10, marginBottom: 10 }}>Follow Requests</Text>
+              </Content>
+              <Content style={{ borderTopColor: "lightgray", borderTopWidth: 1 }}>
+                <Text style={{ fontWeight: "900", marginLeft: 10, marginTop: 10 }}>Nudges</Text>
+                {nudges}
+              </Content>
+              <Content style={{ borderTopColor: "lightgray", borderTopWidth: 1 }}>
+                <Text style={{ fontWeight: "900", marginLeft: 10, marginTop: 10 }}>This Week</Text>
+                {recentNotifications}
+              </Content>
+              <Content style={{ borderTopColor: "lightgray", borderTopWidth: 1 }}>
+                <Text style={{ fontWeight: "900", marginLeft: 10, marginTop: 10 }}>This Month</Text>
+                {pastNotifications}
+              </Content>
+            </View>
+          </ScrollView>
+        </SafeAreaView>
+        {/* Navigation Bar */}
+        <NavBar
+          selected='feed'
+          navigation={this.props.navigation} />
+      </View>
+
+    );
+  }
 }
 
-export {Activity};
+export { Activity };

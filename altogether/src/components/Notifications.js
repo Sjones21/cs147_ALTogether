@@ -26,28 +26,31 @@ export default class Notifications extends Component {
 
     render() {
         return (
-            <SafeAreaView style={styles.container}>
-                <ScrollView style={styles.scrollView}>
-                    <Card >
-                        <CardItem>
-                            <Left>
-                                <Thumbnail style={{ height: 40, width: 40 }} source={this.props.thumbnail} />
-                                <Body>
-                                    <Text style={{ fontWeight: "900" }}>{this.props.description} </Text>
-                                    <Text style={{ fontWeight: "900" }}>{this.props.ago} </Text>
-                                </Body>
-                            </Left>
-                            <Right>
-                                <Button transparent>
-                                    <Image source={this.props.photo.link}
-                                        style={{ height: scale(40), width: scale(40) }} />
-                                </Button>
-                            </Right>
-                        </CardItem>
-                    </Card>
-                </ScrollView>
-            </SafeAreaView>
+            //<SafeAreaView style={styles.container}>
+            //    <ScrollView style={styles.scrollView}>
+            <Card transparent>
+                <CardItem style={{margin: -5}}>
+                    <Left style={{minWidth: 200}}>
+                        <Thumbnail style={{ height: 40, width: 40 }} source={this.props.thumbnail} />
+                        <Body>
+                            <Text>
+                                <Text style={{ fontWeight: "900" }}>{this.props.user} </Text>
+                                <Text>{this.props.description} </Text>
+                                <Text style={{ color: "gray" }}>{this.props.ago} </Text>
+                            </Text>
+                        </Body>
+                    </Left>
+                    <Right>
+                        <Button transparent>
+                            <Image source={this.props.link}
+                                style={{ height: scale(40), width: scale(40) }} />
+                        </Button>
+                    </Right>
+                </CardItem>
+            </Card>
+            //    </ScrollView>
+            //    </SafeAreaView>
         );
     }
 }
-export { CardComponent };
+export { Notifications };

@@ -86,7 +86,7 @@ export default class App extends React.Component {
           }) => ({
             title: 'Activity',
             headerTitleStyle: { fontSize: 20 },
-            headerStyle: { height: 100, textAlign: left },
+            headerStyle: { height: 100, textAlign: 'left' },
             headerLeft: () => (
               <HeaderBackButton
                 labelVisible={false}

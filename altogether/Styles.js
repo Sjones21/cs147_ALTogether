@@ -126,6 +126,14 @@ const styles = StyleSheet.create({
   cardContainer: {
     marginTop: 30
   },
+  cardItem: {
+    color: 'rgb(300,0,333)',
+    shadowColor: 'rgb(0,0,0)',
+    shadowOffset: { height: 0, width: 0 },
+    shadowOpacity: 0, //default is 1
+    shadowRadius: 0//default is 1
+  },
+
 
   /* PROFILE */
   profileContainer: {
