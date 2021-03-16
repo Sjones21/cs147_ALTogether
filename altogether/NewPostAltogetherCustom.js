@@ -3,7 +3,7 @@ import { Alert, Image, Text, TextInput, Keyboard, KeyboardAvoidingView, Touchabl
 import * as Font from 'expo-font';
 import { Container, Content } from 'native-base'
 import CardComponent from './src/components/CardComponent'
-import ToggleAlt from './src/components/ToggleAlt'
+import NewPostToggleAlt from './src/components/NewPostToggleAlt'
 //import { Audio } from ''
 import { Card, ListItem, Button,} from 'react-native-elements'
 
@@ -17,7 +17,7 @@ import Modal from 'react-native-modal';
 const windowWidth = Dimensions.get('window').width;
 const windowHeight = Dimensions.get('window').height;
 
-export default class AltogetherCustom extends Component {
+export default class NewPostAltogetherCustom extends Component {
 
   speak = () => {
     this.setState({isSpeaking: true});
@@ -214,7 +214,7 @@ renderInfoPagination = (index, total, context) => {
                   style={{ height: windowHeight/2.5, width: windowWidth }} />
 
               {/* Toggle Profile */}
-              <ToggleAlt
+              <NewPostToggleAlt
                 selected='right'
                 navigation={this.props.navigation}
                 image_id ={this.state.image.id}
@@ -276,4 +276,4 @@ renderInfoPagination = (index, total, context) => {
     );
   }
 }
-export {AltogetherCustom};
+export {NewPostAltogetherCustom};
