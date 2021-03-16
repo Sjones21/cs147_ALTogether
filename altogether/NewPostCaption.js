@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Alert, Image, Text, View, StyleSheet, ScrollView, Dimensions, TextInput, TouchableOpacity} from 'react-native';
+import { Alert, Image, Text, View, StyleSheet, ScrollView, Dimensions, TextInput, Keyboard, TouchableOpacity} from 'react-native';
 import * as Font from 'expo-font';
 import { Container, Content, Switch} from 'native-base'
 import CardComponent from './src/components/CardComponent'
@@ -14,7 +14,7 @@ const windowHeight = Dimensions.get('window').height;
 
 export default class NewPostCaption extends Component {
 
-  
+
 
   constructor({route, navigation}) {
     super();
@@ -73,6 +73,7 @@ export default class NewPostCaption extends Component {
         <View style={{ justifyContent: 'center', margin: 1}}>
               <View style={{flexDirection: 'row', flexWrap: "nowrap", justifyContent: 'space-between', alignItems: 'flex-start'}}>
               <Image style={[styles.galleryPhoto, {margin:15, marginTop:20}]} source={this.state.selectedImage.link} />
+
               <TextInput
                        style={[styles.captionText, {height: windowHeight / 8}]}
                        placeholder={'Write a caption...'}

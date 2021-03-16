@@ -200,15 +200,14 @@ export default class App extends React.Component {
                 labelVisible={false}
                 style={styles.headerButton}
                 onPress={() => navigation.goBack()}>
-              </HeaderBackButton>
-            ),
-            headerRight: () => (
-              <TouchableOpacity style={styles.headerButton}
-                onPress={() => {
-                  IMAGES[this.state.image_id].feed = true, navigation.navigate('Feed', {
-                    image_id: this.state.image_id
-                  });
-                }}>
+                </HeaderBackButton>
+              ),
+              headerRight: () => (
+                <TouchableOpacity style={styles.headerButton}
+                onPress={() => {IMAGES[this.state.image_id].feed = true, IMAGES[this.state.image_id].poster = 'sydney', navigation.navigate('Feed',{
+                  image_id: this.state.image_id
+                });
+              }}>
                 <Text style={styles.headerButtonText}>Next</Text>
               </TouchableOpacity>
             )
