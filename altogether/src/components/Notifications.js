@@ -23,7 +23,6 @@ const scale = size => (width / guidelineBaseWidth) * size;
 
 
 export default class Notifications extends Component {
-
     render() {
         return (
             //<SafeAreaView style={styles.container}>
@@ -44,7 +43,7 @@ export default class Notifications extends Component {
                         <Button transparent>
                             {this.props.follow === true ?
                                 <Image source={this.props.link}
-                                    style={{ height: scale(40), width: scale(70), resizeMode: 'contain' }} />
+                                    style={{ height: scale(40), width: scale(70), resizeMode: 'contain' }}/>
                             :
                                 <Image source={this.props.link}
                                     style={{ height: scale(30), width: scale(30) }} />

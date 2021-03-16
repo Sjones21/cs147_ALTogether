@@ -7,7 +7,7 @@ const NOTIFICATIONS = {
       follow: false,
       recent: false,
       user: 'haeli',
-      description: ' encourages you to add alt text to your photo!',
+      description: 'encourages you to add alt text to your photo!',
       ago: "1d",
       link: require('./assets/images/feed/sydney1.png'),
       thumbnail: require('./assets/images/feed/haeliProf.png')
@@ -18,7 +18,7 @@ const NOTIFICATIONS = {
         follow: false,
         recent: true,
         user: 'dani',
-        description: ' liked your post.',
+        description: 'liked your post.',
         ago: "30s",
         link: require('./assets/images/ice_cream.png'),
         thumbnail: require('./assets/images/feed/daniProf.png')
@@ -29,10 +29,10 @@ const NOTIFICATIONS = {
         follow: false,
         recent: true,
         user: 'heribert_florentius',
-        description: ' commented: This is the content I\'m here to see',
+        description: 'commented: This is the content I\'m here to see',
         ago: "3d",
         link: require('./assets/images/feed/sydney1.png'),
-        thumbnail: require('./assets/images/blankProfileIcon.jpg')
+        thumbnail: require('./assets/images/defaultProfileIcon.png')
     },
     notif3: {
         id: 'jungwonFollow1',
@@ -40,7 +40,7 @@ const NOTIFICATIONS = {
         follow: true,
         recent: true,
         user: 'jung_won',
-        description: ' started following you.',
+        description: 'started following you.',
         ago: "6d",
         link: require('./assets/images/Following.png'),
         thumbnail: require('./assets/images/feed/jungwonProf.png')
@@ -51,7 +51,7 @@ const NOTIFICATIONS = {
         follow: true,
         recent: false,
         user: 'dani',
-        description: ' started following you.',
+        description: 'started following you.',
         ago: "1w",
         link: require('./assets/images/Following.png'),
         thumbnail: require('./assets/images/feed/daniProf.png')
@@ -65,7 +65,7 @@ const NOTIFICATIONS = {
         description: ', who you might know, is on Instagram',
         ago: "2w",
         link: require('./assets/images/Follow.png'),
-        thumbnail: require('./assets/images/feed/haeliProf.png') //gloria profile pic
+        thumbnail: require('./assets/images/gloriaProfilePic.png') //gloria profile pic
     },
     notif6: {
         id: 'haeliLike1',
@@ -73,7 +73,7 @@ const NOTIFICATIONS = {
         follow: false,
         recent: false,
         user: 'haeli',
-        description: ' and 69 others liked your post.',
+        description: 'and 69 others liked your post.',
         ago: "3w",
         link: require('./assets/images/feed/sydney4.png'),
         thumbnail: require('./assets/images/feed/haeliProf.png')
