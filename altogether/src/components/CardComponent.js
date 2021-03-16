@@ -6,7 +6,9 @@ import {
     Image,
     WebView,
     Platform,
-    Linking
+    Linking,
+    ImageBackground,
+    TouchableOpacity
 } from "react-native";
 import { styles } from '../../Styles';
 
@@ -24,11 +26,16 @@ const scale = size => (width / guidelineBaseWidth) * size;
 
 export default class CardComponent extends Component {
 
+  onIcon = (event) => {
+    this.props.onModal(this.props.photo);
+    event.preventDefault();
+  }
+
     render() {
         return (
-            <SafeAreaView style={styles.container}>
-                <ScrollView style={styles.scrollView}>
-                    <Card >
+            <SafeAreaView>
+                <ScrollView>
+                    <Card style={{borderColor: 'white'}}>
                         <CardItem>
                             <Left>
                                 <Thumbnail style={{ height: 40, width: 40 }} source={this.props.thumbnail} />
@@ -39,8 +46,21 @@ export default class CardComponent extends Component {
                         </CardItem>
 
                         <CardItem >
-                            <Image source={this.props.photo.link}
-                                style={{ height: scale(320), width: scale(320) }} />
+                            <ImageBackground source={this.props.photo.link}
+                                style={{ height: scale(320), width: scale(320), padding: 15, justifyContent: 'flex-end', alignItems: 'flex-end' }}>
+                                {this.props.photo.hasAltText ?
+                                  <TouchableOpacity onPress={this.onIcon}>
+                                    <Image
+                                      source={require('../../assets/images/AltWithIcon.png')}
+                                      style={styles.imageIcon}/>
+                                  </TouchableOpacity> :
+                                  <TouchableOpacity onPress={this.onIcon}>
+                                    <Image
+                                      source={require('../../assets/images/AltNoIcon.png')}
+                                      style={styles.imageIcon}/>
+                                  </TouchableOpacity>
+                                }
+                            </ImageBackground>
                         </CardItem>
 
                         <CardItem style={{ height: 30 }}>

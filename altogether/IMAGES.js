@@ -100,7 +100,7 @@ const IMAGES = {
   gallery3: {
     id: 'gallery3',
     poster: 'gallery',
-    caption: 'I was stung by a bee 2 minutes after taking this pic lol',
+    caption: 'I was stung by a bee 2 min after taking this lol',
     feed: false,
     hasAltText: false,
     altText: null,
