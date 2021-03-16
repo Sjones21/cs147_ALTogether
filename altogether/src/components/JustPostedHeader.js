@@ -28,16 +28,13 @@ class JustPostedHeader extends Component {
         <Card transparent>
             <CardItem style={{ margin: -5 }}>
                 <Left style={{ minWidth: 200 }}>
-                    <Thumbnail style={{ height: 30, width: 30 }} source={this.props.thumbnail} />
-                    <Body>
-                      <Text style={{ fontWeight: "700" }}> Just posted a photo with alt text! </Text>
-                    </Body>
+                      <Text style={{ marginTop:5, marginLeft:15, fontWeight: "500" }}> Just posted a photo with alt text! </Text>
                 </Left>
                 <Right>
                   <View>
-                    <Image
+                  <Image
                     source = {require('../../assets/images/checkmark.png')}
-                    style = {styles.icons}/>
+                    style = {[styles.icons, {marginRight:10, marginBottom:5}]}/>
                   </View>
                 </Right>
             </CardItem>
