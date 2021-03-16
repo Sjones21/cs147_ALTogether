@@ -195,6 +195,27 @@ const styles = StyleSheet.create({
     borderColor: '#B1A9A9',
     borderRadius: 5
   },
+  dot:{
+  backgroundColor: "rgba(0,0,0,.2)",
+            width: 8,
+            height: 8,
+            borderRadius: 4,
+            marginLeft: 3,
+            marginRight: 3,
+            marginTop: 3,
+            marginBottom: 3
+  },
+
+  activeDot:{
+    backgroundColor: '#3996EF',
+              width: 8,
+              height: 8,
+              borderRadius: 4,
+              marginLeft: 3,
+              marginRight: 3,
+              marginTop: 3,
+              marginBottom: 3
+    },
 
   headerButton: {
     padding: 10,
@@ -312,10 +333,11 @@ const styles = StyleSheet.create({
   },
   /* ALT TEXT WRITING */
   writingContainer: {
-    paddingLeft: 30,
-    paddingRight: 30,
+    paddingLeft: 35,
+    paddingRight: 35,
     paddingTop: 40,
-    marginBottom: 20
+    marginBottom: 20,
+    backgroundColor: '#FFFFFF',
   },
 
   textbox: {
@@ -334,7 +356,84 @@ const styles = StyleSheet.create({
     marginTop: 5,
     alignSelf: 'center',
     color: '#B1A9A9',
+  },
+
+  /*Swiper */
+  container: {
+    flex: 1
+  },
+
+  wrapper: {},
+
+  slide: {
+    flex: 1,
+    justifyContent: 'center',
+    backgroundColor: 'transparent',
+    
+  },
+
+  slide1: {
+    flex: 1,
+    justifyContent: 'flex-start',
+    alignItems: 'center',
+    backgroundColor: '#FAFAFA',
+    
+  },
+
+  closeButton:{
+    fontSize: 32, 
+    marginTop:15, 
+    marginRight: 15, 
+    alignSelf:'flex-end'},
+
+  slide2: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+    backgroundColor: '#97CAE5'
+  },
+
+  slide3: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+    backgroundColor: '#92BBD9'
+  },
+
+  modalHeaderText: {
+    color: '#000',
+    fontSize: 26,
+    fontWeight:'600'
+  },
+
+  modalSubHeaderText:{
+    textAlign:'center', 
+    fontWeight:'300', 
+    fontSize: 22, 
+  },
+
+  exampleTextStrikethrough:{
+    textDecorationLine: "line-through", 
+    fontSize: 20, 
+    fontWeight:'300', 
+    lineHeight:23, 
+    color:'grey', 
+    textAlign:'center'
+  },
+
+  exampleText:{
+    fontSize: 20, 
+    fontWeight:'300', 
+    lineHeight:23, 
+    color:'#000000', 
+    textAlign:'center'
+  },
+
+
+
+  image: {
   }
+
 
 
 

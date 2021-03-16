@@ -46,7 +46,8 @@ LogBox.ignoreLogs([
 export default class App extends React.Component {
 
   state = {
-    image_id: null
+    image_id: null,
+    userNeedsOnboard: true
   };
 
   render() {
@@ -59,8 +60,8 @@ export default class App extends React.Component {
           <Stack.Screen name="Feed" component={Feed} initialParams={{ image_id: "" }} options={({ route, navigation }) => ({ title: 'Instagram', headerShown: false })} />
           <Stack.Screen name="Profile" component={Profile} options={({ headerShown: false, animationEnabled: false })} />
           <Stack.Screen name="ProfileAlt" component={ProfileAlt} options={({ headerShown: false, animationEnabled: false })} />
-          <Stack.Screen name="NewPostChoosePic" component={NewPostChoosePic} initialParams={{ updateImageIdCallback: ((id) => this.setState({ image_id: id })) }} options={({ route, navigation,
-          }) => ({
+          <Stack.Screen name="NewPostChoosePic" component={NewPostChoosePic} initialParams={{updateImageIdCallback: ((id) => this.setState({image_id: id}))}} options={({ route, navigation,
+                  }) => ({
             title: 'New Post',
             headerTitleStyle: { fontSize: 20 },
             headerStyle: { height: 100 },
@@ -105,14 +106,14 @@ export default class App extends React.Component {
                 labelVisible={false}
                 style={styles.headerButton}
                 onPress={() => navigation.goBack()}>
-              </HeaderBackButton>
-            ),
-            headerRight: () => (
-              <TouchableOpacity style={styles.headerButton}
-                onPress={() => {
-                  navigation.navigate('AltogetherGuided', {
-                    image_id: this.state.image_id
-                  });
+                </HeaderBackButton>
+              ),
+              headerRight: () => (
+                <TouchableOpacity style={styles.headerButton}
+                onPress={() => {navigation.navigate('AltogetherGuided', {
+                  image_id: this.state.image_id,
+                  userNeedsOnboard: this.state.userNeedsOnboard
+                });
                 }}>
                 <Text style={styles.headerButtonText}>Next</Text>
               </TouchableOpacity>
@@ -128,21 +129,21 @@ export default class App extends React.Component {
                 labelVisible={false}
                 style={styles.headerButton}
                 onPress={() => navigation.goBack()}>
-              </HeaderBackButton>
-            ),
-            headerRight: () => (
-              <TouchableOpacity style={styles.headerButton}
-                onPress={() => {
-                  navigation.navigate('AltogetherGuided', {
-                    image_id: this.state.image_id
-                  });
+                </HeaderBackButton>
+              ),
+              headerRight: () => (
+                <TouchableOpacity style={styles.headerButton}
+                onPress={() => {navigation.navigate('AltogetherGuided', {
+                  image_id: this.state.image_id,
+                  userNeedsOnboard: this.state.userNeedsOnboard
+                });
                 }}>
 
                 <Text style={styles.headerButtonText}>Next</Text>
               </TouchableOpacity>
-            )
-          })} />
-          <Stack.Screen name="AltogetherGuided" component={AltogetherGuided} options={({ route, navigation }) => ({
+              )
+            })} />
+          <Stack.Screen name="AltogetherGuided" component={AltogetherGuided} initialParams={{userNeedsOnboardCallback: ((userNeedsOnboardAnswer) => this.setState({userNeedsOnboard: userNeedsOnboardAnswer}))}} options={({ route, navigation }) => ({
             title: 'ALTogether',
             headerTitleStyle: { fontSize: 20 },
             headerStyle: { height: 100 },

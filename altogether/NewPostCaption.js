@@ -69,11 +69,10 @@ export default class NewPostCaption extends Component {
 
   render() {
     return (
-      <View style={styles.container}>
-        <View style={{ justifyContent: 'center', margin: 1 }}>
+      <View style={[styles.container, {backgroundColor: 'white'}]}>
+        <View style={{ justifyContent: 'center', margin: 1}}>
               <View style={{flexDirection: 'row', flexWrap: "nowrap", justifyContent: 'space-between', alignItems: 'flex-start'}}>
               <Image style={[styles.galleryPhoto, {margin:15, marginTop:20}]} source={this.state.selectedImage.link} />
-             
               <TextInput
                        style={[styles.captionText, {height: windowHeight / 8}]}
                        placeholder={'Write a caption...'}
