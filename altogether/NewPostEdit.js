@@ -12,7 +12,7 @@ import { IMAGES } from "./IMAGES";
 import { GALLERY } from './GALLERY.js';
 import { styles } from './Styles.js';
 
-export default class NewPostFilter extends Component {
+export default class NewPostEdit extends Component {
   constructor({route, navigation}) {
     super();
         this.state =  {
@@ -36,21 +36,20 @@ export default class NewPostFilter extends Component {
                   <Image style={styles.galleryPhoto} source={this.state.selectedImage.link} />
                   <Image style={styles.galleryPhoto} source={this.state.selectedImage.link} />
                   <Image style={styles.galleryPhoto} source={this.state.selectedImage.link} />
+                </View>
               </View>
-            </View>
           </ScrollView>
         </View>
         <View style={styles.editToggle}>
           <ToggleFilter
-            selected='left'
+            selected='right'
             iconLeft={require('./assets/images/GallerySelected.png')}
             iconRight={require('./assets/images/AltIconUnselected.png')}
             navigation={this.props.navigation} 
-            image_id ={this.state.selectedImage.id}
-            />
+            image_id ={this.state.selectedImage.id}/>
         </View>
       </View>
     );
   }
 }
-export { NewPostFilter };
+export { NewPostEdit };

@@ -119,6 +119,8 @@ const styles = StyleSheet.create({
     margin: 5
   },
 
+ 
+
   /* CARD COMPONENT */
 
   cardContainer: {
@@ -185,6 +187,27 @@ const styles = StyleSheet.create({
     borderColor: '#B1A9A9',
     borderRadius: 5
   },
+  dot:{
+  backgroundColor: "rgba(0,0,0,.2)",
+            width: 8,
+            height: 8,
+            borderRadius: 4,
+            marginLeft: 3,
+            marginRight: 3,
+            marginTop: 3,
+            marginBottom: 3
+  },
+
+  activeDot:{
+    backgroundColor: '#3996EF',
+              width: 8,
+              height: 8,
+              borderRadius: 4,
+              marginLeft: 3,
+              marginRight: 3,
+              marginTop: 3,
+              marginBottom: 3
+    },
 
   headerButton: {
     padding: 10,
@@ -192,14 +215,14 @@ const styles = StyleSheet.create({
     paddingBottom:5,
     margin: 5,
     marginRight:10,
-    backgroundColor: '#FFFFFF',
     color: '#3996EF',
     borderRadius: 10,
   },
 
   headerButtonText: {
-    fontSize: 18,
+    fontSize: 20,
     color: '#3996EF',
+    fontWeight: '500',
   },
 
   pageTitle:{
@@ -213,6 +236,26 @@ const styles = StyleSheet.create({
   inputText: {
     fontSize: 22,
     fontWeight: '300',
+  },
+
+  captionText:{
+    fontSize: 18,
+    fontWeight: '300',
+    flexBasis: 250, 
+    flexShrink: 2, 
+    flexGrow: 2, 
+    margin:15, 
+    marginLeft:0, 
+    marginTop:30,
+    flexWrap: 'wrap'
+  },
+
+  captionAltText:{
+    fontSize: 16,
+    fontWeight: '300',
+    margin: 15,
+    marginTop: 0,
+    color: '#666666'
   },
 
   underline: {
@@ -234,6 +277,10 @@ const styles = StyleSheet.create({
     textAlign: 'center'
   },
 
+  switch:{
+    margin: 15
+  },
+
   story: {
     height: 70,
     width: 70,
@@ -248,13 +295,41 @@ const styles = StyleSheet.create({
     width: 140,
     margin: 1
   },
+  /* NEW POST CHOOSE PIC */
+  selectedImageContainer: {
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
 
+  selectedGalleryPhoto: {
+    height: 400,
+    width: 400,
+  },
+
+  newGalleryPhoto: {
+    height: 100,
+    width: 100,
+    margin: 1
+  }, 
+  galleryTextContainer: {
+    margin: 10,
+    justifyContent: 'center',
+  },
+  /* NEW POST FILTER */
+  horizontalScroll: {
+    marginTop: 140,
+  },
+  editToggle: {
+    marginTop: 80,
+
+  },
   /* ALT TEXT WRITING */
   writingContainer: {
-    paddingLeft: 30,
-    paddingRight: 30,
+    paddingLeft: 35,
+    paddingRight: 35,
     paddingTop: 40,
-    marginBottom: 20
+    marginBottom: 20,
+    backgroundColor: '#FFFFFF',
   },
 
   textbox: {
@@ -273,7 +348,84 @@ const styles = StyleSheet.create({
     marginTop: 5,
     alignSelf: 'center',
     color: '#B1A9A9',
+  },
+
+  /*Swiper */
+  container: {
+    flex: 1
+  },
+
+  wrapper: {},
+
+  slide: {
+    flex: 1,
+    justifyContent: 'center',
+    backgroundColor: 'transparent',
+    
+  },
+
+  slide1: {
+    flex: 1,
+    justifyContent: 'flex-start',
+    alignItems: 'center',
+    backgroundColor: '#FAFAFA',
+    
+  },
+
+  closeButton:{
+    fontSize: 32, 
+    marginTop:15, 
+    marginRight: 15, 
+    alignSelf:'flex-end'},
+
+  slide2: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+    backgroundColor: '#97CAE5'
+  },
+
+  slide3: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+    backgroundColor: '#92BBD9'
+  },
+
+  modalHeaderText: {
+    color: '#000',
+    fontSize: 26,
+    fontWeight:'600'
+  },
+
+  modalSubHeaderText:{
+    textAlign:'center', 
+    fontWeight:'300', 
+    fontSize: 22, 
+  },
+
+  exampleTextStrikethrough:{
+    textDecorationLine: "line-through", 
+    fontSize: 20, 
+    fontWeight:'300', 
+    lineHeight:23, 
+    color:'grey', 
+    textAlign:'center'
+  },
+
+  exampleText:{
+    fontSize: 20, 
+    fontWeight:'300', 
+    lineHeight:23, 
+    color:'#000000', 
+    textAlign:'center'
+  },
+
+
+
+  image: {
   }
+
 
 
 

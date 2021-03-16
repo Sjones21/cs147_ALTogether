@@ -22,7 +22,7 @@ const guidelineBaseHeight = 680;
 const scale = size => (width / guidelineBaseWidth) * size;
 
 
-class CardComponent extends Component {
+export default class CardComponent extends Component {
 
     render() {
         return (
@@ -94,4 +94,4 @@ class CardComponent extends Component {
         );
     }
 }
-export default CardComponent;
+export {CardComponent};

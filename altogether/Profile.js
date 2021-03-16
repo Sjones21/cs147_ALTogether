@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Alert, Image, Text, View, StyleSheet, ScrollView, Dimensions, TouchableOpacity} from 'react-native';
+import { Alert, Image, Text, View, StyleSheet, ScrollView, Dimensions, TouchableOpacity } from 'react-native';
 import * as Font from 'expo-font';
 import { Container, Content } from 'native-base'
 import CardComponent from './src/components/CardComponent'
@@ -18,16 +18,18 @@ export default class Profile extends Component {
     let images = [];
 
     for (const [key, value] of Object.entries(IMAGES)) {
-      images.push(
-        <GalleryPhoto key={`${key}`} photo={value} />
-      );
+      if (value.poster == 'sydney') {
+        images.push(
+          <GalleryPhoto key={`${key}`} photo={value} />
+        );
+      }
     }
 
 
     return (
       <View style={styles.container}>
         {/* Header Bar */}
-        <HeaderBar navigation={this.props.navigation} title='sydney_jones'/>
+        <HeaderBar navigation={this.props.navigation} title='sydney_jones' />
 
         {/* Content Container */}
         <View style={styles.contentContainer}>
@@ -37,13 +39,13 @@ export default class Profile extends Component {
               {/* Profile Information */}
               <View style={styles.profileContainer}>
                 {/* Profile Picture */}
-                <Image source={require('./assets/images/ProfilePicture.png')} style={{height: 105, width: 105}}/>
-                <View style={{flexDirection: 'column'}}>
+                <Image source={require('./assets/images/ProfilePicture.png')} style={{ height: 105, width: 105 }} />
+                <View style={{ flexDirection: 'column' }}>
                   {/* Posts, Followers, Following */}
                   <View style={styles.numbersContainer}>
-                    <View style={{flex: 1}}><Text style={styles.numberBig}>6</Text><Text style={styles.numberSmall}>Posts</Text></View>
-                    <View style={{flex: 1}}><Text style={styles.numberBig}>100</Text><Text style={styles.numberSmall}>Followers</Text></View>
-                    <View style={{flex: 1}}><Text style={styles.numberBig}>80</Text><Text style={styles.numberSmall}>Following</Text></View>
+                    <View style={{ flex: 1 }}><Text style={styles.numberBig}>6</Text><Text style={styles.numberSmall}>Posts</Text></View>
+                    <View style={{ flex: 1 }}><Text style={styles.numberBig}>100</Text><Text style={styles.numberSmall}>Followers</Text></View>
+                    <View style={{ flex: 1 }}><Text style={styles.numberBig}>80</Text><Text style={styles.numberSmall}>Following</Text></View>
                   </View>
                   {/* Progress Bar */}
                   <View>
@@ -60,43 +62,42 @@ export default class Profile extends Component {
               </View>
 
               {/* Edit Profile Button */}
-              <View style={{alignItems: 'center'}}>
+              <View style={{ alignItems: 'center' }}>
                 <TouchableOpacity
                   style={styles.editButton}>
                   <Text style={styles.buttonLabel}>Edit Profile</Text>
                 </TouchableOpacity>
               </View>
-
-              {/* Stories */}
-              <View style={{flexDirection: 'row'}}>
-                <Image style={styles.story} source={require('./assets/images/Story1.png')}/>
-                <Image style={styles.story} source={require('./assets/images/Story2.png')}/>
+                {/* Stories */}
+                <View style={{ flexDirection: 'row' }}>
+                  <Image style={styles.story} source={require('./assets/images/Story1.png')} />
+                  <Image style={styles.story} source={require('./assets/images/Story2.png')} />
+                </View>
               </View>
-            </View>
 
-            {/* Toggle Profile */}
-            <ToggleProfile
-              selected='left'
-              iconLeft={require('./assets/images/GallerySelected.png')}
-              iconRight={require('./assets/images/AltIconUnselected.png')}
-              navigation={this.props.navigation}/>
+              {/* Toggle Profile */}
+              <ToggleProfile
+                selected='left'
+                iconLeft={require('./assets/images/GallerySelected.png')}
+                iconRight={require('./assets/images/AltIconUnselected.png')}
+                navigation={this.props.navigation} />
 
-            {/* 3x3 Photos Container */}
-            <View style={{justifyContent: 'center', margin: 1}}>
-              <View style={{flexDirection: 'row', flexWrap: 'wrap'}}>
-                { images }
-                {/*<GalleryPhoto photo={IMAGES.iceCream} />
+              {/* 3x3 Photos Container */}
+              <View style={{ justifyContent: 'center', margin: 1 }}>
+                <View style={{ flexDirection: 'row', flexWrap: 'wrap' }}>
+                  {images}
+                  {/*<GalleryPhoto photo={IMAGES.iceCream} />
                 <GalleryPhoto photo={IMAGES.sydney1} />*/}
+                </View>
               </View>
-            </View>
           </ScrollView>
         </View>
 
-        {/* Navigation Bar */}
-        <NavBar
-          selected='profile'
-          navigation={this.props.navigation}/>
-      </View>
+          {/* Navigation Bar */}
+          <NavBar
+            selected='profile'
+            navigation={this.props.navigation} />
+        </View>
     );
   }
 }

@@ -26,15 +26,15 @@ const guidelineBaseHeight = 680;
 const scale = size => (width / guidelineBaseWidth) * size;
 
 
-class GalleryPhoto extends Component {
+class NewGalleryPhoto extends Component {
 
   render() {
     return (
       <TouchableOpacity
-        onPress={() => Alert.alert(`${this.props.photo.id} pressed`)}>
+        onPress={() => this.props.selectedImage(this.props.photo)}>
         {this.props.isNewPhoto ?
           <Image style={styles.newGalleryPhoto} source={this.props.photo.link} />
-          : 
+          :
           <Image style={styles.galleryPhoto} source={this.props.photo.link} />}
       </TouchableOpacity>
 
@@ -42,4 +42,4 @@ class GalleryPhoto extends Component {
   }
 }
 
-export default GalleryPhoto;
+export default NewGalleryPhoto;
