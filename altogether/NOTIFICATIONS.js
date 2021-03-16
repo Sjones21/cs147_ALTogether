@@ -20,7 +20,7 @@ const NOTIFICATIONS = {
         user: 'dani',
         description: ' liked your post.',
         ago: "30s",
-        link: require('./assets/images/feed/sydney1.png'),
+        link: require('./assets/images/ice_cream.png'),
         thumbnail: require('./assets/images/feed/daniProf.png')
     },
     notif2: {
@@ -32,7 +32,7 @@ const NOTIFICATIONS = {
         description: ' commented: This is the content I\'m here to see',
         ago: "3d",
         link: require('./assets/images/feed/sydney1.png'),
-        thumbnail: require('./assets/images/feed/haeliProf.png')
+        thumbnail: require('./assets/images/blankProfileIcon.png')
     },
     notif3: {
         id: 'jungwonFollow1',
@@ -75,7 +75,7 @@ const NOTIFICATIONS = {
         user: 'haeli',
         description: ' and 69 others liked your post.',
         ago: "3w",
-        link: require('./assets/images/feed/sydney1.png'),
+        link: require('./assets/images/feed/sydney4.png'),
         thumbnail: require('./assets/images/feed/haeliProf.png')
     },
   }

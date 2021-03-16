@@ -62,18 +62,18 @@ export default class Activity extends Component {
       */
       if (value.nudge === true) {
         nudges.push(
-          <Notifications key={`${key}`} thumbnail={`${value.thumbnail}`} link={`${value.link}`} user={`${value.user}`} notification={value} description={`${value.description}`} ago={`${value.ago}`} follow={`${value.follow}`}/>
+          <Notifications key={`${key}`} thumbnail={`${value.thumbnail}`} link={`${value.link}`} user={`${value.user}`} notification={value} description={`${value.description}`} ago={`${value.ago}`} follow={value.follow}/>
         );
       }
 
       if (value.nudge === false) {
         if (value.recent === true) {
           recentNotifications.push(
-            <Notifications key={`${key}`} thumbnail={`${value.thumbnail}`} link={`${value.link}`} user={`${value.user}`} notification={value} description={`${value.description}`} ago={`${value.ago}`} follow={`${value.follow}`} />
+            <Notifications key={`${key}`} thumbnail={`${value.thumbnail}`} link={`${value.link}`} user={`${value.user}`} notification={value} description={`${value.description}`} ago={`${value.ago}`} follow={value.follow} />
           );
         } else if (value.recent === false) {
           pastNotifications.push(
-            <Notifications key={`${key}`} thumbnail={`${value.thumbnail}`} link={`${value.link}`} user={`${value.user}`} notification={value} description={`${value.description}`} ago={`${value.ago}`} follow={`${value.follow}`} />
+            <Notifications key={`${key}`} thumbnail={`${value.thumbnail}`} link={`${value.link}`} user={`${value.user}`} notification={value} description={`${value.description}`} ago={`${value.ago}`} follow={value.follow} />
           );
         }
       }
@@ -89,18 +89,18 @@ export default class Activity extends Component {
 
             <View style={styles.contentContainer}>
               <Content style={{ borderTopColor: "lightgray", borderTopWidth: 1 }}>
-                <Text style={{ fontWeight: "900", marginLeft: 10, marginTop: 10, marginBottom: 10 }}>Follow Requests</Text>
+                <Text style={{ fontWeight: "700", marginLeft: 10, marginTop: 10, marginBottom: 10 }}>Follow Requests</Text>
               </Content>
               <Content style={{ borderTopColor: "lightgray", borderTopWidth: 1 }}>
-                <Text style={{ fontWeight: "900", marginLeft: 10, marginTop: 10 }}>Nudges</Text>
+                <Text style={{ fontWeight: "700", marginLeft: 10, marginTop: 10 }}>Nudges</Text>
                 {nudges}
               </Content>
               <Content style={{ borderTopColor: "lightgray", borderTopWidth: 1 }}>
-                <Text style={{ fontWeight: "900", marginLeft: 10, marginTop: 10 }}>This Week</Text>
+                <Text style={{ fontWeight: "700", marginLeft: 10, marginTop: 10 }}>This Week</Text>
                 {recentNotifications}
               </Content>
               <Content style={{ borderTopColor: "lightgray", borderTopWidth: 1 }}>
-                <Text style={{ fontWeight: "900", marginLeft: 10, marginTop: 10 }}>This Month</Text>
+                <Text style={{ fontWeight: "700", marginLeft: 10, marginTop: 10 }}>This Month</Text>
                 {pastNotifications}
               </Content>
             </View>
