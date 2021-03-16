@@ -24,6 +24,8 @@ import NewPostChoosePic from './NewPostChoosePic.js';
 import NewPostFilter from './NewPostFilter.js';
 import NewPostEdit from './NewPostEdit.js';
 import NewPostCaption from './NewPostCaption.js';
+import NewPostAltogetherGuided from './NewPostAltogetherGuided.js';
+import NewPostAltogetherCustom from './NewPostAltogetherCustom.js';
 import AltogetherGuided from './AltogetherGuided.js';
 import AltogetherCustom from './AltogetherCustom.js';
 import * as Font from 'expo-font';
@@ -110,7 +112,7 @@ export default class App extends React.Component {
               ),
               headerRight: () => (
                 <TouchableOpacity style={styles.headerButton}
-                onPress={() => {navigation.navigate('AltogetherGuided', {
+                onPress={() => {navigation.navigate('NewPostAltogetherGuided', {
                   image_id: this.state.image_id,
                   userNeedsOnboard: this.state.userNeedsOnboard
                 });
@@ -133,7 +135,7 @@ export default class App extends React.Component {
               ),
               headerRight: () => (
                 <TouchableOpacity style={styles.headerButton}
-                onPress={() => {navigation.navigate('AltogetherGuided', {
+                onPress={() => {navigation.navigate('NewPostAltogetherGuided', {
                   image_id: this.state.image_id,
                   userNeedsOnboard: this.state.userNeedsOnboard
                 });
@@ -143,7 +145,7 @@ export default class App extends React.Component {
               </TouchableOpacity>
               )
             })} />
-          <Stack.Screen name="AltogetherGuided" component={AltogetherGuided} initialParams={{userNeedsOnboardCallback: ((userNeedsOnboardAnswer) => this.setState({userNeedsOnboard: userNeedsOnboardAnswer}))}} options={({ route, navigation }) => ({
+          <Stack.Screen name="NewPostAltogetherGuided" component={NewPostAltogetherGuided} initialParams={{userNeedsOnboardCallback: ((userNeedsOnboardAnswer) => this.setState({userNeedsOnboard: userNeedsOnboardAnswer}))}} options={({ route, navigation }) => ({
             title: 'ALTogether',
             headerTitleStyle: { fontSize: 20 },
             headerStyle: { height: 100 },
@@ -166,7 +168,7 @@ export default class App extends React.Component {
               </TouchableOpacity>
             )
           })} />
-          <Stack.Screen name="AltogetherCustom" component={AltogetherCustom} options={({ route, navigation }) => ({
+          <Stack.Screen name="NewPostAltogetherCustom" component={NewPostAltogetherCustom} options={({ route, navigation }) => ({
             animationEnabled: false, title: 'ALTogether',
             headerTitleStyle: { fontSize: 20 },
             headerStyle: { height: 100 },
