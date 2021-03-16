@@ -24,7 +24,7 @@ const guidelineBaseHeight = 680;
 const scale = size => (width / guidelineBaseWidth) * size;
 
 
-class ToggleAlt extends Component {
+class NewPostToggleAlt extends Component {
 
     render() {
         return (
@@ -52,4 +52,4 @@ class ToggleAlt extends Component {
     }
 }
 
-export default ToggleAlt;
+export default NewPostToggleAlt;
