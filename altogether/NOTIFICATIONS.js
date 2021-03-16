@@ -32,7 +32,7 @@ const NOTIFICATIONS = {
         description: ' commented: This is the content I\'m here to see',
         ago: "3d",
         link: require('./assets/images/feed/sydney1.png'),
-        thumbnail: require('./assets/images/blankProfileIcon.png')
+        thumbnail: require('./assets/images/blankProfileIcon.jpg')
     },
     notif3: {
         id: 'jungwonFollow1',
