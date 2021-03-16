@@ -33,7 +33,7 @@ export default class NewPostChoosePic extends Component {
     this.state.updateImageIdCallback(this.state.imageID);
     })
   }
-  
+
   selectedImage(photo) {
     this.setState({selectedImage : photo}, () => {
     this.setState({imageID: photo.id}, () => {
@@ -51,7 +51,7 @@ export default class NewPostChoosePic extends Component {
           </NewGalleryPhoto>
         );
       }
-      
+
     }
     /*
     this.props.navigation.navigate('NewPostFilter', {

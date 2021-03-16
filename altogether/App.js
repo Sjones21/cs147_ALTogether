@@ -28,6 +28,8 @@ import NewPostAltogetherGuided from './NewPostAltogetherGuided.js';
 import NewPostAltogetherCustom from './NewPostAltogetherCustom.js';
 import AltogetherGuided from './AltogetherGuided.js';
 import AltogetherCustom from './AltogetherCustom.js';
+import PersonalFeed from './PersonalFeed.js';
+
 import * as Font from 'expo-font';
 import { LogBox } from 'react-native';
 
@@ -204,14 +206,29 @@ export default class App extends React.Component {
               ),
               headerRight: () => (
                 <TouchableOpacity style={styles.headerButton}
-                onPress={() => {IMAGES[this.state.image_id].feed = true, IMAGES[this.state.image_id].poster = 'sydney', navigation.navigate('Feed',{
-                  image_id: this.state.image_id
+                onPress={() => {
+                  IMAGES[this.state.image_id].feed = true,
+                  IMAGES[this.state.image_id].poster = 'sydney',
+                  IMAGES[this.state.image_id].hasAltText = true,
+                  IMAGES[this.state.image_id].date = new Date(),
+                  navigation.navigate('Feed', {
+                    image_id: this.state.image_id
                 });
               }}>
                 <Text style={styles.headerButtonText}>Next</Text>
               </TouchableOpacity>
             )
           })} />
+          <Stack.Screen name="PersonalFeed" component={PersonalFeed} options={({ route, navigation }) => ({
+             title: 'Posts',
+             headerLeft: () => (
+               <HeaderBackButton
+                 labelVisible={false}
+                 style={styles.headerButton}
+                 onPress={() => navigation.goBack()}>
+               </HeaderBackButton>
+             ),
+           })} />
         </Stack.Navigator>
       </NavigationContainer>
     )
