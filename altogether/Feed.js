@@ -29,7 +29,7 @@ let customFonts = {
 
 
 export default class Feed extends Component {
-  
+
 
   constructor({route, navigation}) {
     super();
@@ -42,7 +42,7 @@ export default class Feed extends Component {
   }
 
   render() {
-  
+
     let images = [];
     for (const [key, value] of Object.entries(IMAGES)) {
       let likes = Math.floor(Math.random() * Math.floor(300));
@@ -58,7 +58,8 @@ export default class Feed extends Component {
           <View style={styles.container}>
             {/* Header Bar */}
             <HeaderBar navigation = {this.props.navigation} title='Instagram'/>
-            {this.state.justPosted?(<JustPostedHeader/>):null}
+            {/* HARDCODED SOLUTION */}
+            {images.length >2?(<JustPostedHeader/>):null}
             {/* Feed Container */}
             <View style={styles.contentContainer}>
                 <Content>
