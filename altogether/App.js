@@ -182,7 +182,7 @@ export default class App extends React.Component {
               ),
               headerRight: () => (
                 <TouchableOpacity style={styles.headerButton}
-                onPress={() => {IMAGES[this.state.image_id].feed = true, navigation.navigate('Feed',{
+                onPress={() => {IMAGES[this.state.image_id].feed = true, IMAGES[this.state.image_id].poster = 'sydney', navigation.navigate('Feed',{
                   image_id: this.state.image_id
                 });
               }}>
