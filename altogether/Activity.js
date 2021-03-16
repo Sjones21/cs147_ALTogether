@@ -62,18 +62,18 @@ export default class Activity extends Component {
       */
       if (value.nudge === true) {
         nudges.push(
-          <Notifications key={`${key}`} thumbnail={`${value.thumbnail}`} link={`${value.link}`} user={`${value.user}`} notification={value} description={`${value.description}`} ago={`${value.ago}`} />
+          <Notifications key={`${key}`} thumbnail={`${value.thumbnail}`} link={`${value.link}`} user={`${value.user}`} notification={value} description={`${value.description}`} ago={`${value.ago}`} follow={`${value.follow}`}/>
         );
       }
 
       if (value.nudge === false) {
         if (value.recent === true) {
           recentNotifications.push(
-            <Notifications key={`${key}`} thumbnail={`${value.thumbnail}`} link={`${value.link}`} user={`${value.user}`} notification={value} description={`${value.description}`} ago={`${value.ago}`} />
+            <Notifications key={`${key}`} thumbnail={`${value.thumbnail}`} link={`${value.link}`} user={`${value.user}`} notification={value} description={`${value.description}`} ago={`${value.ago}`} follow={`${value.follow}`} />
           );
         } else if (value.recent === false) {
           pastNotifications.push(
-            <Notifications key={`${key}`} thumbnail={`${value.thumbnail}`} link={`${value.link}`} user={`${value.user}`} notification={value} description={`${value.description}`} ago={`${value.ago}`} />
+            <Notifications key={`${key}`} thumbnail={`${value.thumbnail}`} link={`${value.link}`} user={`${value.user}`} notification={value} description={`${value.description}`} ago={`${value.ago}`} follow={`${value.follow}`} />
           );
         }
       }

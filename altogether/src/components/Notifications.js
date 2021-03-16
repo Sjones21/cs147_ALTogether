@@ -29,8 +29,8 @@ export default class Notifications extends Component {
             //<SafeAreaView style={styles.container}>
             //    <ScrollView style={styles.scrollView}>
             <Card transparent>
-                <CardItem style={{margin: -5}}>
-                    <Left style={{minWidth: 200}}>
+                <CardItem style={{ margin: -5 }}>
+                    <Left style={{ minWidth: 200 }}>
                         <Thumbnail style={{ height: 40, width: 40 }} source={this.props.thumbnail} />
                         <Body>
                             <Text>
@@ -42,8 +42,13 @@ export default class Notifications extends Component {
                     </Left>
                     <Right>
                         <Button transparent>
-                            <Image source={this.props.link}
-                                style={{ height: scale(40), width: scale(40) }} />
+                            {this.props.follow === true ?
+                                <Image source={this.props.link}
+                                    style={{ height: scale(40), width: scale(40), resizeMode: 'contain' }} />
+                            :
+                                <Image source={this.props.link}
+                                    style={{ height: scale(40), width: scale(40) }} />
+                            }
                         </Button>
                     </Right>
                 </CardItem>
