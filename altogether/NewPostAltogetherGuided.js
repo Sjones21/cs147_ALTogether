@@ -3,7 +3,7 @@ import { Alert, Image, Text, TextInput, Keyboard, KeyboardAvoidingView, Touchabl
 import * as Font from 'expo-font';
 import { Container, Content } from 'native-base'
 import CardComponent from './src/components/CardComponent'
-import ToggleAlt from './src/components/ToggleAlt'
+import NewPostToggleAlt from './src/components/NewPostToggleAlt'
 //import { Audio } from ''
 import { Card, ListItem, Button} from 'react-native-elements'
 import * as Speech from 'expo-speech';
@@ -17,7 +17,7 @@ import { IMAGES } from './IMAGES.js';
 const windowWidth = Dimensions.get('window').width;
 const windowHeight = Dimensions.get('window').height;
 
-export default class AltogetherGuided extends Component {
+export default class NewPostAltogetherGuided extends Component {
 
     underlineAltText(autoStr){
         const words = autoStr.split(' ');
@@ -415,7 +415,7 @@ export default class AltogetherGuided extends Component {
               <Image source={this.state.image.link}
                   style={{height: windowHeight/2.5, width: windowWidth}} />
               {/* Toggle Profile */}
-              <ToggleAlt
+              <NewPostToggleAlt
                 selected='left'
                 navigation={this.props.navigation}
                 image_id ={this.state.image.id}
@@ -467,4 +467,4 @@ export default class AltogetherGuided extends Component {
     );
   }
 }
-export {AltogetherGuided};
+export {NewPostAltogetherGuided};

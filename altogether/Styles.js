@@ -1,8 +1,17 @@
 import { StyleSheet} from 'react-native';
 
+import App from './App.js'
+
 const styles = StyleSheet.create({
   container: {
     flex: 1,
+    /*marginTop: 20,*/
+    backgroundColor: '#fff',
+  },
+
+  guidedCustomContainer: {
+    flex: 1,
+    height: 600,
     /*marginTop: 20,*/
     backgroundColor: '#fff',
   },
@@ -61,14 +70,16 @@ const styles = StyleSheet.create({
   /* TYPOGRAPHY */
 
   header1: {
-    fontSize: 18,
+    fontSize: 22,
     fontWeight: 'bold',
-    marginBottom: 5
+    marginBottom: 10,
   },
 
   header2: {
-    fontSize: 16,
-    marginBottom: 5
+    fontSize: 18,
+    fontWeight: '300',
+    color: "#424242",
+    marginBottom: 15,
   },
 
   /* HEADER BAR, NAV BAR */
@@ -108,11 +119,21 @@ const styles = StyleSheet.create({
     margin: 5
   },
 
+ 
+
   /* CARD COMPONENT */
 
   cardContainer: {
     marginTop: 30
   },
+  cardItem: {
+    color: 'rgb(300,0,333)',
+    shadowColor: 'rgb(0,0,0)',
+    shadowOffset: { height: 0, width: 0 },
+    shadowOpacity: 0, //default is 1
+    shadowRadius: 0//default is 1
+  },
+
 
   /* PROFILE */
   profileContainer: {
@@ -174,6 +195,27 @@ const styles = StyleSheet.create({
     borderColor: '#B1A9A9',
     borderRadius: 5
   },
+  dot:{
+  backgroundColor: "rgba(0,0,0,.2)",
+            width: 8,
+            height: 8,
+            borderRadius: 4,
+            marginLeft: 3,
+            marginRight: 3,
+            marginTop: 3,
+            marginBottom: 3
+  },
+
+  activeDot:{
+    backgroundColor: '#3996EF',
+              width: 8,
+              height: 8,
+              borderRadius: 4,
+              marginLeft: 3,
+              marginRight: 3,
+              marginTop: 3,
+              marginBottom: 3
+    },
 
   headerButton: {
     padding: 10,
@@ -181,25 +223,57 @@ const styles = StyleSheet.create({
     paddingBottom:5,
     margin: 5,
     marginRight:10,
-    backgroundColor: '#FFFFFF',
     color: '#3996EF',
     borderRadius: 10,
   },
 
   headerButtonText: {
-    fontSize: 18,
+    fontSize: 20,
     color: '#3996EF',
+    fontWeight: '500',
   },
 
   pageTitle:{
     fontSize: 20,
   },
 
+  underlineWrapper:{
+      borderBottomWidth: 10
+  },
+
+  inputText: {
+    fontSize: 22,
+    fontWeight: '300',
+  },
+
+  captionText:{
+    fontSize: 18,
+    fontWeight: '300',
+    flexBasis: 250, 
+    flexShrink: 2, 
+    flexGrow: 2, 
+    margin:15, 
+    marginLeft:0, 
+    marginTop:30,
+    flexWrap: 'wrap'
+  },
+
+  captionAltText:{
+    fontSize: 16,
+    fontWeight: '300',
+    margin: 15,
+    marginTop: 0,
+    color: '#666666'
+  },
+
   underline: {
-    //fontSize: 14,
+    fontFamily: 'Arial',
+    fontSize: 22,
+    fontWeight: '400',
     textDecorationLine: 'underline',
     textDecorationStyle: 'dotted',
-    textDecorationColor: '#206FE9',
+    textDecorationColor: '#3996EF',
+    color: '#3996EF'
   },
 
   cardContainer: {
@@ -209,6 +283,10 @@ const styles = StyleSheet.create({
   buttonLabel: {
     fontWeight: 'bold',
     textAlign: 'center'
+  },
+
+  switch:{
+    margin: 15
   },
 
   story: {
@@ -225,27 +303,137 @@ const styles = StyleSheet.create({
     width: 140,
     margin: 1
   },
+  /* NEW POST CHOOSE PIC */
+  selectedImageContainer: {
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
 
+  selectedGalleryPhoto: {
+    height: 400,
+    width: 400,
+  },
+
+  newGalleryPhoto: {
+    height: 100,
+    width: 100,
+    margin: 1
+  }, 
+  galleryTextContainer: {
+    margin: 10,
+    justifyContent: 'center',
+  },
+  /* NEW POST FILTER */
+  horizontalScroll: {
+    marginTop: 140,
+  },
+  editToggle: {
+    marginTop: 80,
+
+  },
   /* ALT TEXT WRITING */
   writingContainer: {
-    paddingLeft: 30,
-    paddingRight: 30,
-    paddingTop: 20
+    paddingLeft: 35,
+    paddingRight: 35,
+    paddingTop: 40,
+    marginBottom: 20,
+    backgroundColor: '#FFFFFF',
   },
 
   textbox: {
-    marginTop: 10,
-    padding: 10,
-    color: '#666666',
-    backgroundColor: '#FAFAFA',
-    borderRadius: 5
+    marginTop: 5,
+    padding: 20,
+    paddingTop:15,
+    paddingLeft:15,
+    backgroundColor: '#ebf1f5',
+    color: '#424242',
+    borderRadius: 5,
+    fontSize: 22,
+    fontWeight: '300'
   },
 
   textboxInstruction: {
-    margin: 20,
-    textAlign: 'center',
-    color: '#B1A9A9'
+    marginTop: 5,
+    alignSelf: 'center',
+    color: '#B1A9A9',
+  },
+
+  /*Swiper */
+  container: {
+    flex: 1
+  },
+
+  wrapper: {},
+
+  slide: {
+    flex: 1,
+    justifyContent: 'center',
+    backgroundColor: 'transparent',
+    
+  },
+
+  slide1: {
+    flex: 1,
+    justifyContent: 'flex-start',
+    alignItems: 'center',
+    backgroundColor: '#FAFAFA',
+    
+  },
+
+  closeButton:{
+    fontSize: 32, 
+    marginTop:15, 
+    marginRight: 15, 
+    alignSelf:'flex-end'},
+
+  slide2: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+    backgroundColor: '#97CAE5'
+  },
+
+  slide3: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+    backgroundColor: '#92BBD9'
+  },
+
+  modalHeaderText: {
+    color: '#000',
+    fontSize: 26,
+    fontWeight:'600'
+  },
+
+  modalSubHeaderText:{
+    textAlign:'center', 
+    fontWeight:'300', 
+    fontSize: 22, 
+  },
+
+  exampleTextStrikethrough:{
+    textDecorationLine: "line-through", 
+    fontSize: 20, 
+    fontWeight:'300', 
+    lineHeight:23, 
+    color:'grey', 
+    textAlign:'center'
+  },
+
+  exampleText:{
+    fontSize: 20, 
+    fontWeight:'300', 
+    lineHeight:23, 
+    color:'#000000', 
+    textAlign:'center'
+  },
+
+
+
+  image: {
   }
+
 
 
 
