@@ -90,7 +90,7 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'flex-end',
     justifyContent: 'space-between',
-    backgroundColor: '#FAFAFA'
+    backgroundColor: '#FFFFFF'
   },
 
   headerTitle: {

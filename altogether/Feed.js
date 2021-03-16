@@ -12,6 +12,7 @@ import { styles } from './Styles.js';
 import { IMAGES } from './IMAGES.js';
 import { TextInput } from 'react-native-gesture-handler';
 import { useRoute } from '@react-navigation/native';
+import JustPostedHeader from './src/components/JustPostedHeader';
 
 
 
@@ -35,7 +36,8 @@ export default class Feed extends Component {
     const image = IMAGES[route.params.image_id];
         this.state =  {
           selectedImage: image,
-          ImageID: route.params.image_id
+          ImageID: route.params.image_id,
+          justPosted: false
     };
   }
 
@@ -56,7 +58,7 @@ export default class Feed extends Component {
           <View style={styles.container}>
             {/* Header Bar */}
             <HeaderBar navigation = {this.props.navigation} title='Instagram'/>
-
+            {this.state.justPosted?(<JustPostedHeader/>):null}
             {/* Feed Container */}
             <View style={styles.contentContainer}>
                 <Content>
