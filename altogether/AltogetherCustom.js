@@ -48,7 +48,7 @@ constructor({route, navigation}) {
     return (
       <View style={styles.container}>
         <KeyboardAvoidingView
-          style={{flex: 1}}
+          style={{flex: 1,  backgroundColor:"white"}}
           behavior={Platform.OS === "ios" ? "padding" : "height"}
           keyboardVerticalOffset={(windowHeight / 20)}>
 
@@ -86,7 +86,6 @@ constructor({route, navigation}) {
                        <Text>{this.state.image.custom}</Text>
                     </TextInput>)
                   }
-                  <Text> </Text>
                   <View style ={{flexDirection: 'row', alignItems: 'center', alignSelf:'center'}}>
                   { this.state.isSpeaking ? (<TouchableOpacity
                     style={{flexDirection: 'row', alignItems: 'center', marginTop: 35}}
