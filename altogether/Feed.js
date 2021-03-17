@@ -34,7 +34,7 @@ let customFonts = {
 
 
 export default class Feed extends Component {
-  
+
 
   constructor({route, navigation}) {
     super();
@@ -94,15 +94,15 @@ renderModal = () => {
       <View style={styles.modalContainer}>
         <View
           style={[styles.popUpContainer, {height: windowHeight * .30, width: windowWidth}]}>
-          
+
           <View style={{height: 5, width: 40, marginBottom: 20, backgroundColor: '#DBDBDB', borderRadius: 20}}></View>
-       
+
           <View style={{flex: 1, justifyContent: 'space-around'}}>
 
             <View style={{margin: 20}}>
             <View style={{flexDirection:'row',}}>
               <Text style={styles.popUpTitle}>
-              
+
                 @{photo.poster} did not write alt text!</Text><View style={{marginLeft:10, marginTop:2}}><InfoButtonModal ></InfoButtonModal></View>
                        </View>
               <Text style={styles.popUpDescription}>
