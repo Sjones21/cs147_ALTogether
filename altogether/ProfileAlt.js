@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Alert, Image, Text, View, StyleSheet, ScrollView, Dimensions, TouchableOpacity} from 'react-native';
+import { Alert, Image, Text, View, StyleSheet, ScrollView, Dimensions, TouchableOpacity } from 'react-native';
 import * as Font from 'expo-font';
 import { Container, Content } from 'native-base'
 import CardComponent from './src/components/CardComponent'
@@ -14,16 +14,34 @@ import { IMAGES } from './IMAGES.js';
 import { styles } from './Styles.js';
 
 export default class Profile extends Component {
+  renderProgressBarColor(numAlt, totalPosts){
+    let percentAlt = numAlt/totalPosts * 100;
+    if (percentAlt <= 20){
+      return '#FA5858';
+    }else if (percentAlt > 20 && percentAlt < 100){
+      return '#FAA958';
+    }else if (percentAlt === 100){
+      return '#8FCB2E';
+    }
+  }
   render() {
     let images = [];
+    let numAlt = 0;
+    let totalPosts = 0;
 
     for (const [key, value] of Object.entries(IMAGES)) {
-      if (value.poster == 'sydney' && !value.hasAltText) {
+      if (value.poster == 'sydney'){
+        if (!value.hasAltText) {
         images.push(
           <GalleryPhoto key={`${key}`} photo={value} />
         );
-      }
+        }
+        if (value.hasAltText) {
+        numAlt += 1;
+        }
+      totalPosts += 1;
     }
+  }
 
 
     return (
@@ -31,7 +49,7 @@ export default class Profile extends Component {
         {/* Header Bar */}
         <HeaderBar
           selected='profile'
-          navigation={this.props.navigation} title='sydney_jones'/>
+          navigation={this.props.navigation} title='sydney_jones' />
 
         {/* Content Container */}
         <View style={styles.contentContainer}>
@@ -41,18 +59,25 @@ export default class Profile extends Component {
               {/* Profile Information */}
               <View style={styles.profileContainer}>
                 {/* Profile Picture */}
-                <Image source={require('./assets/images/ProfilePicture.png')} style={{height: 105, width: 105}}/>
-                <View style={{flexDirection: 'column'}}>
+                <Image source={require('./assets/images/ProfilePicture.png')} style={{ height: 105, width: 105 }} />
+                <View style={{ flexDirection: 'column' }}>
                   {/* Posts, Followers, Following */}
                   <View style={styles.numbersContainer}>
-                    <View style={{flex: 1}}><Text style={styles.numberBig}>6</Text><Text style={styles.numberSmall}>Posts</Text></View>
-                    <View style={{flex: 1}}><Text style={styles.numberBig}>100</Text><Text style={styles.numberSmall}>Followers</Text></View>
-                    <View style={{flex: 1}}><Text style={styles.numberBig}>80</Text><Text style={styles.numberSmall}>Following</Text></View>
+                    <View style={{ flex: 1 }}><Text style={styles.numberBig}>{totalPosts}</Text><Text style={styles.numberSmall}>Posts</Text></View>
+                    <View style={{ flex: 1 }}><Text style={styles.numberBig}>100</Text><Text style={styles.numberSmall}>Followers</Text></View>
+                    <View style={{ flex: 1 }}><Text style={styles.numberBig}>80</Text><Text style={styles.numberSmall}>Following</Text></View>
                   </View>
                   {/* Progress Bar */}
                   <View>
-                    <View style={styles.progressBarOutline}><View style={styles.progressBarFill}></View></View>
-                    <Text style={styles.progressBarLabel}>5/6 posts have alt text</Text>
+                    <View style={styles.progressBarOutline}>
+                      <View style={{
+                        height: 8,
+                        width: numAlt / totalPosts * 235,
+                        backgroundColor: this.renderProgressBarColor(numAlt, totalPosts),
+                        borderRadius: 10
+                      }}></View>
+                    </View>                    
+                    <Text style={styles.progressBarLabel}>{numAlt}/{totalPosts} posts have alt text</Text>
                   </View>
                 </View>
               </View>
@@ -64,7 +89,7 @@ export default class Profile extends Component {
               </View>
 
               {/* Edit Profile Button */}
-              <View style={{alignItems: 'center'}}>
+              <View style={{ alignItems: 'center' }}>
                 <TouchableOpacity
                   style={styles.editButton}>
                   <Text style={styles.buttonLabel}>Edit Profile</Text>
@@ -72,9 +97,9 @@ export default class Profile extends Component {
               </View>
 
               {/* Stories */}
-              <View style={{flexDirection: 'row'}}>
-                <Image style={styles.story} source={require('./assets/images/Story1.png')}/>
-                <Image style={styles.story} source={require('./assets/images/Story2.png')}/>
+              <View style={{ flexDirection: 'row' }}>
+                <Image style={styles.story} source={require('./assets/images/Story1.png')} />
+                <Image style={styles.story} source={require('./assets/images/Story2.png')} />
               </View>
             </View>
 
@@ -83,12 +108,12 @@ export default class Profile extends Component {
               selected='right'
               iconLeft={require('./assets/images/GalleryUnselected.png')}
               iconRight={require('./assets/images/AltIconSelected.png')}
-              navigation={this.props.navigation}/>
+              navigation={this.props.navigation} />
 
             {/* 3x3 Photos Container */}
-            <View style={{justifyContent: 'center', margin: 1}}>
-              <View style={{flexDirection: 'row', flexWrap: 'wrap'}}>
-                { images }
+            <View style={{ justifyContent: 'center', margin: 1 }}>
+              <View style={{ flexDirection: 'row', flexWrap: 'wrap' }}>
+                {images}
               </View>
             </View>
           </ScrollView>
@@ -97,10 +122,10 @@ export default class Profile extends Component {
         {/* Navigation Bar */}
         <NavBar
           selected='profile'
-          navigation={this.props.navigation}/>
+          navigation={this.props.navigation} />
       </View>
     );
   }
 }
 
-export {Profile};
+export { Profile };
