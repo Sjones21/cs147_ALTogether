@@ -46,7 +46,7 @@ class HeaderBar extends Component {
                   style = {styles.icons}/>
               </TouchableOpacity>
               <TouchableOpacity
-                onPress={() => Alert.alert('icon pressed')}>
+                onPress={() => Alert.alert('Direct Messages')}>
                 <Image
                   source = {require('../../assets/images/Mail.png')}
                   style = {styles.icons}/>
