@@ -44,7 +44,7 @@ export default class Feed extends Component {
       ImageID: route.params.image_id,
       isModalVisible: false,
       currentPhoto: IMAGES.dani1,
-      flagged: true
+      flagged: false
     };
 
     this.handleModal = this.handleModal.bind(this)
@@ -125,7 +125,7 @@ renderModal = () => {
         style={[styles.popUpContainer, {height: windowHeight * .25, width: windowWidth}]}>
         <View style={{height: 5, width: 40, backgroundColor: '#DBDBDB', borderRadius: 20}}></View>
         <View style={{flexDirection:'row'}}>
-        <View style={{width:130}}></View>
+        <View style={{width:140}}></View>
         <Text style={[styles.popUpTitle, {marginBottom:0, marginTop:20, padding:0}]}>Alt text</Text>
         <View style = {{flexDirection:'row', marginTop:22, marginLeft: 90}}>
         <InfoButtonModal ></InfoButtonModal>
