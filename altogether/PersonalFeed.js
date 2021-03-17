@@ -37,12 +37,14 @@ export default class PersonalFeed extends Component {
 
   constructor({route, navigation}) {
     super();
+    
     // change all of this
     this.state =  {
       selectedImage: null,
       ImageID: null,
       isModalVisible: false,
-      currentPhoto: IMAGES.dani1
+      currentPhoto: IMAGES.dani1,
+      userHasViewedAltText: false,
     };
 
     this.handleModal = this.handleModal.bind(this)
@@ -133,7 +135,7 @@ renderModal = () => {
       if (value.poster === 'sydney') {
         images.push(
           <CardComponent
-            key={`${key}`}
+            key={`${key+this.state.userHasViewedAltText}`}
             thumbnail={`${value.thumbnail}`}
             photo={value}
             likes={`${value.likes}`}
@@ -141,6 +143,8 @@ renderModal = () => {
             pseudo={`${value.poster}`}
             date="01/01/2018"
             description= {`${value.caption}`}
+            handleAltTextViewCallback =  {(() => {this.setState({userHasViewedAltText: true}); console.log("callbackCalled")}) }
+            userHasViewedAltText = {`${this.state.userHasViewedAltText}`}
             onModal={(photo) => this.handleModal(photo)}/>
         );
       }

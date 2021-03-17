@@ -23,7 +23,9 @@ export default class NewPostChoosePic extends Component {
           selectedImage: IMAGES[IMAGES.iceCream.id],
           imageID: IMAGES.iceCream.id,
           updateImageIdCallback: route.params.updateImageIdCallback
+          
     };
+    console.log(this.state.updateImageIdCallback);
     this.selectedImage = this.selectedImage.bind(this);
     this.state.updateImageIdCallback(this.state.imageID);
   }
