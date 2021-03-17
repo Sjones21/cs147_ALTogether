@@ -32,7 +32,7 @@ export default class Profile extends Component {
     for (const [key, value] of Object.entries(IMAGES)) {
       if (value.poster == 'sydney') {
         images.push(
-          <GalleryPhoto key={`${key}`} photo={value} />
+          <GalleryPhoto navigation={this.props.navigation} key={`${key}`} photo={value} />
         );
         if (value.hasAltText) {
           numAlt += 1;

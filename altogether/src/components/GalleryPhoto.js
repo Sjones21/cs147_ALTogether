@@ -31,10 +31,10 @@ class GalleryPhoto extends Component {
   render() {
     return (
       <TouchableOpacity
-        onPress={() => Alert.alert(`${this.props.photo.id} pressed`)}>
+        onPress={() => this.props.navigation.navigate('PersonalFeed')}>
         {this.props.isNewPhoto ?
           <Image style={styles.newGalleryPhoto} source={this.props.photo.link} />
-          : 
+          :
           <Image style={styles.galleryPhoto} source={this.props.photo.link} />}
       </TouchableOpacity>
 

@@ -32,6 +32,7 @@ const styles = StyleSheet.create({
   },
 
   exampleButtonLabel: {
+    textAlign: 'center',
     color: 'white',
     fontWeight: 'bold',
     fontSize: 18
@@ -90,7 +91,7 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'flex-end',
     justifyContent: 'space-between',
-    backgroundColor: '#FAFAFA'
+    backgroundColor: '#FFFFFF'
   },
 
   headerTitle: {
@@ -119,7 +120,7 @@ const styles = StyleSheet.create({
     margin: 5
   },
 
- 
+
 
   /* CARD COMPONENT */
 
@@ -131,7 +132,7 @@ const styles = StyleSheet.create({
     shadowColor: 'rgb(0,0,0)',
     shadowOffset: { height: 0, width: 0 },
     shadowOpacity: 0, //default is 1
-    shadowRadius: 0//default is 1
+    shadowRadius: 0,//default is 1
   },
 
 
@@ -249,11 +250,11 @@ const styles = StyleSheet.create({
   captionText:{
     fontSize: 18,
     fontWeight: '300',
-    flexBasis: 250, 
-    flexShrink: 2, 
-    flexGrow: 2, 
-    margin:15, 
-    marginLeft:0, 
+    flexBasis: 250,
+    flexShrink: 2,
+    flexGrow: 2,
+    margin:15,
+    marginLeft:0,
     marginTop:30,
     flexWrap: 'wrap'
   },
@@ -318,7 +319,7 @@ const styles = StyleSheet.create({
     height: 100,
     width: 100,
     margin: 1
-  }, 
+  },
   galleryTextContainer: {
     margin: 10,
     justifyContent: 'center',
@@ -369,7 +370,7 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: 'center',
     backgroundColor: 'transparent',
-    
+
   },
 
   slide1: {
@@ -377,13 +378,13 @@ const styles = StyleSheet.create({
     justifyContent: 'flex-start',
     alignItems: 'center',
     backgroundColor: '#FAFAFA',
-    
+
   },
 
   closeButton:{
-    fontSize: 32, 
-    marginTop:15, 
-    marginRight: 15, 
+    fontSize: 32,
+    marginTop:15,
+    marginRight: 15,
     alignSelf:'flex-end'},
 
   slide2: {
@@ -407,32 +408,85 @@ const styles = StyleSheet.create({
   },
 
   modalSubHeaderText:{
-    textAlign:'center', 
-    fontWeight:'300', 
-    fontSize: 22, 
+    textAlign:'center',
+    fontWeight:'300',
+    fontSize: 22,
   },
 
   exampleTextStrikethrough:{
-    textDecorationLine: "line-through", 
-    fontSize: 20, 
-    fontWeight:'300', 
-    lineHeight:23, 
-    color:'grey', 
+    textDecorationLine: "line-through",
+    fontSize: 20,
+    fontWeight:'300',
+    lineHeight:23,
+    color:'grey',
     textAlign:'center'
   },
 
   exampleText:{
-    fontSize: 20, 
-    fontWeight:'300', 
-    lineHeight:23, 
-    color:'#000000', 
+    fontSize: 20,
+    fontWeight:'300',
+    lineHeight:23,
+    color:'#000000',
     textAlign:'center'
   },
 
 
 
   image: {
-  }
+  },
+
+/* ALT icons */
+
+  imageIcon: {
+    width: 40,
+    height: 40,
+  },
+
+/* Pop Ups */
+
+  modalContainer: {
+    flex: 1,
+    justifyContent: 'flex-end',
+    alignItems: 'center',
+  },
+
+  popUpContainer: {
+    margin: 0,
+    padding: 30,
+    paddingBottom: 50,
+    flexDirection: 'column',
+    justifyContent: 'flex-start',
+    alignItems: 'center',
+    backgroundColor: 'white',
+    borderRadius: 25,
+    shadowColor: '#000',
+  },
+
+  popUpTitle: {
+    fontSize: 22,
+    marginBottom: 10,
+    fontWeight: 'bold',
+    textAlign: 'center',
+  },
+
+  popUpDescription: {
+    fontSize: 18,
+    textAlign: 'center',
+  },
+
+  popUpButton: {
+    margin: 20,
+    padding: 10,
+    backgroundColor: '#3996EF',
+    borderRadius: 10,
+  },
+
+  popUpButtonLabel: {
+    textAlign: 'center',
+    color: 'white',
+    fontWeight: 'bold',
+    fontSize: 18
+  },
 
 
 

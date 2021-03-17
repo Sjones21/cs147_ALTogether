@@ -12,7 +12,6 @@ import { styles } from './Styles.js';
 import { IMAGES } from './IMAGES.js';
 import { TextInput } from 'react-native-gesture-handler';
 import { useRoute } from '@react-navigation/native';
-import JustPostedHeader from './src/components/JustPostedHeader';
 
 
 
@@ -30,15 +29,15 @@ let customFonts = {
 
 
 
-export default class Feed extends Component {
+export default class PersonalFeed extends Component {
 
 
   constructor({route, navigation}) {
     super();
-    const image = IMAGES[route.params.image_id];
+    // change all of this
     this.state =  {
-      selectedImage: image,
-      ImageID: route.params.image_id,
+      selectedImage: null,
+      ImageID: null,
       isModalVisible: false,
       currentPhoto: IMAGES.dani1
     };
@@ -121,7 +120,7 @@ renderModal = () => {
     for (const [key, value] of Object.entries(IMAGES)) {
       let likes = Math.floor(Math.random() * Math.floor(300));
       let comments = Math.floor(Math.random() * Math.floor(25));
-      if (value.feed === true) {
+      if (value.poster === 'sydney') {
         images.push(
           <CardComponent
             key={`${key}`}
@@ -140,10 +139,6 @@ renderModal = () => {
       return(
           <View
             style={styles.container}>
-            {/* Header Bar */}
-            <HeaderBar navigation = {this.props.navigation} title='Instagram'/>
-            {/* HARDCODED SOLUTION */}
-            {images.length >2?(<JustPostedHeader/>):null}
             {/* Feed Container */}
             <View style={styles.contentContainer}>
 
@@ -181,4 +176,4 @@ renderModal = () => {
     }
 }
 
-export {Feed};
+export {PersonalFeed};
