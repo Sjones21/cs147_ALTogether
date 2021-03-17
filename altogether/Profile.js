@@ -63,6 +63,7 @@ export default class Profile extends Component {
                     <View style={{ flex: 1 }}><Text style={styles.numberBig}>100</Text><Text style={styles.numberSmall}>Followers</Text></View>
                     <View style={{ flex: 1 }}><Text style={styles.numberBig}>80</Text><Text style={styles.numberSmall}>Following</Text></View>
                   </View>
+
                   {/* Progress Bar */}
                   <View>
                     <View style={styles.progressBarOutline}>
@@ -73,6 +74,7 @@ export default class Profile extends Component {
                         borderRadius: 10
                       }}></View>
                     </View>
+
                     <Text style={styles.progressBarLabel}>{numAlt}/{totalPosts} posts have alt text</Text>
                   </View>
                 </View>

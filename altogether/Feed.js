@@ -119,8 +119,10 @@ renderModal = () => {
 
     let images = [];
     for (const [key, value] of Object.entries(IMAGES)) {
-      let likes = Math.floor(Math.random() * Math.floor(300));
-      let comments = Math.floor(Math.random() * Math.floor(25));
+      let likes = 100;
+      let comments = 15;
+      // let likes = Math.floor(Math.random() * Math.floor(300));
+      // let comments = Math.floor(Math.random() * Math.floor(25));
       if (value.feed === true) {
         images.push(
           <CardComponent

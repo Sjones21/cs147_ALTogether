@@ -74,25 +74,25 @@ handleModal = (photo) => {
 renderModal = () => {
   let photo = this.state.currentPhoto;
 
-  if (!photo.hasAltText && photo.poster !== 'sydney') {
+  if (!photo.hasAltText && photo.poster === 'sydney') {
     return (
       <View style={styles.modalContainer}>
         <View
           style={[styles.popUpContainer, {height: windowHeight * .30, width: windowWidth}]}>
           <View style={{height: 5, width: 40, marginBottom: 20, backgroundColor: '#DBDBDB', borderRadius: 20}}></View>
-          <View style={{flex: 1, justifyContent: 'space-around'}}>
+          <View style={{flex: 1, justifyContent: 'space-around', alignItems: 'center'}}>
 
             <View style={{margin: 20}}>
               <Text style={styles.popUpTitle}>
-                @{photo.poster} did not write alt text!</Text>
+                You did not write alt text!</Text>
               <Text style={styles.popUpDescription}>
-                Would you like to encourage them to make their post more accessible?</Text>
+                Would you like to make your post more accessible?</Text>
             </View>
 
             <TouchableOpacity
-              style={styles.popUpButton}
-              onPress={() => this.setState({ isModalVisible: false })}>
-              <Text style={styles.popUpButtonLabel}>Nudge</Text>
+              style={[styles.popUpButton, {width: 200}]}
+              onPress={() => this.handleEditButton()}>
+              <Text style={styles.popUpButtonLabel}>Add alt text</Text>
             </TouchableOpacity>
 
           </View>
@@ -101,25 +101,41 @@ renderModal = () => {
     );
   }
 
+
   return (
     <View style={styles.modalContainer}>
       <View
-        style={[styles.popUpContainer, {height: windowHeight * .25, width: windowWidth}]}>
+        style={[styles.popUpContainer, {height: windowHeight * .30, width: windowWidth}]}>
         <View style={{height: 5, width: 40, backgroundColor: '#DBDBDB', borderRadius: 20}}></View>
-        <View style={{flex: 1, justifyContent: 'space-around'}}>
-          <Text style={styles.popUpDescription}>Alt text: {this.state.currentPhoto.altText}</Text>
+        <View style={{flex: 1, justifyContent: 'space-around', alignItems: 'center'}}>
+          <View style={{marginTop: 50}}>
+            <Text style={styles.popUpDescription}>Alt text: {this.state.currentPhoto.altText}</Text>
+          </View>
+
+          <TouchableOpacity
+            style={[styles.popUpButton, {width: 125}]}
+            onPress={() => this.handleEditButton()}>
+            <Text style={styles.popUpButtonLabel}>Edit</Text>
+          </TouchableOpacity>
+
         </View>
       </View>
     </View>
   );
 }
 
+handleEditButton = () => {
+  this.setState({ isModalVisible: false });
+}
+
   render() {
 
     let images = [];
     for (const [key, value] of Object.entries(IMAGES)) {
-      let likes = Math.floor(Math.random() * Math.floor(300));
-      let comments = Math.floor(Math.random() * Math.floor(25));
+      let likes = 100;
+      let comments = 15;
+      // let likes = Math.floor(Math.random() * Math.floor(300));
+      // let comments = Math.floor(Math.random() * Math.floor(25));
       if (value.poster === 'sydney') {
         images.push(
           <CardComponent
