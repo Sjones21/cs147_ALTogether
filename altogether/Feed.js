@@ -155,7 +155,6 @@ renderCards(){
   let images = [];
   for (const [key, value] of Object.entries(IMAGES)) {
     if (value.feed === true) {
-      console.log("falllse")
       images.push(
         <CardComponent
           key={`${key + this.state.userHasViewedAltText}`}
@@ -166,7 +165,7 @@ renderCards(){
           pseudo={`${value.poster}`}
           date="01/01/2018"
           description= {`${value.caption}`}
-          handleAltTextViewCallback =  {(() => {this.setState({userHasViewedAltText: true}); console.log("callbackCalled"); this.renderCards}) }
+          handleAltTextViewCallback =  {(() => {this.setState({userHasViewedAltText: true});}) }
           userHasViewedAltText = {`${this.state.userHasViewedAltText}`}
           onModal={(photo) => this.handleModal(photo)}/>
       );
