@@ -92,25 +92,27 @@ renderModal = () => {
   if (!photo.hasAltText && photo.poster !== 'sydney') {
     return (
       <View style={styles.modalContainer}>
-        <View
-          style={[styles.popUpContainer, {height: windowHeight * .30, width: windowWidth}]}>
+        <View style={[styles.popUpContainer, {height: windowHeight * .30, width: windowWidth}]}>
 
           <View style={{height: 5, width: 40, marginBottom: 20, backgroundColor: '#DBDBDB', borderRadius: 20}}></View>
 
           <View style={{flex: 1, justifyContent: 'space-around'}}>
 
-            <View style={{margin: 20}}>
-            <View style={{flexDirection:'row',}}>
-              <Text style={styles.popUpTitle}>
+            <View style={{flexDirection:'row', justifyContent: 'center',alignItems: 'center'}}>
+              <Text style={[styles.popUpTitle, {marginBottom: 0}]}>
+                @{photo.poster} did not write alt text!
+              </Text>
+              <View style={{marginTop:2, position: 'absolute', top: 0, right: 0}}>
+                <InfoButtonModal ></InfoButtonModal>
+              </View>
+            </View>
 
-                @{photo.poster} did not write alt text!</Text><View style={{marginLeft:10, marginTop:2}}><InfoButtonModal ></InfoButtonModal></View>
-                       </View>
-              <Text style={styles.popUpDescription}>
-                Would you like to encourage them to make their post more accessible?</Text>
+            <View>
+              <Text style={styles.popUpDescription}>Would you like to encourage them to make their post more accessible?</Text>
             </View>
 
             <TouchableOpacity
-              style={styles.popUpButton}
+              style={[styles.popUpButton, {width: 200, alignSelf: 'center'}]}
               onPress={() => this.setState({ isModalVisible: false})}>
               <Text style={styles.popUpButtonLabel}>Nudge</Text>
             </TouchableOpacity>
@@ -118,35 +120,45 @@ renderModal = () => {
           </View>
         </View>
       </View>
+
     );
   }
 
   return (
     <View style={styles.modalContainer}>
-      <View
-        style={[styles.popUpContainer, {height: windowHeight * .25, width: windowWidth}]}>
-        <View style={{height: 5, width: 40, backgroundColor: '#DBDBDB', borderRadius: 20}}></View>
-        <View style={{flexDirection:'row'}}>
-        <View style={{width:140}}></View>
-        <Text style={[styles.popUpTitle, {marginBottom:0, marginTop:20, padding:0}]}>Alt text</Text>
-        <View style = {{flexDirection:'row', marginTop:22, marginLeft: 90}}>
-        <InfoButtonModal ></InfoButtonModal>
-        <Icon
-        raised
-        name='flag'
-        type='material'
-        color= {this.state.flagged? '#fa7e02' : '#3996EF'}
-        style = {{fontSize: 22, marginLeft:10}}
-        onPress={(event) => this.handleFlag(event)}
-        >
-        </Icon>
-        </View>
-        </View>
-        <View style={{flex: 1, justifyContent:'space-around'}}>
-          <Text style={[styles.popUpDescription, {marginTop:0, padding:0}]}>{this.state.currentPhoto.altText}</Text>
+      <View style={[styles.popUpContainer, {height: windowHeight * .25, width: windowWidth}]}>
+
+        <View style={{height: 5, width: 40, marginBottom: 20, backgroundColor: '#DBDBDB', borderRadius: 20}}></View>
+
+        <View style={{flex: 1, justifyContent: 'space-around'}}>
+
+          <View style={{flexDirection:'row', justifyContent: 'center',alignItems: 'center'}}>
+            <Text style={[styles.popUpTitle, {marginBottom: 0}]}>
+              Alt text
+            </Text>
+            <View style={{marginTop:2, position: 'absolute', top: 0, right: 0}}>
+              <View style={{flexDirection: 'row'}}>
+              <InfoButtonModal ></InfoButtonModal>
+              <Icon
+                raised
+                name='flag'
+                type='material'
+                color= {this.state.flagged? '#fa7e02' : '#3996EF'}
+                style = {{fontSize: 22, marginLeft:10}}
+                onPress={(event) => this.handleFlag(event)}>
+              </Icon>
+              </View>
+            </View>
+          </View>
+
+          <View style={{marginBottom: 20}}>
+            <Text style={styles.popUpDescription}>{this.state.currentPhoto.altText}</Text>
+          </View>
+
         </View>
       </View>
     </View>
+
   );
 }
 
