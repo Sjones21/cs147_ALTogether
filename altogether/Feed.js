@@ -6,13 +6,16 @@ import CardComponent from './src/components/CardComponent'
 import HeaderBar from './src/components/HeaderBar'
 import NavBar from './src/components/NavBar'
 
+import Icon from 'react-native-vector-icons/MaterialIcons';
+
 //import { Audio } from ''
-import { Card, ListItem, Button, Icon } from 'react-native-elements'
+import { Card, ListItem, Button,} from 'react-native-elements'
 import { styles } from './Styles.js';
 import { IMAGES } from './IMAGES.js';
 import { TextInput } from 'react-native-gesture-handler';
 import { useRoute } from '@react-navigation/native';
 import JustPostedHeader from './src/components/JustPostedHeader';
+import InfoButtonModal from './src/components/InfoButtonModal';
 
 
 
@@ -40,10 +43,12 @@ export default class Feed extends Component {
       selectedImage: image,
       ImageID: route.params.image_id,
       isModalVisible: false,
-      currentPhoto: IMAGES.dani1
+      currentPhoto: IMAGES.dani1,
+      flagged: true
     };
 
     this.handleModal = this.handleModal.bind(this)
+    this.handleFlag = this.handleFlag.bind(this)
 
   }
 
@@ -72,6 +77,13 @@ handleModal = (photo) => {
   })
 }
 
+handleFlag(event) {
+  this.setState({
+    flagged: !this.state.flagged
+  })
+  event.preventDefault();
+}
+
 renderModal = () => {
   let photo = this.state.currentPhoto;
 
@@ -80,12 +92,17 @@ renderModal = () => {
       <View style={styles.modalContainer}>
         <View
           style={[styles.popUpContainer, {height: windowHeight * .30, width: windowWidth}]}>
+          
           <View style={{height: 5, width: 40, marginBottom: 20, backgroundColor: '#DBDBDB', borderRadius: 20}}></View>
+       
           <View style={{flex: 1, justifyContent: 'space-around'}}>
 
             <View style={{margin: 20}}>
+            <View style={{flexDirection:'row',}}>
               <Text style={styles.popUpTitle}>
-                @{photo.poster} did not write alt text!</Text>
+              
+                @{photo.poster} did not write alt text!</Text><View style={{marginLeft:10, marginTop:2}}><InfoButtonModal ></InfoButtonModal></View>
+                       </View>
               <Text style={styles.popUpDescription}>
                 Would you like to encourage them to make their post more accessible?</Text>
             </View>
@@ -107,8 +124,24 @@ renderModal = () => {
       <View
         style={[styles.popUpContainer, {height: windowHeight * .25, width: windowWidth}]}>
         <View style={{height: 5, width: 40, backgroundColor: '#DBDBDB', borderRadius: 20}}></View>
-        <View style={{flex: 1, justifyContent: 'space-around'}}>
-          <Text style={styles.popUpDescription}>Alt text: {this.state.currentPhoto.altText}</Text>
+        <View style={{flexDirection:'row'}}>
+        <View style={{width:130}}></View>
+        <Text style={[styles.popUpTitle, {marginBottom:0, marginTop:20, padding:0}]}>Alt text</Text>
+        <View style = {{flexDirection:'row', marginTop:22, marginLeft: 90}}>
+        <InfoButtonModal ></InfoButtonModal>
+        <Icon
+        raised
+        name='flag'
+        type='material'
+        color= {this.state.flagged? '#fa7e02' : '#3996EF'}
+        style = {{fontSize: 22, marginLeft:10}}
+        onPress={(event) => this.handleFlag(event)}
+        >
+        </Icon>
+        </View>
+        </View>
+        <View style={{flex: 1, justifyContent:'space-around'}}>
+          <Text style={[styles.popUpDescription, {marginTop:0, padding:0}]}>{this.state.currentPhoto.altText}</Text>
         </View>
       </View>
     </View>
@@ -119,16 +152,14 @@ renderModal = () => {
 
     let images = [];
     for (const [key, value] of Object.entries(IMAGES)) {
-      let likes = Math.floor(Math.random() * Math.floor(300));
-      let comments = Math.floor(Math.random() * Math.floor(25));
       if (value.feed === true) {
         images.push(
           <CardComponent
             key={`${key}`}
             thumbnail={`${value.thumbnail}`}
             photo={value}
-            likes={`${likes}`}
-            nb_commentaires={`${comments}`}
+            likes={`${value.likes}`}
+            nb_commentaires={`${value.comments}`}
             pseudo={`${value.poster}`}
             date="01/01/2018"
             description= {`${value.caption}`}

@@ -11,6 +11,7 @@ import {
     TouchableOpacity
 } from "react-native";
 import { styles } from '../../Styles';
+import * as Animatable from 'react-native-animatable';
 
 import { Container, Card, CardItem, Thumbnail, Body, Left, Right, Button, Icon } from 'native-base';
 
@@ -30,8 +31,48 @@ export default class CardComponent extends Component {
     this.props.onModal(this.props.photo);
     event.preventDefault();
   }
+  /*for reference
+    animations = [
+    ['bounce'],
+    ['flash'],
+    ['jello'],
+    ['pulse'],
+    ['rotate'],
+    ['rubberBand'],
+    ['shake'],
+    ['swing'],
+    ['tada']
+  ];
+  */
+
+  renderAltIcon() {
+    var animation = 'pulse';
+      return (
+        <TouchableOpacity onPress={this.onIcon}>
+        <Animatable.View 
+        style={{flexDirection: 'row'}}
+        ref={animation}
+        animation={animation} 
+        iterationCount={"infinite"}>
+        <View style={{marginTop:8,height:25, width:90, marginRight:5}}><Text style={{fontWeight:'600', fontSize:16,color:'white', textShadowColor:'black', textShadowRadius:2, textShadowOffset:{width:1,height:1}, textAlign:'center', paddingTop:3}}>view alt text</Text></View>
+        {this.props.photo.hasAltText? 
+            <Image
+            source={require('../../assets/images/AltWithIcon.png')}
+            style={styles.imageIcon}/>
+            : <Image
+            source={require('../../assets/images/AltNoIcon.png')}
+            style={styles.imageIcon}/>}
+        </Animatable.View>
+     </TouchableOpacity>
+      );
+  }
+
+  
+
+  
 
     render() {
+       
         return (
             <SafeAreaView>
                 <ScrollView>
@@ -48,18 +89,7 @@ export default class CardComponent extends Component {
                         <CardItem >
                             <ImageBackground source={this.props.photo.link}
                                 style={{ height: scale(320), width: scale(320), padding: 15, justifyContent: 'flex-end', alignItems: 'flex-end' }}>
-                                {this.props.photo.hasAltText ?
-                                  <TouchableOpacity onPress={this.onIcon}>
-                                    <Image
-                                      source={require('../../assets/images/AltWithIcon.png')}
-                                      style={styles.imageIcon}/>
-                                  </TouchableOpacity> :
-                                  <TouchableOpacity onPress={this.onIcon}>
-                                    <Image
-                                      source={require('../../assets/images/AltNoIcon.png')}
-                                      style={styles.imageIcon}/>
-                                  </TouchableOpacity>
-                                }
+                                {this.renderAltIcon()}
                             </ImageBackground>
                         </CardItem>
 
