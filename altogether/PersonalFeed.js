@@ -143,7 +143,7 @@ renderModal = () => {
             pseudo={`${value.poster}`}
             date="01/01/2018"
             description= {`${value.caption}`}
-            handleAltTextViewCallback =  {(() => {this.setState({userHasViewedAltText: true}); console.log("callbackCalled")}) }
+            handleAltTextViewCallback =  {(() => {this.setState({userHasViewedAltText: true})}) }
             userHasViewedAltText = {`${this.state.userHasViewedAltText}`}
             onModal={(photo) => this.handleModal(photo)}/>
         );

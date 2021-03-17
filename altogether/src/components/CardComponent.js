@@ -31,22 +31,14 @@ export default class CardComponent extends Component {
         super();
         const userHasViewedAltText = props.userHasViewedAltText;
         const handleAltTextViewCallback =  props.handleAltTextViewCallback;
-        console.log('NEW hello3', props.userHasViewedAltText);
-        console.log('hello2', props.userHasViewedAltText == 'false');
         this.state =  {
           userHasViewedAltText: userHasViewedAltText,
           handleAltTextViewCallback: handleAltTextViewCallback
         };
-        //this.handleAltTextViewCallback = this.handleAltTextViewCallback.bind(this)
-        //console.log('hello4', this.state.userHasViewedAltText);
-        console.log('hello5', this.state.userHasViewedAltText);
-        console.log('hello6', typeof(this.state.userHasViewedAltText));
-        console.log('hello8', this.state.userHasViewedAltText == 'false');
         
       }
 
   onIcon = (event) => {
-    console.log('hello2', this.state.userHasViewedAltText, this.state.handleAltTextViewCallback);
     this.setState({
         userHasViewedAltText: true
     })
@@ -70,7 +62,6 @@ export default class CardComponent extends Component {
 
 
   renderAltIcon() {
-    {console.log("this.renderAltIcon() inside ", this.state.userHasViewedAltText )}
     var animation = 'pulse';
     if(this.state.userHasViewedAltText == 'false'){
     return (
@@ -118,7 +109,7 @@ export default class CardComponent extends Component {
                     <Card style={{borderColor: 'white'}}>
                         <CardItem>
                             <Left>
-                                <Thumbnail style={{ height: 40, width: 40 }} source={this.props.thumbnail} />
+                                <Thumbnail style={{ height: 40, width: 40 }} url={this.props.thumbnail} />
                                 <Body>
                                     <Text style={{ fontWeight: "900" }}>{this.props.pseudo} </Text>
                                 </Body>
@@ -128,8 +119,6 @@ export default class CardComponent extends Component {
                         <CardItem >
                             <ImageBackground source={this.props.photo.link}
                                 style={{ height: scale(320), width: scale(320), padding: 15, justifyContent: 'flex-end', alignItems: 'flex-end' }}>
-                                {console.log("this.renderAltIcon() ", this.state.userHasViewedAltText )}
-                                {/*console.log("this.renderAltIcon() returns", this.renderAltIcon())*/}
                                 {this.renderAltIcon()}
                             </ImageBackground>
                         </CardItem>
