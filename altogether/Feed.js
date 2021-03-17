@@ -34,7 +34,7 @@ let customFonts = {
 
 
 export default class Feed extends Component {
-
+  
 
   constructor({route, navigation}) {
     super();
@@ -44,7 +44,8 @@ export default class Feed extends Component {
       ImageID: route.params.image_id,
       isModalVisible: false,
       currentPhoto: IMAGES.dani1,
-      flagged: false
+      flagged: false,
+      userHasViewedAltText: false,
     };
 
     this.handleModal = this.handleModal.bind(this)
@@ -84,6 +85,7 @@ handleFlag(event) {
   event.preventDefault();
 }
 
+
 renderModal = () => {
   let photo = this.state.currentPhoto;
 
@@ -109,7 +111,7 @@ renderModal = () => {
 
             <TouchableOpacity
               style={styles.popUpButton}
-              onPress={() => this.setState({ isModalVisible: false })}>
+              onPress={() => this.setState({ isModalVisible: false})}>
               <Text style={styles.popUpButtonLabel}>Nudge</Text>
             </TouchableOpacity>
 
@@ -148,26 +150,33 @@ renderModal = () => {
   );
 }
 
-  render() {
 
-    let images = [];
-    for (const [key, value] of Object.entries(IMAGES)) {
-      if (value.feed === true) {
-        images.push(
-          <CardComponent
-            key={`${key}`}
-            thumbnail={`${value.thumbnail}`}
-            photo={value}
-            likes={`${value.likes}`}
-            nb_commentaires={`${value.comments}`}
-            pseudo={`${value.poster}`}
-            date="01/01/2018"
-            description= {`${value.caption}`}
-            onModal={(photo) => this.handleModal(photo)}/>
-        );
-      }
+renderCards(){
+  let images = [];
+  for (const [key, value] of Object.entries(IMAGES)) {
+    if (value.feed === true) {
+      console.log("falllse")
+      images.push(
+        <CardComponent
+          key={`${key + this.state.userHasViewedAltText}`}
+          thumbnail={`${value.thumbnail}`}
+          photo={value}
+          likes={`${value.likes}`}
+          nb_commentaires={`${value.comments}`}
+          pseudo={`${value.poster}`}
+          date="01/01/2018"
+          description= {`${value.caption}`}
+          handleAltTextViewCallback =  {(() => {this.setState({userHasViewedAltText: true}); console.log("callbackCalled"); this.renderCards}) }
+          userHasViewedAltText = {`${this.state.userHasViewedAltText}`}
+          onModal={(photo) => this.handleModal(photo)}/>
+      );
     }
+  }
+  return images;
+}
 
+  render() {
+      let images = this.renderCards();
       return(
           <View
             style={styles.container}>

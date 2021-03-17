@@ -27,7 +27,30 @@ const scale = size => (width / guidelineBaseWidth) * size;
 
 export default class CardComponent extends Component {
 
+    constructor(props) {
+        super();
+        const userHasViewedAltText = props.userHasViewedAltText;
+        const handleAltTextViewCallback =  props.handleAltTextViewCallback;
+        console.log('NEW hello3', props.userHasViewedAltText);
+        console.log('hello2', props.userHasViewedAltText == 'false');
+        this.state =  {
+          userHasViewedAltText: userHasViewedAltText,
+          handleAltTextViewCallback: handleAltTextViewCallback
+        };
+        //this.handleAltTextViewCallback = this.handleAltTextViewCallback.bind(this)
+        //console.log('hello4', this.state.userHasViewedAltText);
+        console.log('hello5', this.state.userHasViewedAltText);
+        console.log('hello6', typeof(this.state.userHasViewedAltText));
+        console.log('hello8', this.state.userHasViewedAltText == 'false');
+        
+      }
+
   onIcon = (event) => {
+    console.log('hello2', this.state.userHasViewedAltText, this.state.handleAltTextViewCallback);
+    this.setState({
+        userHasViewedAltText: true
+    })
+    this.state.handleAltTextViewCallback();
     this.props.onModal(this.props.photo);
     event.preventDefault();
   }
@@ -45,26 +68,42 @@ export default class CardComponent extends Component {
   ];
   */
 
+
   renderAltIcon() {
+    {console.log("this.renderAltIcon() inside ", this.state.userHasViewedAltText )}
     var animation = 'pulse';
-      return (
+    if(this.state.userHasViewedAltText == 'false'){
+    return (
         <TouchableOpacity onPress={this.onIcon}>
-        <Animatable.View 
-        style={{flexDirection: 'row'}}
-        ref={animation}
-        animation={animation} 
-        iterationCount={"infinite"}>
-        <View style={{marginTop:8,height:25, width:90, marginRight:5}}><Text style={{fontWeight:'600', fontSize:16,color:'white', textShadowColor:'black', textShadowRadius:2, textShadowOffset:{width:1,height:1}, textAlign:'center', paddingTop:3}}>view alt text</Text></View>
-        {this.props.photo.hasAltText? 
-            <Image
-            source={require('../../assets/images/AltWithIcon.png')}
-            style={styles.imageIcon}/>
-            : <Image
-            source={require('../../assets/images/AltNoIcon.png')}
-            style={styles.imageIcon}/>}
-        </Animatable.View>
-     </TouchableOpacity>
+            <Animatable.View 
+            style={{flexDirection: 'row'}}
+            ref={animation}
+            animation={animation} 
+            iterationCount={"infinite"}>
+            <View style={{marginTop:8,height:25, width:90, marginRight:5}}><Text style={{fontWeight:'600', fontSize:16,color:'white', textShadowColor:'black', textShadowRadius:2, textShadowOffset:{width:1,height:1}, textAlign:'center', paddingTop:3}}>view alt text</Text></View>
+            {this.props.photo.hasAltText? 
+                <Image
+                source={require('../../assets/images/AltWithIcon.png')}
+                style={styles.imageIcon}/>
+                : <Image
+                source={require('../../assets/images/AltNoIcon.png')}
+                style={styles.imageIcon}/>}
+            </Animatable.View>
+        </TouchableOpacity>
       );
+    } 
+        return (
+            <TouchableOpacity onPress={this.onIcon}>
+                {this.props.photo.hasAltText? 
+                    <Image
+                    source={require('../../assets/images/AltWithIcon.png')}
+                    style={styles.imageIcon}/>
+                    : <Image
+                    source={require('../../assets/images/AltNoIcon.png')}
+                    style={styles.imageIcon}/>}
+            </TouchableOpacity>
+    );
+        
   }
 
   
@@ -89,6 +128,8 @@ export default class CardComponent extends Component {
                         <CardItem >
                             <ImageBackground source={this.props.photo.link}
                                 style={{ height: scale(320), width: scale(320), padding: 15, justifyContent: 'flex-end', alignItems: 'flex-end' }}>
+                                {console.log("this.renderAltIcon() ", this.state.userHasViewedAltText )}
+                                {/*console.log("this.renderAltIcon() returns", this.renderAltIcon())*/}
                                 {this.renderAltIcon()}
                             </ImageBackground>
                         </CardItem>
