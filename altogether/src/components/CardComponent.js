@@ -15,7 +15,7 @@ import * as Animatable from 'react-native-animatable';
 
 import { Container, Card, CardItem, Thumbnail, Body, Left, Right, Button, Icon } from 'native-base';
 
-import { Dimensions, SafeAreaView, ScrollView } from 'react-native';
+import { Dimensions, SafeAreaView, ScrollView,} from 'react-native';
 
 const { width, height } = Dimensions.get('window');
 
@@ -71,7 +71,16 @@ export default class CardComponent extends Component {
             ref={animation}
             animation={animation} 
             iterationCount={"infinite"}>
-            <View style={{marginTop:8,height:25, width:90, marginRight:5}}><Text style={{fontWeight:'600', fontSize:16,color:'white', textShadowColor:'black', textShadowRadius:2, textShadowOffset:{width:1,height:1}, textAlign:'center', paddingTop:3}}>view alt text</Text></View>
+            <View style={{marginTop:6,height:25, marginRight:2}}>
+                {this.props.photo.hasAltText? 
+                <Text style={{fontWeight:'600', fontSize:16,color:'white', textShadowColor:'black', textShadowRadius:2, textShadowOffset:{width:1,height:1}, textAlign:'center', paddingTop:6}}>
+                View alt text
+                </Text>
+                : 
+                <Text style={{fontWeight:'600', fontSize:16,color:'white', textShadowColor:'black', textShadowRadius:2, textShadowOffset:{width:1,height:1}, textAlign:'center', paddingTop:3}}>
+                Click here
+                </Text>}
+            </View>
             {this.props.photo.hasAltText? 
                 <Image
                 source={require('../../assets/images/AltWithIcon.png')}
@@ -109,7 +118,7 @@ export default class CardComponent extends Component {
                     <Card style={{borderColor: 'white'}}>
                         <CardItem>
                             <Left>
-                                <Thumbnail style={{ height: 40, width: 40 }} url={this.props.thumbnail} />
+                                <Thumbnail style={{ height: 40, width: 40 }} source={this.props.thumbnail} />
                                 <Body>
                                     <Text style={{ fontWeight: "900" }}>{this.props.pseudo} </Text>
                                 </Body>

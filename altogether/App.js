@@ -45,7 +45,11 @@ const users = [
 ]
 LogBox.ignoreLogs([
   'Non-serializable values were found in the navigation state',
+  'Failed prop type: Invalid prop `source` supplied to `Thumbnail`.',
+  'Failed prop type: Invalid prop `source` supplied to `Image`.'
 ]);
+
+//LogBox.ignoreAllLogs();
 
 export default class App extends React.Component {
 
@@ -91,7 +95,7 @@ export default class App extends React.Component {
           }) => ({
             title: 'Activity',
             headerTitleStyle: { fontSize: 20 },
-            headerStyle: { height: 100, textAlign: 'left' },
+            headerStyle: { height: 100},
             headerLeft: () => (
               <HeaderBackButton
                 labelVisible={false}

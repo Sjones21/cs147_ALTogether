@@ -158,7 +158,7 @@ renderCards(){
       images.push(
         <CardComponent
           key={`${key + this.state.userHasViewedAltText}`}
-          thumbnail={value.thumbnail}
+          thumbnail={`${value.thumbnail}`}
           photo={value}
           likes={`${value.likes}`}
           nb_commentaires={`${value.comments}`}
