@@ -289,7 +289,8 @@ export default class NewPostAltogetherGuided extends Component {
                     onChangeText={this.handleAltText}
                     onSubmitEditing = { () => Keyboard.dismiss()}
                     multiline={true}
-                    autoFocus={true}>
+                    autoFocus= {(this.state.isModalVisible)?  false: true}
+                    >
                     <Text>{this.state.altTextDisplay}</Text>
                   </TextInput>
                   <View style ={{flexDirection: 'row', alignItems: 'center', alignSelf:'center'}}>
