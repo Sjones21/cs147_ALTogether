@@ -206,7 +206,7 @@ const IMAGES = {
 
   },
   sydney5: {
-    id: 'sydney4',
+    id: 'sydney5',
     poster: 'sydney',
     caption: 'Look who I brought home today',
     feed: false,

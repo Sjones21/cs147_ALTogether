@@ -24,7 +24,7 @@ const guidelineBaseHeight = 680;
 const scale = size => (width / guidelineBaseWidth) * size;
 
 
-class ToggleAlt extends Component {
+class EditToggleAlt extends Component {
 
     render() {
         return (
@@ -32,7 +32,7 @@ class ToggleAlt extends Component {
             <View style={[this.props.selected == 'left' ? styles.selected : styles.unselected]}>
               <TouchableOpacity
                 style={{alignItems: 'center'}}
-                onPress={() => this.props.navigation.navigate('NewPostAltogetherGuided', {
+                onPress={() => this.props.navigation.navigate('EditAltogetherGuided', {
                   //image_id: this.props.image_id
                 })}>
                 <Text style={[this.props.selected == 'left' ? styles.selectedText : styles.unselectedText]}>Guided</Text>
@@ -41,7 +41,7 @@ class ToggleAlt extends Component {
             <View style={[this.props.selected == 'right' ? styles.selected : styles.unselected]}>
             <TouchableOpacity
               style={{alignItems: 'center'}}
-              onPress={() => this.props.navigation.navigate('NewPostAltogetherCustom', {
+              onPress={() => this.props.navigation.navigate('EditAltogetherCustom', {
                 image_id: this.props.image_id
               })}>
               <Text style={[this.props.selected == 'right' ? styles.selectedText : styles.unselectedText]}>Custom</Text>
@@ -52,4 +52,4 @@ class ToggleAlt extends Component {
     }
 }
 
-export default ToggleAlt;
+export default EditToggleAlt;

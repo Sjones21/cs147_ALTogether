@@ -3,7 +3,7 @@ import { Alert, Image, Text, TextInput, Keyboard, KeyboardAvoidingView, Touchabl
 import * as Font from 'expo-font';
 import { Container, Content } from 'native-base'
 import CardComponent from './src/components/CardComponent'
-import ToggleAlt from './src/components/ToggleAlt'
+import EditToggleAlt from './src/components/EditToggleAlt'
 //import { Audio } from ''
 import { Card, ListItem, Button,} from 'react-native-elements'
 
@@ -36,8 +36,12 @@ export default class EditAltogetherCustom extends Component {
   }
 
   handleAltText = (text) => {
-    this.state.image.custom = text;
+    this.state.image.altText= text;
+    this.state.image.hasAltText = true;
+    //console.log(this.state.image.id, " ", this.state.image.altText);
   }
+
+  
 
 constructor({route, navigation}) {
   super();
@@ -52,9 +56,6 @@ constructor({route, navigation}) {
   render() {
     return (
       <View style={styles.container}>
-
-
-
         <KeyboardAvoidingView
           style={{flex: 1,  backgroundColor:"white"}}
           behavior={Platform.OS === "ios" ? "padding" : "height"}
@@ -67,7 +68,7 @@ constructor({route, navigation}) {
                   style={{ height: windowHeight/2.5, width: windowWidth }} />
 
               {/* Toggle Profile */}
-              <ToggleAlt
+              <EditToggleAlt
                 selected='right'
                 navigation={this.props.navigation}
                 image_id ={this.state.image.id}
