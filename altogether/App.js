@@ -254,37 +254,57 @@ export default class App extends React.Component {
                </HeaderBackButton>
              ),
            })} />
-           <Stack.Screen name="PersonalFeedAlt" component={PersonalFeedAlt} options={({ route, navigation }) => ({
+           <Stack.Screen name="PersonalFeedAlt" component={PersonalFeedAlt} 
+           options={({ route, navigation }) => ({
               title: 'Posts Without Alt Text',
               headerLeft: () => (
                 <HeaderBackButton
                   labelVisible={false}
                   style={styles.headerButton}
-                  onPress={() => navigation.goBack()}>
+                  onPress={() => {
+                    navigation.push("ProfileAlt")}}>
                 </HeaderBackButton>
               ),
             })} />
-
-            <Stack.Screen name="EditAltogetherGuided" component={EditAltogetherGuided} options={({ route, navigation }) => ({
-              animationEnabled: false, title: 'ALTogether',
-              headerTitleStyle: { fontSize: 20 },
-              headerStyle: { height: 100 },
-              headerLeft: () => (
-                <HeaderBackButton
-                  labelVisible={false}
-                  style={styles.headerButton}
-                  onPress={() => navigation.goBack()}>
-                </HeaderBackButton>
-              ),
-              headerRight: () => (
-                <TouchableOpacity style={styles.headerButton}
-                  onPress={() =>
-                    navigation.goBack()}>
-                  <Text style={styles.headerButtonText}>Next</Text>
-                </TouchableOpacity>
-              )
-            })} />
-
+            <Stack.Screen name="EditAltogetherGuided" component={EditAltogetherGuided} 
+            options={({ route, navigation }) => ({
+            title: 'ALTogether',
+            headerTitleStyle: { fontSize: 20 },
+            headerStyle: { height: 100 },
+            headerLeft: () => (
+              <HeaderBackButton
+                labelVisible={false}
+                style={styles.headerButton}
+                onPress={() => navigation.goBack()}>
+              </HeaderBackButton>
+            ),
+            headerRight: () => (
+              <TouchableOpacity style={styles.headerButton}
+                onPress={() => navigation.goBack()}>
+                <Text style={styles.headerButtonText}>Next</Text>
+              </TouchableOpacity>
+            )
+          })} />
+          <Stack.Screen name="EditAltogetherCustom" component={EditAltogetherCustom} 
+            options={({ route, navigation }) => ({
+              animationEnabled: false, 
+              title: 'ALTogether',
+            headerTitleStyle: { fontSize: 20 },
+            headerStyle: { height: 100 },
+            headerLeft: () => (
+              <HeaderBackButton
+                labelVisible={false}
+                style={styles.headerButton}
+                onPress={() => navigation.pop(2)}>
+              </HeaderBackButton>
+            ),
+            headerRight: () => (
+              <TouchableOpacity style={styles.headerButton}
+                onPress={() => navigation.navigate('PersonalFeed')}>
+                <Text style={styles.headerButtonText}>Next</Text>
+              </TouchableOpacity>
+            )
+          })} />
         </Stack.Navigator>
       </NavigationContainer>
     )
