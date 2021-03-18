@@ -44,6 +44,8 @@ export default class Profile extends Component {
         }
       totalPosts += 1;
     }
+
+
   }
 
   if (totalPosts - numAlt === 0) {

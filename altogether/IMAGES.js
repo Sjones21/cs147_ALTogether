@@ -150,7 +150,7 @@ const IMAGES = {
     thumbnail: require('./assets/images/ProfilePicture.png'),
     likes: Math.floor(Math.random() * Math.floor(300)),
     comments: Math.floor(Math.random() * Math.floor(25)),
-    datePosted: null,
+    datePosted: 7,
     nudged: false
 
   },
@@ -167,7 +167,7 @@ const IMAGES = {
     thumbnail: require('./assets/images/ProfilePicture.png'),
     likes: Math.floor(Math.random() * Math.floor(300)),
     comments: Math.floor(Math.random() * Math.floor(25)),
-    datePosted: null,
+    datePosted: 8,
     nudged: false
 
   },
@@ -184,7 +184,7 @@ const IMAGES = {
     thumbnail: require('./assets/images/ProfilePicture.png'),
     likes: Math.floor(Math.random() * Math.floor(300)),
     comments: Math.floor(Math.random() * Math.floor(25)),
-    datePosted: null,
+    datePosted: 9,
     nudged: false
 
   },
@@ -201,7 +201,7 @@ const IMAGES = {
     thumbnail: require('./assets/images/ProfilePicture.png'),
     likes: Math.floor(Math.random() * Math.floor(300)),
     comments: Math.floor(Math.random() * Math.floor(25)),
-    datePosted: null,
+    datePosted: 10,
     nudged: false
 
   },
@@ -218,7 +218,7 @@ const IMAGES = {
     thumbnail: require('./assets/images/ProfilePicture.png'),
     likes: Math.floor(Math.random() * Math.floor(300)),
     comments: Math.floor(Math.random() * Math.floor(25)),
-    datePosted: null,
+    datePosted: 11,
     nudged: false
 
   },

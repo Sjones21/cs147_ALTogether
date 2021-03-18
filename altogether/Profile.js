@@ -46,6 +46,8 @@ export default class Profile extends Component {
       }
     }
 
+    
+
 
     return (
       <View style={styles.container}>

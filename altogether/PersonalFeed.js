@@ -168,6 +168,7 @@ scrollToInitialPosition = () => {
 
   render() {
 
+
     let images = [];
     let index = 0;
     for (const [key, value] of Object.entries(IMAGES)) {
