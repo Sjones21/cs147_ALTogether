@@ -262,7 +262,6 @@ export default class App extends React.Component {
                   labelVisible={false}
                   style={styles.headerButton}
                   onPress={() => {
-                    console.log(navigation.dangerouslyGetParent()),
                     navigation.goBack()}}>
                 </HeaderBackButton>
               ),
