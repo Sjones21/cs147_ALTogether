@@ -13,7 +13,10 @@ const IMAGES = {
     link: require('./assets/images/ice_cream.png'),
     thumbnail: require('./assets/images/ProfilePicture.png'),
     likes: Math.floor(Math.random() * Math.floor(300)),
-    comments: Math.floor(Math.random() * Math.floor(25))
+    comments: Math.floor(Math.random() * Math.floor(25)),
+    datePosted: null,
+    nudged: false
+
   },
   sydney1: {
     id: 'sydney1',
@@ -27,7 +30,10 @@ const IMAGES = {
     link: require('./assets/images/feed/sydney1.png'),
     thumbnail: require('./assets/images/ProfilePicture.png'),
     likes: Math.floor(Math.random() * Math.floor(300)),
-    comments: Math.floor(Math.random() * Math.floor(25))
+    comments: Math.floor(Math.random() * Math.floor(25)),
+    datePosted: null,
+    nudged: false
+
   },
   sydney2: {
     id: 'sydney2',
@@ -41,7 +47,10 @@ const IMAGES = {
     link: require('./assets/images/feed/sydney2.png'),
     thumbnail: require('./assets/images/ProfilePicture.png'),
     likes: Math.floor(Math.random() * Math.floor(300)),
-    comments: Math.floor(Math.random() * Math.floor(25))
+    comments: Math.floor(Math.random() * Math.floor(25)),
+    datePosted: null,
+    nudged: false
+
   },
   sydney3: {
     id: 'sydney3',
@@ -55,7 +64,10 @@ const IMAGES = {
     link: require('./assets/images/feed/sydney3.png'),
     thumbnail: require('./assets/images/ProfilePicture.png'),
     likes: Math.floor(Math.random() * Math.floor(300)),
-    comments: Math.floor(Math.random() * Math.floor(25))
+    comments: Math.floor(Math.random() * Math.floor(25)),
+    datePosted: null,
+    nudged: false
+
   },
   sydney4: {
     id: 'sydney4',
@@ -69,7 +81,10 @@ const IMAGES = {
     link: require('./assets/images/feed/sydney4.png'),
     thumbnail: require('./assets/images/ProfilePicture.png'),
     likes: Math.floor(Math.random() * Math.floor(300)),
-    comments: Math.floor(Math.random() * Math.floor(25))
+    comments: Math.floor(Math.random() * Math.floor(25)),
+    datePosted: null,
+    nudged: false
+
   },
   sydney5: {
     id: 'sydney4',
@@ -83,7 +98,10 @@ const IMAGES = {
     link: require('./assets/images/feed/sydney5.png'),
     thumbnail: require('./assets/images/ProfilePicture.png'),
     likes: Math.floor(Math.random() * Math.floor(300)),
-    comments: Math.floor(Math.random() * Math.floor(25))
+    comments: Math.floor(Math.random() * Math.floor(25)),
+    datePosted: null,
+    nudged: false
+
   },
   gallery1: {
     id: 'gallery1',
@@ -97,7 +115,10 @@ const IMAGES = {
     link: require('./assets/images/gallery/pic1.png'),
     thumbnail: require('./assets/images/ProfilePicture.png'),
     likes: Math.floor(Math.random() * Math.floor(300)),
-    comments: Math.floor(Math.random() * Math.floor(25))
+    comments: Math.floor(Math.random() * Math.floor(25)),
+    datePosted: null,
+    nudged: false
+
   },
   gallery2: {
     id: 'gallery2',
@@ -111,7 +132,10 @@ const IMAGES = {
     link: require('./assets/images/gallery/pic2.jpg'),
     thumbnail: require('./assets/images/ProfilePicture.png'),
     likes: Math.floor(Math.random() * Math.floor(300)),
-    comments: Math.floor(Math.random() * Math.floor(25))
+    comments: Math.floor(Math.random() * Math.floor(25)),
+    datePosted: null,
+    nudged: false
+
   },
   gallery3: {
     id: 'gallery3',
@@ -125,7 +149,10 @@ const IMAGES = {
     link: require('./assets/images/gallery/pic3.jpg'),
     thumbnail: require('./assets/images/ProfilePicture.png'),
     likes: Math.floor(Math.random() * Math.floor(300)),
-    comments: Math.floor(Math.random() * Math.floor(25))
+    comments: Math.floor(Math.random() * Math.floor(25)),
+    datePosted: null,
+    nudged: false
+
   },
   gallery4: {
     id: 'gallery4',
@@ -139,7 +166,10 @@ const IMAGES = {
     link: require('./assets/images/gallery/pic4.jpg'),
     thumbnail: require('./assets/images/ProfilePicture.png'),
     likes: Math.floor(Math.random() * Math.floor(300)),
-    comments: Math.floor(Math.random() * Math.floor(25))
+    comments: Math.floor(Math.random() * Math.floor(25)),
+    datePosted: null,
+    nudged: false
+
   },
   gallery5: {
     id: 'gallery5',
@@ -153,7 +183,10 @@ const IMAGES = {
     link: require('./assets/images/gallery/pic5.jpg'),
     thumbnail: require('./assets/images/ProfilePicture.png'),
     likes: Math.floor(Math.random() * Math.floor(300)),
-    comments: Math.floor(Math.random() * Math.floor(25))
+    comments: Math.floor(Math.random() * Math.floor(25)),
+    datePosted: null,
+    nudged: false
+
   },
   gallery6: {
     id: 'gallery6',
@@ -167,7 +200,10 @@ const IMAGES = {
     link: require('./assets/images/gallery/pic6.jpeg'),
     thumbnail: require('./assets/images/ProfilePicture.png'),
     likes: Math.floor(Math.random() * Math.floor(300)),
-    comments: Math.floor(Math.random() * Math.floor(25))
+    comments: Math.floor(Math.random() * Math.floor(25)),
+    datePosted: null,
+    nudged: false
+
   },
   gallery7: {
     id: 'gallery7',
@@ -181,7 +217,10 @@ const IMAGES = {
     link: require('./assets/images/gallery/pic7.jpg'),
     thumbnail: require('./assets/images/ProfilePicture.png'),
     likes: Math.floor(Math.random() * Math.floor(300)),
-    comments: Math.floor(Math.random() * Math.floor(25))
+    comments: Math.floor(Math.random() * Math.floor(25)),
+    datePosted: null,
+    nudged: false
+
   },
   dani1: {
     id: 'dani1',
@@ -195,7 +234,9 @@ const IMAGES = {
     link: require('./assets/images/feed/dani1.png'),
     thumbnail: require('./assets/images/feed/daniProf.png'),
     likes: Math.floor(Math.random() * Math.floor(300)),
-    comments: Math.floor(Math.random() * Math.floor(25))
+    comments: Math.floor(Math.random() * Math.floor(25)),
+    datePosted: 6,
+    nudged: false,
   },
   haeli1: {
     id: 'haeli1',
@@ -209,7 +250,73 @@ const IMAGES = {
     link: require('./assets/images/feed/haeli1.png'),
     thumbnail: require('./assets/images/feed/haeliProf.png'),
     likes: Math.floor(Math.random() * Math.floor(300)),
-    comments: Math.floor(Math.random() * Math.floor(25))
+    comments: Math.floor(Math.random() * Math.floor(25)),
+    datePosted: 5,
+    nudged: false
+  },
+  jungwon1: {
+    id: 'jungwon1',
+    poster: 'jungwon',
+    caption: 'Big day hehe',
+    feed: true,
+    hasAltText: true,
+    altText: 'Me standing outside the Department of Homeland Security and holding up my new certificate of citizenship.',
+    autogenerated: '##One person ##smiling and holding an ##American ##flag next to a ##building.',
+    custom: null,
+    link: require('./assets/images/feed/jungwon1.jpg'),
+    thumbnail: require('./assets/images/feed/jungwonProf.png'),
+    likes: Math.floor(Math.random() * Math.floor(300)),
+    comments: Math.floor(Math.random() * Math.floor(25)),
+    datePosted: 4,
+    nudged: false
+  },
+  haeli2: {
+    id: 'haeli2',
+    poster: 'haeli',
+    caption: 'We\'re so proud of you Caleb! How are you so old???',
+    feed: true,
+    hasAltText: false,
+    altText: null,
+    autogenerated: '##Three people ##smiling at a ##graduation with ##colorful ##flowers',
+    custom: null,
+    link: require('./assets/images/feed/haeli2.jpeg'),
+    thumbnail: require('./assets/images/feed/haeliProf.png'),
+    likes: Math.floor(Math.random() * Math.floor(300)),
+    comments: Math.floor(Math.random() * Math.floor(25)),
+    datePosted: 3,
+    nudged: false
+  },
+  jungwon2: {
+    id: 'jungwon2',
+    poster: 'jungwon',
+    caption: 'Raise your poles if you hate moguls',
+    feed: true,
+    hasAltText: true,
+    altText: 'Me and my dormmates posing with our ski poles in the air while skiing at Lake Tahoe.',
+    autogenerated: '##Six people ##skiing on a ##mountain next to a ##lake.',
+    custom: null,
+    link: require('./assets/images/feed/jungwon2.jpg'),
+    thumbnail: require('./assets/images/feed/jungwonProf.png'),
+    likes: Math.floor(Math.random() * Math.floor(300)),
+    comments: Math.floor(Math.random() * Math.floor(25)),
+    datePosted: 2,
+    nudged: false
+  },
+  dani2: {
+    id: 'dani2',
+    poster: 'dani',
+    caption: 'In between sneezes lmao',
+    feed: true,
+    hasAltText: true,
+    altText: 'Me leisurely lying on my back in a field of orange poppies just outside of Los Angeles.',
+    autogenerated: '##One person ##lying ##down and ##smiling near ##orange ##flowers.',
+    custom: null,
+    link: require('./assets/images/feed/dani2.jpg'),
+    thumbnail: require('./assets/images/feed/daniProf.png'),
+    likes: Math.floor(Math.random() * Math.floor(300)),
+    comments: Math.floor(Math.random() * Math.floor(25)),
+    datePosted: 1,
+    nudged: false
   },
 }
 

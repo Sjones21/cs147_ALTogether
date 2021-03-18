@@ -43,6 +43,7 @@ export default class Feed extends Component {
       selectedImage: image,
       ImageID: route.params.image_id,
       isModalVisible: false,
+      isNudgeVisible: false,
       currentPhoto: IMAGES.dani1,
       flagged: false,
       userHasViewedAltText: false,
@@ -53,23 +54,6 @@ export default class Feed extends Component {
 
   }
 
-  /*renderModal = () => {
-    let popUpMessage = 'dani did not write alt text! Would you like to encourage them to make their post more accessible?'
-    let buttonLabel = 'Nudge'
-    return (
-      <View style={styles.modalContainer}>
-        <View
-          style={[styles.bottomPopUp, {height: windowHeight * .25, width: windowWidth}]}>
-          <Text> {popUpMessage} </Text>
-          <TouchableOpacity
-            style={styles.popUpButton}
-            onPress={() => this.setState({ isModalVisible: false })}>
-            <Text style={styles.popUpButtonLabel}>{buttonLabel}</Text>
-          </TouchableOpacity>
-        </View>
-      </View>
-  );
-}*/
 
 handleModal = (photo) => {
   this.setState({
@@ -89,75 +73,113 @@ handleFlag(event) {
 renderModal = () => {
   let photo = this.state.currentPhoto;
 
-  if (!photo.hasAltText && photo.poster !== 'sydney') {
+  /* NUDGE CONFIRMATION */
+  if (this.state.isNudgeVisible || photo.nudged) {
     return (
       <View style={styles.modalContainer}>
-        <View style={[styles.popUpContainer, {height: windowHeight * .30, width: windowWidth}]}>
+        <View style={[styles.popUpContainer, {height: windowHeight * .35, width: windowWidth}]}>
 
-          <View style={{height: 5, width: 40, marginBottom: 20, backgroundColor: '#DBDBDB', borderRadius: 20}}></View>
-
-          <View style={{flex: 1, justifyContent: 'space-around'}}>
-
-            <View style={{flexDirection:'row', justifyContent: 'center',alignItems: 'center'}}>
-              <Text style={[styles.popUpTitle, {marginBottom: 0}]}>
-                @{photo.poster} did not write alt text!
-              </Text>
-              <View style={{marginTop:2, position: 'absolute', top: 0, right: 0}}>
-                <InfoButtonModal ></InfoButtonModal>
-              </View>
-            </View>
-
-            <View>
-              <Text style={styles.popUpDescription}>Would you like to encourage them to make their post more accessible?</Text>
-            </View>
-
-            <TouchableOpacity
-              style={[styles.popUpButton, {width: 200, alignSelf: 'center'}]}
-              onPress={() => this.setState({ isModalVisible: false})}>
-              <Text style={styles.popUpButtonLabel}>Nudge</Text>
-            </TouchableOpacity>
-
+          <View style={styles.popUpHeader}>
+          <View style={{height: 5, width: 40, backgroundColor: '#DBDBDB', borderRadius: 20, marginBottom: 15}}></View>
+          <Text style={[styles.popUpTitle, {marginBottom: 0}]}>
+            ALTogether
+          </Text>
+          <View style={{marginTop:2, position: 'absolute', top: 20, right: 20}}>
+            <InfoButtonModal ></InfoButtonModal>
           </View>
+          </View>
+
+          <View style={{flex: 1, justifyContent: 'space-around', alignItems: 'center'}}>
+            <Image style={{height: 75, width: 75}}source={require('./assets/images/Check.png')}/>
+
+            <View style={{flexDirection:'column', justifyContent: 'center',alignItems: 'center', marginBottom: 10}}>
+              <Text style={[styles.popUpDescription, {fontWeight: 'bold', marginBottom: 5}]}>Thank you!</Text>
+              <Text style={styles.popUpDescription}>Let's keep promoting accessibility together!</Text>
+
+            </View>
+          </View>
+
         </View>
       </View>
 
     );
   }
 
-  return (
-    <View style={styles.modalContainer}>
-      <View style={[styles.popUpContainer, {height: windowHeight * .25, width: windowWidth}]}>
+  /* ASK TO NUDGE */
+  if (!photo.hasAltText && photo.poster !== 'sydney') {
+    return (
+      <View style={styles.modalContainer}>
+        <View style={[styles.popUpContainer, {height: windowHeight * .35, width: windowWidth}]}>
 
-        <View style={{height: 5, width: 40, marginBottom: 20, backgroundColor: '#DBDBDB', borderRadius: 20}}></View>
-
-        <View style={{flex: 1, justifyContent: 'space-around'}}>
-
-          <View style={{flexDirection:'row', justifyContent: 'center',alignItems: 'center'}}>
-            <Text style={[styles.popUpTitle, {marginBottom: 0}]}>
-              Alt text
-            </Text>
-            <View style={{marginTop:2, position: 'absolute', top: 0, right: 0}}>
-              <View style={{flexDirection: 'row'}}>
-              <InfoButtonModal ></InfoButtonModal>
-              <Icon
-                raised
-                name='flag'
-                type='material'
-                color= {this.state.flagged? '#fa7e02' : '#3996EF'}
-                style = {{fontSize: 22, marginLeft:10}}
-                onPress={(event) => this.handleFlag(event)}>
-              </Icon>
-              </View>
-            </View>
+          <View style={styles.popUpHeader}>
+          <View style={{height: 5, width: 40, backgroundColor: '#DBDBDB', borderRadius: 20, marginBottom: 15}}></View>
+          <Text style={[styles.popUpTitle, {marginBottom: 0}]}>
+            ALTogether
+          </Text>
+          <View style={{marginTop:2, position: 'absolute', top: 20, right: 20}}>
+            <InfoButtonModal ></InfoButtonModal>
+          </View>
           </View>
 
-          <View style={{marginBottom: 20}}>
-            <Text style={styles.popUpDescription}>{this.state.currentPhoto.altText}</Text>
+          <View style={{flex: 1, justifyContent: 'space-around'}}>
+
+          <View style={{flexDirection:'column', justifyContent: 'center',alignItems: 'center'}}>
+            <Text style={[styles.popUpDescription, {fontWeight: 'bold', marginBottom: 5}]}>@{photo.poster} did not write alt text!</Text>
+            <Text style={styles.popUpDescription}>Would you like to encourage them to make their post more accessible?</Text>
           </View>
+          </View>
+
+            <TouchableOpacity
+              style={[styles.popUpButton, {width: 200, alignSelf: 'center'}]}
+              onPress={() => {
+                photo.nudged = true,
+                this.setState({ isNudgeVisible: true})}
+              }>
+              <Text style={styles.popUpButtonLabel}>Nudge</Text>
+            </TouchableOpacity>
 
         </View>
       </View>
+
+    );
+  }
+
+  /* SHOW ALT TEXT */
+  return (
+
+    <View style={styles.modalContainer}>
+      <View style={[styles.popUpContainer, {height: windowHeight * .25, width: windowWidth}]}>
+
+        <View style={styles.popUpHeader}>
+        <View style={{height: 5, width: 40, backgroundColor: '#DBDBDB', borderRadius: 20, marginBottom: 15}}></View>
+        <Text style={[styles.popUpTitle, {marginBottom: 0}]}>
+          Alt text
+        </Text>
+        <View style={{marginTop:2, position: 'absolute', top: 20, right: 20}}>
+          <View style={{flexDirection: 'row'}}>
+          <InfoButtonModal ></InfoButtonModal>
+          <Icon
+            raised
+            name='flag'
+            type='material'
+            color= {this.state.flagged? '#fa7e02' : '#3996EF'}
+            style = {{fontSize: 22, marginLeft:10}}
+            onPress={(event) => this.handleFlag(event)}>
+          </Icon>
+          </View>
+        </View>
+        </View>
+
+        <View style={{flex: 1, justifyContent: 'space-around'}}>
+
+        <View style={{flexDirection:'column', justifyContent: 'center',alignItems: 'center'}}>
+          <Text style={styles.popUpDescription}>{this.state.currentPhoto.altText}</Text>
+        </View>
+        </View>
+
+      </View>
     </View>
+
 
   );
 }
@@ -183,6 +205,11 @@ renderCards(){
       );
     }
   }
+  // Sort images by date in feed
+  images.sort(function(a, b) {
+    return b.props.photo.datePosted - a.props.photo.datePosted;
+  });
+
   return images;
 }
 
@@ -194,7 +221,7 @@ renderCards(){
             {/* Header Bar */}
             <HeaderBar navigation = {this.props.navigation} title='Instagram'/>
             {/* HARDCODED SOLUTION */}
-            {images.length >2?(<JustPostedHeader/>):null}
+            {images.length > 6 ?(<JustPostedHeader/>):null}
             {/* Feed Container */}
             <View style={styles.contentContainer}>
 
@@ -213,7 +240,12 @@ renderCards(){
                 <TouchableOpacity
                     style={[styles.container, {backgroundColor: 'rgba(0,0,0,0.5)'}]}
                     activeOpacity={1}
-                    onPressOut={() => this.setState({isModalVisible: false})}>
+                    onPressOut={() => {
+                      this.setState({
+                        isModalVisible: false,
+                        isNudgeVisible: false,
+                      })
+                    }}>
 
                     {/* Bottom Popup itself */}
                     {this.renderModal()}

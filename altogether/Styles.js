@@ -457,6 +457,7 @@ const styles = StyleSheet.create({
   popUpContainer: {
     margin: 0,
     padding: 30,
+    paddingTop: 15,
     paddingBottom: 50,
     flexDirection: 'column',
     justifyContent: 'flex-start',
@@ -464,6 +465,19 @@ const styles = StyleSheet.create({
     backgroundColor: 'white',
     borderRadius: 25,
     shadowColor: '#000',
+  },
+
+  popUpHeader: {
+    margin: 10,
+    marginTop: 0,
+    paddingBottom: 15,
+    marginRight: 0,
+    marginLeft: 0,
+    justifyContent: 'space-between',
+    alignSelf: 'stretch',
+    alignItems: 'center',
+    borderBottomWidth: 1,
+    borderBottomColor: '#DBDBDB'
   },
 
   popUpTitle: {

@@ -228,7 +228,7 @@ export default class App extends React.Component {
                   IMAGES[this.state.image_id].feed = true,
                   IMAGES[this.state.image_id].poster = 'sydney',
                   IMAGES[this.state.image_id].hasAltText = true,
-                  IMAGES[this.state.image_id].date = new Date(),
+                  IMAGES[this.state.image_id].datePosted = new Date(),
                   navigation.navigate('Feed', {
                     image_id: this.state.image_id
                 });
