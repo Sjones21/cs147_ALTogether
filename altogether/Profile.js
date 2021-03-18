@@ -13,6 +13,9 @@ import { Card, ListItem, Button, Icon } from 'react-native-elements'
 import { IMAGES } from './IMAGES.js';
 import { styles } from './Styles.js';
 
+const windowWidth = Dimensions.get('window').width;
+const windowHeight = Dimensions.get('window').height;
+
 export default class Profile extends Component {
   renderProgressBarColor(numAlt, totalPosts){
     let percentAlt = numAlt/totalPosts * 100;
@@ -32,7 +35,7 @@ export default class Profile extends Component {
     for (const [key, value] of Object.entries(IMAGES)) {
       if (value.poster == 'sydney') {
         images.push(
-          <GalleryPhoto navigation={this.props.navigation} key={`${key}`} photo={value} />
+          <GalleryPhoto width={(windowWidth-8)/3 } navigation={this.props.navigation} nextPage={'PersonalFeed'} key={`${key}`} photo={value} />
         );
         if (value.hasAltText) {
           numAlt += 1;

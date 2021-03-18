@@ -18,7 +18,7 @@ import InfoButtonModal from './src/components/InfoButtonModal';
 const windowWidth = Dimensions.get('window').width;
 const windowHeight = Dimensions.get('window').height;
 
-export default class AltogetherCustom extends Component {
+export default class EditAltogetherCustom extends Component {
 
   speak = () => {
     this.setState({isSpeaking: true});
@@ -52,8 +52,8 @@ constructor({route, navigation}) {
   render() {
     return (
       <View style={styles.container}>
-        
-        
+
+
 
         <KeyboardAvoidingView
           style={{flex: 1,  backgroundColor:"white"}}
@@ -75,7 +75,7 @@ constructor({route, navigation}) {
 
               {/* Alt Text Writing Container */}
               <View style={styles.writingContainer}>
-              <View  style= {{flexDirection:'row'}}><Text style={styles.header1}>Custom alt text</Text> 
+              <View  style= {{flexDirection:'row'}}><Text style={styles.header1}>Custom alt text</Text>
                 {/**INFO MODAL */}
                 <View style={{ marginTop:2, marginLeft: 25}}>
                   <InfoButtonModal ></InfoButtonModal>
@@ -125,4 +125,4 @@ constructor({route, navigation}) {
     );
   }
 }
-export {AltogetherCustom};
+export {EditAltogetherCustom};

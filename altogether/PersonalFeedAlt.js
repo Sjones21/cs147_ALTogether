@@ -32,36 +32,24 @@ let customFonts = {
 
 
 
-export default class PersonalFeed extends Component {
+export default class PersonalFeedAlt extends Component {
 
 
   constructor({route, navigation}) {
     super();
+
     // change all of this
     this.state =  {
+      selectedImage: null,
+      ImageID: null,
       isModalVisible: false,
       currentPhoto: IMAGES.dani1,
       userHasViewedAltText: false,
-      userNeedsOnboard: route.params.userNeedsOnboard,
-      userNeedsOnboardCallback: route.params.userNeedsOnboardCallback,
-      updateImageIdCallback: route.params.updateImageIdCallback
     };
 
-    //this.state.updateImageIdCallback(this.state.currentPhoto.id);
     this.handleModal = this.handleModal.bind(this)
 
   }
-
-  handleAddButton = () => {
-    this.props.navigation.navigate('EditAltogetherGuided', {
-      image_id: this.state.currentPhoto.id,
-      userNeedsOnboard: this.state.userNeedsOnboard,
-      userNeedsOnboardCallback: this.state.userNeedsOnboardCallback
-    });
-    this.setState({ isModalVisible: false });
-
-  }
-
 
 handleModal = (photo) => {
   this.setState({
@@ -90,7 +78,7 @@ renderModal = () => {
 
             <TouchableOpacity
               style={[styles.popUpButton, {width: 200}]}
-              onPress={() => this.handleAddButton()}>
+              onPress={() => this.handleEditButton()}>
               <Text style={styles.popUpButtonLabel}>Add alt text</Text>
             </TouchableOpacity>
 
@@ -133,11 +121,15 @@ renderModal = () => {
   );
 }
 
+handleEditButton = () => {
+  this.setState({ isModalVisible: false });
+}
+
   render() {
 
     let images = [];
     for (const [key, value] of Object.entries(IMAGES)) {
-      if (value.poster === 'sydney') {
+      if (!value.hasAltText && value.poster === 'sydney') {
         images.push(
           <CardComponent
             key={`${key+this.state.userHasViewedAltText}`}
@@ -195,4 +187,4 @@ renderModal = () => {
     }
 }
 
-export {PersonalFeed};
+export {PersonalFeedAlt};

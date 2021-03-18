@@ -31,11 +31,12 @@ class GalleryPhoto extends Component {
   render() {
     return (
       <TouchableOpacity
-        onPress={() => this.props.navigation.navigate('PersonalFeed')}>
+        onPress={() => this.props.navigation.navigate(this.props.nextPage)}>
+        {/*// onPress={() => this.props.navigation.navigate('PersonalFeed')}>*/}
         {this.props.isNewPhoto ?
           <Image style={styles.newGalleryPhoto} source={this.props.photo.link} />
           :
-          <Image style={styles.galleryPhoto} source={this.props.photo.link} />}
+          <Image style={[styles.galleryPhoto, {height: this.props.width, width: this.props.width}]} source={this.props.photo.link} />}
       </TouchableOpacity>
 
     );
