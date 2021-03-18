@@ -31,16 +31,18 @@ export default class Profile extends Component {
     let images = [];
     let numAlt = 0;
     let totalPosts = 0;
+    let index = 0;
 
     for (const [key, value] of Object.entries(IMAGES)) {
       if (value.poster == 'sydney') {
         images.push(
-          <GalleryPhoto width={(windowWidth-8)/3 } navigation={this.props.navigation} nextPage={'PersonalFeed'} key={`${key}`} photo={value} />
+          <GalleryPhoto width={(windowWidth-8)/3 } index={index} navigation={this.props.navigation} nextPage={'PersonalFeed'} key={`${key}`} photo={value} />
         );
         if (value.hasAltText) {
           numAlt += 1;
         }
         totalPosts += 1;
+        index +=1
       }
     }
 

@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Alert, Image, Text, View, StyleSheet, ScrollView, Dimensions, TouchableOpacity, Modal} from 'react-native';
+import { Alert, Image, Text, View, StyleSheet, ScrollView, Dimensions, TouchableOpacity, Modal, InteractionManager} from 'react-native';
 import * as Font from 'expo-font';
 import { Container, Content } from 'native-base'
 import CardComponent from './src/components/CardComponent'
@@ -36,6 +36,7 @@ export default class PersonalFeed extends Component {
 
 
   constructor({route, navigation}) {
+    console.log(route.params.index)
     super();
     // change all of this
     this.state =  {
@@ -44,11 +45,15 @@ export default class PersonalFeed extends Component {
       userHasViewedAltText: false,
       userNeedsOnboard: route.params.userNeedsOnboard,
       userNeedsOnboardCallback: route.params.userNeedsOnboardCallback,
-      updateImageIdCallback: route.params.updateImageIdCallback
+      updateImageIdCallback: route.params.updateImageIdCallback,
+      currentIndex: route.params.index
     };
 
     //this.state.updateImageIdCallback(this.state.currentPhoto.id);
     this.handleModal = this.handleModal.bind(this)
+
+    //this.scrollRef = React.createRef();
+
 
   }
 
@@ -145,9 +150,26 @@ renderModal = () => {
   );
 }
 
+// componentDidMount() {
+//   if (this.scrollRef != null) {
+//     InteractionManager.runAfterInteractions(() => {
+//       this.scrollRef.scrollTo({ y: windowHeight, animated: false});
+//         console.log("called DidMount");
+//     })
+//   }
+//
+// }
+
+scrollToInitialPosition = () => {
+  console.log(this.state.currentPhoto);
+  this.scrollRef.scrollTo({ y: (this.state.currentIndex) * windowHeight/1.5, animated: false });
+}
+
+
   render() {
 
     let images = [];
+    let index = 0;
     for (const [key, value] of Object.entries(IMAGES)) {
       if (value.poster === 'sydney') {
         images.push(
@@ -162,19 +184,25 @@ renderModal = () => {
             description= {`${value.caption}`}
             handleAltTextViewCallback =  {(() => {this.setState({userHasViewedAltText: true})}) }
             userHasViewedAltText = {`${this.state.userHasViewedAltText}`}
-            onModal={(photo) => this.handleModal(photo)}/>
+            onModal={(photo) => this.handleModal(photo)}
+            index={index}/>
         );
       }
+      index+=1
     }
+
 
       return(
           <View
-            style={styles.container}>
+            style={[styles.container, {height: windowHeight}]}>
             {/* Feed Container */}
             <View style={styles.contentContainer}>
 
               {/* Photos in feed */ }
               <ScrollView
+                ref={(ref) => this.scrollRef = ref}
+                onLayout={this.scrollToInitialPosition}
+
                 style={{backgroundColor: 'white'}}>
                 {images}
               </ScrollView>
