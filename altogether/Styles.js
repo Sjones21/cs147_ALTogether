@@ -21,7 +21,9 @@ const styles = StyleSheet.create({
   },
 
   scrollContainer: {
-    padding: 20
+    padding: 20,
+    backgroundColor: '#fff',
+
   },
 
   exampleButton: {
@@ -90,7 +92,7 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'flex-end',
     justifyContent: 'space-between',
-    backgroundColor: '#FFFFFF'
+    backgroundColor: '#FAFAFA'
   },
 
   headerTitle: {
@@ -489,6 +491,7 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
     fontSize: 18
   },
+
 
 
 
