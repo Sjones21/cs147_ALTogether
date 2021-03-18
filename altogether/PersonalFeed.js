@@ -51,24 +51,6 @@ export default class PersonalFeed extends Component {
 
   }
 
-  /*renderModal = () => {
-    let popUpMessage = 'dani did not write alt text! Would you like to encourage them to make their post more accessible?'
-    let buttonLabel = 'Nudge'
-    return (
-      <View style={styles.modalContainer}>
-        <View
-          style={[styles.bottomPopUp, {height: windowHeight * .25, width: windowWidth}]}>
-          <Text> {popUpMessage} </Text>
-          <TouchableOpacity
-            style={styles.popUpButton}
-            onPress={() => this.setState({ isModalVisible: false })}>
-            <Text style={styles.popUpButtonLabel}>{buttonLabel}</Text>
-          </TouchableOpacity>
-        </View>
-      </View>
-  );
-}*/
-
 handleModal = (photo) => {
   this.setState({
     isModalVisible: true,
@@ -108,32 +90,31 @@ renderModal = () => {
 
 
   return (
+
     <View style={styles.modalContainer}>
-      <View
-        style={[styles.popUpContainer, {height: windowHeight * .30, width: windowWidth}]}>
-        <View style={{height: 5, width: 40, backgroundColor: '#DBDBDB', borderRadius: 20}}></View>
-        {/*<View style={{flex: 1, justifyContent: 'space-around', alignItems: 'center'}}>
-          <View style={{marginTop: 50}}>
+      <View style={[styles.popUpContainer, {height: windowHeight * .30, width: windowWidth}]}>
+
+        <View style={{height: 5, width: 40, marginBottom: 20, backgroundColor: '#DBDBDB', borderRadius: 20}}></View>
+
+        <View style={{flex: 1, justifyContent: 'space-around'}}>
+
+          <View style={{flexDirection:'row', justifyContent: 'center',alignItems: 'center'}}>
+            <Text style={[styles.popUpTitle, {marginBottom: 0}]}>Alt text</Text>
+            <View style={{marginTop:2, position: 'absolute', top: 0, right: 0}}>
+              <InfoButtonModal ></InfoButtonModal>
+            </View>
+          </View>
+
+          <View>
             <Text style={styles.popUpDescription}>Alt text: {this.state.currentPhoto.altText}</Text>
           </View>
 
           <TouchableOpacity
-            style={[styles.popUpButton, {width: 125}]}
-            onPress={() => this.handleEditButton()}>
+            style={[styles.popUpButton, {width: 150, alignSelf: 'center'}]}
+            onPress={() => this.setState({ isModalVisible: false})}>
             <Text style={styles.popUpButtonLabel}>Edit</Text>
-          </TouchableOpacity>*/}
+          </TouchableOpacity>
 
-        <View style={{flexDirection:'row'}}>
-
-        <Text style={[styles.popUpTitle, {marginBottom:0, marginLeft: 150, marginTop:20, padding:0}]}>Alt text</Text>
-        <View style = {{flexDirection:'row', marginTop:22, marginLeft:10,  marginRight:30,}}>
-        <InfoButtonModal ></InfoButtonModal>
-        </View>
-        <TouchableOpacity style={[styles.popUpButton,{marginTop: 19, padding:2, paddingTop:5, paddingLeft:0, height: 30, width:60}]}><Text style={[styles.popUpButtonLabel, {fontSize:16, textAlign:'center'}]}>Edit</Text></TouchableOpacity>
-
-        </View>
-        <View style={{flex: 1, justifyContent:'space-around'}}>
-          <Text style={[styles.popUpDescription, {marginTop:0, padding:0}]}>{this.state.currentPhoto.altText}</Text>
         </View>
       </View>
     </View>
