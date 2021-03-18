@@ -27,6 +27,7 @@ export default class Profile extends Component {
       return '#8FCB2E';
     }
   }
+
   render() {
     let images = [];
     let numAlt = 0;
@@ -36,7 +37,7 @@ export default class Profile extends Component {
       if (value.poster == 'sydney'){
         if (!value.hasAltText) {
         images.push(
-          <GalleryPhoto width={(windowWidth-8)/3 } navigation={this.props.navigation} nextPage={'PersonalFeedAlt'} key={`${key}`} photo={value} />
+          <GalleryPhoto width={(windowWidth-8)/3 } navigation={this.props.navigation} nextPage={'PersonalFeedAlt'} key={`${key + value.hasAltText}`} photo={value} />
         );
         }
         if (value.hasAltText) {

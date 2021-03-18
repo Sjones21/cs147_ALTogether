@@ -40,7 +40,7 @@ export default class PersonalFeed extends Component {
     // change all of this
     this.state =  {
       isModalVisible: false,
-      currentPhoto: IMAGES.dani1,
+      currentPhoto: IMAGES.iceCream,
       userHasViewedAltText: false,
       userNeedsOnboard: route.params.userNeedsOnboard,
       userNeedsOnboardCallback: route.params.userNeedsOnboardCallback,
@@ -59,7 +59,7 @@ export default class PersonalFeed extends Component {
       userNeedsOnboardCallback: this.state.userNeedsOnboardCallback
     });
     this.setState({ isModalVisible: false });
-
+    this.state.currentPhoto.hasAltText = true;
   }
 
 
@@ -109,7 +109,6 @@ renderModal = () => {
     );
   }
 
-
   return (
 
     <View style={styles.modalContainer}>
@@ -134,7 +133,7 @@ renderModal = () => {
 
           <TouchableOpacity
             style={[styles.popUpButton, {width: 200, alignSelf: 'center'}]}
-            onPress={() => this.setState({ isModalVisible: false})}>
+            onPress={this.handleAddButton}>
             <Text style={styles.popUpButtonLabel}>Edit</Text>
           </TouchableOpacity>
 
