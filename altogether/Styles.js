@@ -340,6 +340,8 @@ const styles = StyleSheet.create({
   },
 
   textbox: {
+    minHeight: 100,
+    maxHeight:200,
     marginTop: 5,
     padding: 20,
     paddingTop:15,
