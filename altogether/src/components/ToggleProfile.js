@@ -32,7 +32,7 @@ class ToggleProfile extends Component {
             <View style={[this.props.selected == 'left' ? styles.selected : styles.unselected]}>
               <TouchableOpacity
                 style={{alignItems: 'center'}}
-                onPress={() => this.props.navigation.navigate('Profile')}>
+                onPress={() => this.props.navigation.push('Profile')}>
                 <Image style={styles.icons} source={this.props.iconLeft} />
               </TouchableOpacity>
             </View>
