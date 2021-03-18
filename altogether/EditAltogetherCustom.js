@@ -37,11 +37,12 @@ export default class EditAltogetherCustom extends Component {
 
   handleAltText = (text) => {
     this.state.image.altText= text;
+    this.state.image.custom = text;
     this.state.image.hasAltText = true;
     //console.log(this.state.image.id, " ", this.state.image.altText);
   }
 
-  
+
 
 constructor({route, navigation}) {
   super();
