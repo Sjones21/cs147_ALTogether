@@ -19,6 +19,8 @@ export default class NewPostCaption extends Component {
   constructor({route, navigation}) {
     super();
     const image = IMAGES[route.params.image_id];
+    console.log("image")
+    console.log(image)
         this.state =  {
           selectedImage: image,
           altTextType: route.params.type,
@@ -80,6 +82,9 @@ export default class NewPostCaption extends Component {
   }
 
   render() {
+    console.log("in caption")
+    console.log(this.state.selectedImage)
+
 
     return (
       <View style={[styles.container, {backgroundColor: 'white'}]}>

@@ -16,7 +16,8 @@ const styles = StyleSheet.create({
 
   contentContainer: {
     flexGrow: 1,
-    flexShrink: 1
+    flexShrink: 1,
+    backgroundColor: 'white'
   },
 
   scrollContainer: {
@@ -138,7 +139,8 @@ const styles = StyleSheet.create({
   profileContainer: {
     flexDirection: 'row',
     justifyContent: 'space-around',
-    alignItems: 'center'
+    alignItems: 'center',
+    backgroundColor: 'white'
   },
 
   numbersContainer: {
@@ -473,7 +475,7 @@ const styles = StyleSheet.create({
   },
 
   popUpButton: {
-    margin: 20,
+    margin: 10,
     padding: 10,
     backgroundColor: '#3996EF',
     borderRadius: 10,

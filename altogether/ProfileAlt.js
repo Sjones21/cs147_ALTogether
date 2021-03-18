@@ -13,6 +13,9 @@ import { Card, ListItem, Button, Icon } from 'react-native-elements'
 import { IMAGES } from './IMAGES.js';
 import { styles } from './Styles.js';
 
+const windowWidth = Dimensions.get('window').width;
+const windowHeight = Dimensions.get('window').height;
+
 export default class Profile extends Component {
   renderProgressBarColor(numAlt, totalPosts){
     let percentAlt = numAlt/totalPosts * 100;
@@ -33,7 +36,7 @@ export default class Profile extends Component {
       if (value.poster == 'sydney'){
         if (!value.hasAltText) {
         images.push(
-          <GalleryPhoto key={`${key}`} photo={value} />
+          <GalleryPhoto width={(windowWidth-8)/3 } navigation={this.props.navigation} nextPage={'PersonalFeedAlt'} key={`${key}`} photo={value} />
         );
         }
         if (value.hasAltText) {
@@ -76,7 +79,7 @@ export default class Profile extends Component {
                         backgroundColor: this.renderProgressBarColor(numAlt, totalPosts),
                         borderRadius: 10
                       }}></View>
-                    </View>                    
+                    </View>
                     <Text style={styles.progressBarLabel}>{numAlt}/{totalPosts} posts have alt text</Text>
                   </View>
                 </View>
@@ -112,6 +115,7 @@ export default class Profile extends Component {
 
             {/* 3x3 Photos Container */}
             <View style={{ justifyContent: 'center', margin: 1 }}>
+              <Text style={{margin: 5, fontSize: 16, fontWeight: 'bold'}}>Posts Without Alt Text</Text>
               <View style={{ flexDirection: 'row', flexWrap: 'wrap' }}>
                 {images}
               </View>

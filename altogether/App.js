@@ -26,9 +26,11 @@ import NewPostEdit from './NewPostEdit.js';
 import NewPostCaption from './NewPostCaption.js';
 import NewPostAltogetherGuided from './NewPostAltogetherGuided.js';
 import NewPostAltogetherCustom from './NewPostAltogetherCustom.js';
-import AltogetherGuided from './AltogetherGuided.js';
-import AltogetherCustom from './AltogetherCustom.js';
+import EditAltogetherGuided from './EditAltogetherGuided.js';
+import EditAltogetherCustom from './EditAltogetherCustom.js';
 import PersonalFeed from './PersonalFeed.js';
+import PersonalFeedAlt from './PersonalFeedAlt.js';
+
 
 import * as Font from 'expo-font';
 import { LogBox } from 'react-native';
@@ -58,6 +60,12 @@ export default class App extends React.Component {
     userNeedsOnboard: true
   };
 
+  handleOnboarding = (userNeedsOnboardAnswer) => {
+    this.setState({
+      userNeedsOnboard: userNeedsOnboardAnswer
+    })
+  }
+
   render() {
     return (
       <NavigationContainer style={styles.container}>
@@ -68,7 +76,9 @@ export default class App extends React.Component {
           <Stack.Screen name="Feed" component={Feed} initialParams={{ image_id: "" }} options={({ route, navigation }) => ({ title: 'Instagram', headerShown: false })} />
           <Stack.Screen name="Profile" component={Profile} options={({ headerShown: false, animationEnabled: false })} />
           <Stack.Screen name="ProfileAlt" component={ProfileAlt} options={({ headerShown: false, animationEnabled: false })} />
-          <Stack.Screen name="NewPostChoosePic" component={NewPostChoosePic} initialParams={{updateImageIdCallback: ((id) => this.setState({image_id: id}))}} options={({ route, navigation,
+          <Stack.Screen name="NewPostChoosePic" component={NewPostChoosePic}
+            initialParams={{updateImageIdCallback: ((id) => this.setState({image_id: id}))}}
+            options={({ route, navigation,
                   }) => ({
             title: 'New Post',
             headerTitleStyle: { fontSize: 20 },
@@ -151,7 +161,11 @@ export default class App extends React.Component {
               </TouchableOpacity>
               )
             })} />
-          <Stack.Screen name="NewPostAltogetherGuided" component={NewPostAltogetherGuided} initialParams={{userNeedsOnboardCallback: ((userNeedsOnboardAnswer) => this.setState({userNeedsOnboard: userNeedsOnboardAnswer}))}} options={({ route, navigation }) => ({
+          <Stack.Screen name="NewPostAltogetherGuided" component={NewPostAltogetherGuided}
+            initialParams={{
+              userNeedsOnboardCallback: ((userNeedsOnboardAnswer) =>
+              this.setState({userNeedsOnboard: userNeedsOnboardAnswer}))}}
+            options={({ route, navigation }) => ({
             title: 'ALTogether',
             headerTitleStyle: { fontSize: 20 },
             headerStyle: { height: 100 },
@@ -223,7 +237,14 @@ export default class App extends React.Component {
               </TouchableOpacity>
             )
           })} />
-          <Stack.Screen name="PersonalFeed" component={PersonalFeed} options={({ route, navigation }) => ({
+          <Stack.Screen name="PersonalFeed" component={PersonalFeed}
+          initialParams={{
+            userNeedsOnboard: this.state.userNeedsOnboard,
+            userNeedsOnboardCallback: ((userNeedsOnboardAnswer) =>
+              this.setState({userNeedsOnboard: userNeedsOnboardAnswer})),
+            updateImageIdCallback: ((id) => this.setState({image_id: id}))
+          }}
+          options={({ route, navigation }) => ({
              title: 'Posts',
              headerLeft: () => (
                <HeaderBackButton
@@ -233,6 +254,37 @@ export default class App extends React.Component {
                </HeaderBackButton>
              ),
            })} />
+           <Stack.Screen name="PersonalFeedAlt" component={PersonalFeedAlt} options={({ route, navigation }) => ({
+              title: 'Posts Without Alt Text',
+              headerLeft: () => (
+                <HeaderBackButton
+                  labelVisible={false}
+                  style={styles.headerButton}
+                  onPress={() => navigation.goBack()}>
+                </HeaderBackButton>
+              ),
+            })} />
+
+            <Stack.Screen name="EditAltogetherGuided" component={EditAltogetherGuided} options={({ route, navigation }) => ({
+              animationEnabled: false, title: 'ALTogether',
+              headerTitleStyle: { fontSize: 20 },
+              headerStyle: { height: 100 },
+              headerLeft: () => (
+                <HeaderBackButton
+                  labelVisible={false}
+                  style={styles.headerButton}
+                  onPress={() => navigation.goBack()}>
+                </HeaderBackButton>
+              ),
+              headerRight: () => (
+                <TouchableOpacity style={styles.headerButton}
+                  onPress={() =>
+                    navigation.goBack()}>
+                  <Text style={styles.headerButtonText}>Next</Text>
+                </TouchableOpacity>
+              )
+            })} />
+
         </Stack.Navigator>
       </NavigationContainer>
     )
