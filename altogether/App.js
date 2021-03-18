@@ -262,7 +262,7 @@ export default class App extends React.Component {
                   labelVisible={false}
                   style={styles.headerButton}
                   onPress={() => {
-                    navigation.goBack()}}>
+                    navigation.push("ProfileAlt")}}>
                 </HeaderBackButton>
               ),
             })} />
