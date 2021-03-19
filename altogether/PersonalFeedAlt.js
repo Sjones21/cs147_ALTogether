@@ -145,6 +145,7 @@ handleAddButton = () => {
   render() {
 
     let images = [];
+    let totalPosts = 0;
     for (const [key, value] of Object.entries(IMAGES)) {
       if (!value.hasAltText && value.poster === 'sydney') {
         images.push(
@@ -161,47 +162,71 @@ handleAddButton = () => {
             userHasViewedAltText = {`${this.state.userHasViewedAltText}`}
             onModal={(photo) => this.handleModal(photo)}/>
         );
+        totalPosts += 1;
       }
+      
     }
 
-      return(
-          <View
+    if(totalPosts === 0){
+      
+    return(
+      <View
             style={styles.container}>
             {/* Feed Container */}
             <View style={styles.contentContainer}>
-
               {/* Photos in feed */ }
-              <Content style={{backgroundColor: 'white'}}>
-                {images}
+              <Content style={{backgroundColor: 'white', marginTop:50}}> 
+            <Text style={styles.popUpTitle}>Congratulations!</Text>
+            <Text style={styles.popUpDescription}>All of your photos have alt text.</Text>
               </Content>
-
-              {/* Bottom Popup and Overlay */}
-              <Modal
-                visible={this.state.isModalVisible}
-                animationType='none'
-                transparent={true}>
-
-                {/* Black overlay */}
-                <TouchableOpacity
-                    style={[styles.container, {backgroundColor: 'rgba(0,0,0,0.5)'}]}
-                    activeOpacity={1}
-                    onPressOut={() => this.setState({isModalVisible: false})}>
-
-                    {/* Bottom Popup itself */}
-                    {this.renderModal()}
-
-                </TouchableOpacity>
-              </Modal>
-
-
               </View>
           {/* Navigation Bar */}
           <NavBar
             selected='feed'
             navigation={this.props.navigation}/>
         </View>
-      );
-    }
+    );
+    } 
+
+    return(
+      <View
+        style={styles.container}>
+        {/* Feed Container */}
+        <View style={styles.contentContainer}>
+
+          {/* Photos in feed */ }
+          <Content style={{backgroundColor: 'white'}}>
+            {images}
+          </Content>
+
+          {/* Bottom Popup and Overlay */}
+          <Modal
+            visible={this.state.isModalVisible}
+            animationType='none'
+            transparent={true}>
+
+            {/* Black overlay */}
+            <TouchableOpacity
+                style={[styles.container, {backgroundColor: 'rgba(0,0,0,0.5)'}]}
+                activeOpacity={1}
+                onPressOut={() => this.setState({isModalVisible: false})}>
+
+                {/* Bottom Popup itself */}
+                {this.renderModal()}
+
+            </TouchableOpacity>
+          </Modal>
+
+
+          </View>
+      {/* Navigation Bar */}
+      <NavBar
+        selected='feed'
+        navigation={this.props.navigation}/>
+    </View>
+  );
+
+  }
 }
 
 export {PersonalFeedAlt};

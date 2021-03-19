@@ -300,7 +300,7 @@ export default class App extends React.Component {
             ),
             headerRight: () => (
               <TouchableOpacity style={styles.headerButton}
-                onPress={() => navigation.navigate('PersonalFeed')}>
+                onPress={() => navigation.pop(2)}>
                 <Text style={styles.headerButtonText}>Next</Text>
               </TouchableOpacity>
             )
