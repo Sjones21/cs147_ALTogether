@@ -26,7 +26,7 @@ class JustPostedHeader extends Component {
   render() {
     return (
         <Card transparent>
-            <CardItem style={{ margin: -5 }}>
+            <CardItem style={{ margin: -5, backgroundColor: "#FAFAFA"}}>
                 <Left style={{ minWidth: 200 }}>
                       <Text style={{ marginTop:5, marginLeft:15, fontWeight: "500" }}> Just posted your photo with alt text!</Text>
                 </Left>
